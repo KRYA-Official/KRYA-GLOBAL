@@ -1,0 +1,33 @@
+/* KRYA GLOBAL - Main Style Sheet */
+/* डिज़ाइन थीम: Premium Monaco Green and Royal Gold */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    color: var(--monaco-green);
+}
+
+/* KRYA Custom Scrollbar (रॉयल गोल्ड स्क्रॉलबार) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--royal-gold); 
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--monaco-green); 
+}
