@@ -3,50 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
     <title>KRYA GLOBAL: इंसानियत की पहली डिजिटल क्रांति</title>
+    <meta name="description" content="KRYA GLOBAL - 100% सुरक्षित, कानूनी और ईमानदारी पर आधारित डिजिटल प्लेटफॉर्म।">
     
-    <style>
-        :root {
-            /* KRYA Premium Brand Colors */
-            --monaco-green: #0E3B20; 
-            --royal-gold: #D4AF37;   
-            --white: #FFFFFF;
-            --text-dark: #1A1A1A;
-            --bg-light: #F8F9FA;
-        }
-
-        /* Basic Reset for Mobile-First Approach */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            -webkit-font-smoothing: antialiased;
-        }
-    </style>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header style="background-color: var(--monaco-green); color: var(--royal-gold); padding: 20px; text-align: center; border-bottom: 3px solid var(--royal-gold);">
-        <h1>KRYA GLOBAL</h1>
+    <header class="krya-header">
+        <div class="logo-container">
+            <h1>KRYA GLOBAL</h1>
+        </div>
+        <div class="global-vani-container">
+            <div id="google_translate_element"></div>
+        </div>
     </header>
 
-    <main style="padding: 20px; text-align: center;">
-        <h2>सिस्टम तैयार हो रहा है...</h2>
-        <p>यह KRYA GLOBAL का सुरक्षित और तेज ढांचा है।</p>
+    <main class="hero-section">
+        <h2 class="hero-title">इंसानियत की पहली डिजिटल क्रांति</h2>
+        <p class="hero-subtitle">ईमानदारी, सुरक्षा और सुलभता का नया दौर।</p>
+        
+        <div class="countdown-container">
+            <h3>महा-लॉन्च (28 जून 2026, 10:00 AM)</h3>
+            <div class="timer">
+                <div class="time-box"><span id="days">00</span><small>दिन</small></div>
+                <div class="time-box"><span id="hours">00</span><small>घंटे</small></div>
+                <div class="time-box"><span id="minutes">00</span><small>मिनट</small></div>
+                <div class="time-box"><span id="seconds">00</span><small>सेकंड</small></div>
+            </div>
+        </div>
+
+        <div class="cta-container">
+            <button id="entry-btn" class="krya-btn-gold">प्लेटफॉर्म में प्रवेश करें</button>
+        </div>
     </main>
 
-    <footer style="text-align: center; padding: 20px; margin-top: 50px; font-size: 14px;">
-        <p>&copy; 2026 KRYA GLOBAL. सभी अधिकार सुरक्षित।</p>
+    <div class="accessibility-bar">
+        <button id="voice-sarathi-btn" title="आवाज़ सहायक चालू करें">🔊 KRYA सारथी चालू करें</button>
+    </div>
+
+    <footer class="krya-footer">
+        <p>&copy; 2026 KRYA GLOBAL. सर्वाधिकार सुरक्षित। 100% लीगल और पारदर्शी व्यवस्था।</p>
+        <div class="footer-links">
+            <a href="legal/privacy.html">निजता नीति (Privacy Policy)</a> | 
+            <a href="legal/terms.html">नियम और शर्तें (Terms & Conditions)</a>
+        </div>
     </footer>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
     <script src="js/main.js" defer></script>
     <script src="js/auth.js" defer></script>
