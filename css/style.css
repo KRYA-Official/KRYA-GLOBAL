@@ -1,33 +1,191 @@
 /* KRYA GLOBAL - Main Style Sheet */
 /* डिज़ाइन थीम: Premium Monaco Green and Royal Gold */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --monaco-green: #0E3B20; 
+    --royal-gold: #D4AF37;   
+    --white: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --bg-light: #F8F9FA;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-light);
     color: var(--text-dark);
     scroll-behavior: smooth;
-}
-
-h1, h2, h3 {
-    color: var(--monaco-green);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* KRYA Custom Scrollbar (रॉयल गोल्ड स्क्रॉलबार) */
 ::-webkit-scrollbar {
     width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: var(--bg-light); 
 }
-
 ::-webkit-scrollbar-thumb {
     background: var(--royal-gold); 
     border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: var(--monaco-green); 
+}
+
+/* Header Styles */
+.krya-header {
+    background-color: var(--monaco-green);
+    color: var(--royal-gold);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--royal-gold);
+    box-shadow: var(--shadow);
+}
+.brand-logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--royal-gold);
+}
+
+/* Hero Section */
+.hero-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+.hero-title {
+    color: var(--monaco-green);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.hero-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Countdown Timer */
+.countdown-container {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--monaco-green);
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+.countdown-container h3 {
+    color: var(--monaco-green);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.timer {
+    display: flex;
+    justify-content: space-around;
+}
+.time-box {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--monaco-green);
+    color: var(--royal-gold);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 60px;
+}
+.time-box span {
+    font-size: 24px;
+    font-weight: 700;
+}
+.time-box small {
+    font-size: 12px;
+}
+
+/* KRYA Gold Button */
+.krya-btn-gold {
+    background-color: var(--royal-gold);
+    color: var(--monaco-green);
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+.krya-btn-gold:hover {
+    background-color: var(--monaco-green);
+    color: var(--royal-gold);
+    transform: translateY(-2px);
+}
+
+/* Accessibility Bar */
+.accessibility-bar {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 100;
+}
+#voice-sarathi-btn {
+    background-color: var(--white);
+    color: var(--monaco-green);
+    border: 2px solid var(--royal-gold);
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+/* Footer */
+.krya-footer {
+    background-color: var(--monaco-green);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+.footer-links {
+    margin-top: 10px;
+}
+.footer-links a {
+    color: var(--royal-gold);
+    text-decoration: none;
+    margin: 0 10px;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .krya-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-title {
+        font-size: 26px;
+    }
+    .time-box {
+        min-width: 50px;
+        padding: 8px;
+    }
 }
