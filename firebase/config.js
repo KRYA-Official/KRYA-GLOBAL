@@ -1,21 +1,21 @@
-// KRYA GLOBAL - Firebase Security & Configuration Vault
-// 100% Secure Enterprise Architecture
+// KRYA GLOBAL - Firebase Configuration & Initialization
 
-console.log("KRYA Firebase Security Vault Checking...");
-
-// TODO: Phase 3 में यहाँ हम असली API Keys डालेंगे
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY_HIDDEN",
-    authDomain: "krya-global.firebaseapp.com",
-    projectId: "krya-global",
-    storageBucket: "krya-global.appspot.com",
-    messagingSenderId: "HIDDEN",
-    appId: "HIDDEN"
+    apiKey: "AIzaSyCq3AhEBbdmw_k7f1vE1qFfbXvHk2jl4CM",
+    authDomain: "krya-store.firebaseapp.com",
+    projectId: "krya-store",
+    storageBucket: "krya-store.firebasestorage.app",
+    messagingSenderId: "479732624984",
+    appId: "1:479732624984:web:089845fa99978ec0a5e42d",
+    measurementId: "G-QY0C8PVNM8"
 };
 
-// Initialize Firebase Placeholder
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-// const db = getFirestore(app);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-console.log("KRYA Security: Firebase Connection Ready for Phase 3.");
+// ग्लोबली इस्तेमाल के लिए टूल्स को एक्टिव करना (ताकि पूरे ऐप में काम करे)
+const auth = firebase.auth();
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+console.log("KRYA Firebase Securely Initialized!");
