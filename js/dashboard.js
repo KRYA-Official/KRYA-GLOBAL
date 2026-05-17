@@ -2,23 +2,23 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 15 अजूबों का डेटा
+    // 15 अजूबों का डेटा (यहाँ हमने किसान-सेतु का लिंक जोड़ दिया है)
     const kryaWonders = [
-        { id: "kisan-setu", name: "KRYA किसान-सेतु", icon: "🌾" },
-        { id: "hunar-mandi", name: "KRYA हुनर-मंडी", icon: "💼" },
-        { id: "sukoon", name: "KRYA सुकून", icon: "🤝" },
-        { id: "imaandari-score", name: "KRYA ईमानदारी-स्कोर", icon: "⚖️" },
-        { id: "samay-mudra", name: "KRYA समय-मुद्रा", icon: "⏳" },
-        { id: "hunar-hub", name: "KRYA हुनर-हब", icon: "🛠️" },
-        { id: "nano-mart", name: "KRYA नैनो-मार्ट", icon: "🏪" },
-        { id: "goonj", name: "KRYA गूँज", icon: "📢" },
-        { id: "jan-sabha", name: "KRYA जन-सभा", icon: "👥" },
-        { id: "vidya-deep", name: "KRYA विद्या-दीप", icon: "🪔" },
-        { id: "samvad-sutra", name: "KRYA संवाद-सूत्र", icon: "💬" },
-        { id: "sanjeevani", name: "KRYA संजीवनी", icon: "🚑" },
-        { id: "arth-saarthi", name: "KRYA अर्थ-सारथी", icon: "📈" },
-        { id: "nyay-rakshak", name: "KRYA न्याय-रक्षक", icon: "🛡️" },
-        { id: "vyapar-rath", name: "KRYA व्यापार-रथ", icon: "🛒" }
+        { id: "kisan-setu", name: "KRYA किसान-सेतु", icon: "🌾", link: "kisan-setu.html" },
+        { id: "hunar-mandi", name: "KRYA हुनर-मंडी", icon: "💼", link: "#" },
+        { id: "sukoon", name: "KRYA सुकून", icon: "🤝", link: "#" },
+        { id: "imaandari-score", name: "KRYA ईमानदारी-स्कोर", icon: "⚖️", link: "#" },
+        { id: "samay-mudra", name: "KRYA समय-मुद्रा", icon: "⏳", link: "#" },
+        { id: "hunar-hub", name: "KRYA हुनर-हब", icon: "🛠️", link: "#" },
+        { id: "nano-mart", name: "KRYA नैनो-मार्ट", icon: "🏪", link: "#" },
+        { id: "goonj", name: "KRYA गूँज", icon: "📢", link: "#" },
+        { id: "jan-sabha", name: "KRYA जन-सभा", icon: "👥", link: "#" },
+        { id: "vidya-deep", name: "KRYA विद्या-दीप", icon: "🪔", link: "#" },
+        { id: "samvad-sutra", name: "KRYA संवाद-सूत्र", icon: "💬", link: "#" },
+        { id: "sanjeevani", name: "KRYA संजीवनी", icon: "🚑", link: "#" },
+        { id: "arth-saarthi", name: "KRYA अर्थ-सारथी", icon: "📈", link: "#" },
+        { id: "nyay-rakshak", name: "KRYA न्याय-रक्षक", icon: "🛡️", link: "#" },
+        { id: "vyapar-rath", name: "KRYA व्यापार-रथ", icon: "🛒", link: "#" }
     ];
 
     const container = document.getElementById('wonders-container');
@@ -35,7 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // जब कोई किसी अजूबे पर क्लिक करेगा
             card.addEventListener('click', () => {
-                alert(`🚀 ${wonder.name} का निर्माण चल रहा है। महा-लॉन्च 28 जून 2026 को होगा!`);
+                if (wonder.id === "kisan-setu") {
+                    // अगर किसान-सेतु पर क्लिक किया है, तो उसे नए पन्ने पर भेजें
+                    window.location.href = wonder.link;
+                } else {
+                    // बाकी अजूबों के लिए अलर्ट दिखाएं
+                    alert(`🚀 ${wonder.name} का निर्माण चल रहा है। महा-लॉन्च 28 जून 2026 को होगा!`);
+                }
             });
             
             container.appendChild(card);
