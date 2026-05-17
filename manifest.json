@@ -1,0 +1,22 @@
+{
+  "short_name": "KRYA",
+  "name": "KRYA GLOBAL",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#0E3B20",
+  "theme_color": "#D4AF37",
+  "display": "standalone",
+  "orientation": "portrait"
+}
+
