@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 15 अजूबों का डेटा (यहाँ हमने संजीवनी का लिंक भी जोड़ दिया है)
+    // 15 अजूबों का डेटा (यहाँ हमने अर्थ-सारथी का लिंक भी जोड़ दिया है)
     const kryaWonders = [
         { id: "kisan-setu", name: "KRYA किसान-सेतु", icon: "🌾", link: "kisan-setu.html" },
         { id: "hunar-mandi", name: "KRYA हुनर-मंडी", icon: "💼", link: "hunar-mandi.html" },
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: "vidya-deep", name: "KRYA विद्या-दीप", icon: "🪔", link: "vidya-deep.html" },
         { id: "samvad-sutra", name: "KRYA संवाद-सूत्र", icon: "💬", link: "samvad-sutra.html" },
         { id: "sanjeevani", name: "KRYA संजीवनी", icon: "🚑", link: "sanjeevani.html" },
-        { id: "arth-saarthi", name: "KRYA अर्थ-सारथी", icon: "📈", link: "#" },
+        { id: "arth-saarthi", name: "KRYA अर्थ-सारथी", icon: "📈", link: "arth-saarthi.html" },
         { id: "nyay-rakshak", name: "KRYA न्याय-रक्षक", icon: "🛡️", link: "#" },
         { id: "vyapar-rath", name: "KRYA व्यापार-रथ", icon: "🛒", link: "#" }
     ];
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // KRYA मार्गदर्शक (ऑडियो गाइड)
+    // KRYA मार्गदर्शक (ऑдио गाइड)
     window.startKryaTour = function() {
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel(); // पुरानी आवाज़ रोकना
