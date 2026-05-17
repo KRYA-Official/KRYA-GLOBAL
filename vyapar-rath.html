@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA व्यापार-रथ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--royal-gold);
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--monaco-green);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--monaco-green);
+            font-size: 14px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--royal-gold);
+        }
+        .book-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 2px solid var(--royal-gold);
+            padding: 15px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .book-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+            border-color: var(--monaco-green);
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>🛒 KRYA व्यापार-रथ</h2>
+        <p>किसानों और व्यापारियों के लिए सुरक्षित लोकल ट्रांसपोर्ट सेवा</p>
+    </div>
+
+    <div class="container">
+        <div class="info-box">
+            <b>🚚 स्थानीय रोज़गार:</b> यहाँ आपके सामान की डिलीवरी के लिए आपके ही गाँव या कस्बे के प्रमाणित ड्राइवर (ऑटो, ट्रैक्टर, पिकअप) उपलब्ध कराए जाते हैं।
+        </div>
+
+        <div class="form-box">
+            <div class="form-group">
+                <label>सामान उठाने का स्थान (Pickup Location)</label>
+                <input type="text" id="pickupLoc" placeholder="अपना वर्तमान पता या दुकान का नाम लिखें">
+            </div>
+            <div class="form-group">
+                <label>सामान पहुँचाने का स्थान (Drop Location)</label>
+                <input type="text" id="dropLoc" placeholder="जहाँ सामान छोड़ना है, वहाँ का पता लिखें">
+            </div>
+            <div class="form-group">
+                <label>सामान का प्रकार (Type of Goods)</label>
+                <select id="goodsType">
+                    <option value="कृषि उत्पाद">कृषि उत्पाद (सब्जी, अनाज)</option>
+                    <option value="किराना/दुकान">किराना या दुकान का सामान</option>
+                    <option value="हस्तशिल्प/अन्य">हस्तशिल्प या अन्य घरेलू उत्पाद</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>वाहन की आवश्यकता (Vehicle Required)</label>
+                <select id="vehicleType">
+                    <option value="ई-रिक्शा/ऑटो">ई-रिक्शा / थ्री-व्हीलर ऑटो (कम सामान)</option>
+                    <option value="पिकअप/छोटा हाथी">छोटा हाथी / पिकअप वैन (मध्यम सामान)</option>
+                    <option value="ट्रैक्टर">ट्रैक्टर (भारी कृषि उत्पाद)</option>
+                </select>
+            </div>
+
+            <button class="book-btn" onclick="bookTransport()">रथ (वाहन) बुक करें</button>
+        </div>
+
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        function bookTransport() {
+            const pickup = document.getElementById('pickupLoc').value;
+            const drop = document.getElementById('dropLoc').value;
+            const vehicle = document.getElementById('vehicleType').value;
+
+            if (!pickup || !drop) {
+                alert("कृपया सामान उठाने और पहुँचाने का स्थान सही-सही भरें।");
+                return;
+            }
+
+            alert("🛒 KRYA व्यापार-रथ: आपका '" + vehicle + "' का बुकिंग अनुरोध स्थानीय नेटवर्क में भेज दिया गया है। जल्द ही एक प्रमाणित ड्राइवर आपसे संपर्क करेगा!");
+            
+            document.getElementById('pickupLoc').value = '';
+            document.getElementById('dropLoc').value = '';
+        }
+    </script>
+</body>
+</html>
