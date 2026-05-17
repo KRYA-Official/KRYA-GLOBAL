@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA अर्थ-सारथी</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--royal-gold);
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .calc-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--monaco-green);
+        }
+        .calc-title {
+            font-weight: 700;
+            color: var(--monaco-green);
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--monaco-green);
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--royal-gold);
+        }
+        .calc-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 2px solid var(--royal-gold);
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        .calc-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+            border-color: var(--monaco-green);
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            color: var(--monaco-green);
+            font-weight: 600;
+            text-align: center;
+            display: none;
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>📈 KRYA अर्थ-सारथी</h2>
+        <p>आपका सच्चा आर्थिक मार्गदर्शक और बचत सलाहकार</p>
+    </div>
+
+    <div class="container">
+        <div class="info-box">
+            <b>🛡️ धोखाधड़ी से बचें:</b> किसी भी अनजान लिंक पर क्लिक न करें। KRYA अर्थ-सारथी आपको केवल सुरक्षित और सरकारी मान्यता प्राप्त बचत योजनाओं (जैसे पोस्ट ऑफिस, FD) की ही सलाह देता है।
+        </div>
+
+        <div class="calc-box">
+            <div class="calc-title">💰 दैनिक बचत कैलकुलेटर</div>
+            
+            <div class="form-group">
+                <label>आप रोज़ाना कितने रुपये बचा सकते हैं? (₹)</label>
+                <input type="number" id="dailySavings" placeholder="जैसे: 50, 100, 200...">
+            </div>
+            <div class="form-group">
+                <label>कितने महीनों तक बचाएंगे? (Months)</label>
+                <input type="number" id="monthsToSave" placeholder="जैसे: 12, 24, 36...">
+            </div>
+
+            <button class="calc-btn" onclick="calculateSavings()">मेरी कुल बचत की गणना करें</button>
+
+            <div class="result-box" id="resultDisplay"></div>
+        </div>
+
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        function calculateSavings() {
+            const daily = parseFloat(document.getElementById('dailySavings').value);
+            const months = parseFloat(document.getElementById('monthsToSave').value);
+
+            if (!daily || !months || daily <= 0 || months <= 0) {
+                alert("कृपया सही राशि और महीनों की संख्या भरें।");
+                return;
+            }
+
+            // एक महीने में औसतन 30 दिन मानकर गणना
+            const totalSavings = daily * 30 * months;
+            
+            const resultBox = document.getElementById('resultDisplay');
+            resultBox.style.display = 'block';
+            resultBox.innerHTML = "शानदार! लगातार बचत करने पर " + months + " महीने बाद आपके पास कुल <b>₹" + totalSavings.toLocaleString('en-IN') + "</b> की सुरक्षित पूंजी होगी।";
+        }
+    </script>
+</body>
+</html>
