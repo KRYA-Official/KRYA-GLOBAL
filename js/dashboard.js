@@ -2,12 +2,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 15 अजूबों का डेटा (यहाँ हमने किसान-सेतु और हुनर-मंडी दोनों का लिंक जोड़ दिया है)
+    // 15 अजूबों का डेटा (यहाँ हमने किसान-सेतु, हुनर-मंडी और ईमानदारी-स्कोर तीनों का लिंक जोड़ दिया है)
     const kryaWonders = [
         { id: "kisan-setu", name: "KRYA किसान-सेतु", icon: "🌾", link: "kisan-setu.html" },
         { id: "hunar-mandi", name: "KRYA हुनर-मंडी", icon: "💼", link: "hunar-mandi.html" },
         { id: "sukoon", name: "KRYA सुकून", icon: "🤝", link: "#" },
-        { id: "imaandari-score", name: "KRYA ईमानदारी-स्कोर", icon: "⚖️", link: "#" },
+        { id: "imaandari-score", name: "KRYA ईमानदारी-स्कोर", icon: "⚖️", link: "imaandari-score.html" },
         { id: "samay-mudra", name: "KRYA समय-मुद्रा", icon: "⏳", link: "#" },
         { id: "hunar-hub", name: "KRYA हुनर-हब", icon: "🛠️", link: "#" },
         { id: "nano-mart", name: "KRYA नैनो-मार्ट", icon: "🏪", link: "#" },
@@ -35,15 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // जब कोई किसी अजूबे पर क्लिक करेगा
             card.addEventListener('click', () => {
-                // यह स्मार्ट कोड अपने आप चेक करेगा कि लिंक मौजूद है या नहीं
                 if (wonder.link !== "#") {
                     window.location.href = wonder.link;
                 } else {
-                    // जिनका कमरा अभी नहीं बना है, उनके लिए अलर्ट
                     alert(`🚀 ${wonder.name} का निर्माण चल रहा है। महा-लॉन्च 28 जून 2026 को होगा!`);
                 }
-            });
-            
+            }); seasonal-anime
+
             container.appendChild(card);
         });
     }
