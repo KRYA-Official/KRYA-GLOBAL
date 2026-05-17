@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA हुनर-हब</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .intro-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--royal-gold);
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .hub-title {
+            font-weight: 700;
+            color: var(--monaco-green);
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .course-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+        .course-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--royal-gold);
+        }
+        .course-info {
+            text-align: left;
+        }
+        .course-name {
+            font-weight: 600;
+            color: var(--monaco-green);
+            font-size: 16px;
+        }
+        .course-desc {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+        .start-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 1px solid var(--royal-gold);
+            padding: 8px 15px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .start-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>🛠️ KRYA हुनर-हब</h2>
+        <p>सीखें नया हुनर, बढ़ाएं अपनी डिजिटल कमाई</p>
+    </div>
+
+    <div class="container">
+        <div class="intro-box">
+            KRYA हुनर-हब में आपका स्वागत है। यहां दिए गए सभी ट्रेनिंग मॉड्युल्स हमारे स्थानीय भाई-बहनों को व्यापारिक और तकनीकी रूप से सक्षम बनाने के लिए डिजाइन किए गए हैं। बिना किसी फीस के आज ही सीखना शुरू करें।
+        </div>
+
+        <div class="hub-title">📋 उपलब्ध ट्रेनिंग कोर्स</div>
+
+        <div class="course-card">
+            <div class="course-info">
+                <div class="course-name">📱 डिजिटल साक्षरता (Digital Literacy)</div>
+                <div class="course-desc">स्मार्टफोन और इंटरनेट का सुरक्षित उपयोग सीखें।</div>
+            </div>
+            <button class="start-btn" onclick="startCourse('डिजिटल साक्षरता')">शुरू करें</button>
+        </div>
+
+        <div class="course-card">
+            <div class="course-info">
+                <div class="course-name">🌾 आधुनिक एवं जैविक कृषि (Modern Farming)</div>
+                <div class="course-desc">कम लागत में फसल की पैदावार बढ़ाने के वैज्ञानिक तरीके।</div>
+            </div>
+            <button class="start-btn" onclick="startCourse('आधुनिक कृषि')">शुरू करें</button>
+        </div>
+
+        <div class="course-card">
+            <div class="course-info">
+                <div class="course-name">💼 लघु उद्योग प्रबंधन (Small Business)</div>
+                <div class="course-desc">अपने खुद के लोकल बिजनेस को बड़ा ब्रांड कैसे बनाएं।</div>
+            </div>
+            <button class="start-btn" onclick="startCourse('लघु उद्योग प्रबंधन')">शुरू करें</button>
+        </div>
+        
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        function startCourse(courseName) {
+            alert("🛠️ KRYA हुनर-हब: '" + courseName + "' का डिजिटल क्लासरूम एक्टिवेट हो रहा है... कृपया प्रतीक्षा करें।");
+        }
+    </script>
+</body>
+          </html>
+          
