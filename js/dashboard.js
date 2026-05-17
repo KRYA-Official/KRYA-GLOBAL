@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 15 अजूबों का डेटा (यहाँ हमने न्याय-रक्षक का लिंक भी जोड़ दिया है)
+    // 15 अजूबों का डेटा (यहाँ सभी 15 अजूबों के लिंक अब पूरी तरह एक्टिव और लाइव हैं)
     const kryaWonders = [
         { id: "kisan-setu", name: "KRYA किसान-सेतु", icon: "🌾", link: "kisan-setu.html" },
         { id: "hunar-mandi", name: "KRYA हुनर-मंडी", icon: "💼", link: "hunar-mandi.html" },
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: "sanjeevani", name: "KRYA संजीवनी", icon: "🚑", link: "sanjeevani.html" },
         { id: "arth-saarthi", name: "KRYA अर्थ-सारथी", icon: "📈", link: "arth-saarthi.html" },
         { id: "nyay-rakshak", name: "KRYA न्याय-रक्षक", icon: "🛡️", link: "nyay-rakshak.html" },
-        { id: "vyapar-rath", name: "KRYA व्यापार-रथ", icon: "🛒", link: "#" }
+        { id: "vyapar-rath", name: "KRYA व्यापार-रथ", icon: "🛒", link: "vyapar-rath.html" }
     ];
 
     const container = document.getElementById('wonders-container');
