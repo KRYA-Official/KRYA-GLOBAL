@@ -1,7 +1,7 @@
 /* KRYA GLOBAL - Main JavaScript (Core Logic) */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // ==========================================
     // 1. महा-लॉन्च टाइमर (Countdown Timer Logic)
     // ==========================================
@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // समय का गणित (Math for time)
+        // समय का गणित
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const seconds = Math.floor((distance % (1000 * 60)) / (1000));
 
         // HTML में अपडेट करना (0 लगाना अगर संख्या 10 से कम हो)
         document.getElementById("days").innerText = days < 10 ? "0" + days : days;
@@ -35,47 +35,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }, 1000);
 
-
     // ==========================================
     // 2. KRYA सारथी (Web Speech API - Voice Assistant)
     // ==========================================
-    const sarthiBtn = document.getElementById('voice-sarathi-btn');
-    
-    sarthiBtn.addEventListener('click', () => {
-        // चेक करें कि ब्राउज़र में बोलने की क्षमता है या नहीं
-        if ('speechSynthesis' in window) {
-            // पहले से कुछ बोल रहा हो तो उसे रोक दें
-            window.speechSynthesis.cancel();
+    const sarthiBtn = document.getElementById('voice-sarthi-btn');
 
-            const textToSpeak = "नमस्कार! के आर वाई ए ग्लोबल में आपका स्वागत है। यह इंसानियत की पहली डिजिटल क्रांति है। हमारा महा-लॉन्च अठाइस जून दो हज़ार छब्बीस को है। सिस्टम में प्रवेश करने के लिए सुनहरे बटन पर क्लिक करें।";
-            
-            const utterance = new SpeechSynthesisUtterance(textToSpeak);
-            utterance.lang = 'hi-IN'; // हिंदी भाषा सेट की गई
-            utterance.rate = 0.9; // बोलने की स्पीड (थोड़ी आराम से ताकि सब समझें)
-            utterance.pitch = 1;
+    if (sarthiBtn) {
+        sarthiBtn.addEventListener('click', () => {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
 
-            window.speechSynthesis.speak(utterance);
-            
-            // बटन का टेक्स्ट थोड़ी देर के लिए बदलना
-            sarthiBtn.innerText = "🔊 सारथी बोल रहा है...";
-            
-            utterance.onend = () => {
-                sarthiBtn.innerText = "🔊 KRYA सारथी चालू करें";
-            };
+                const textToSpeak = "KRYA ग्लोबल में आपका स्वागत है। यह इंसानियत की पहली डिजिटल क्रांति है। प्लेटफ़ॉर्म में प्रवेश करने के लिए ऊपर दिए गए सुनहरे बटन पर क्लिक करें।";
+                const utterance = new SpeechSynthesisUtterance(textToSpeak);
+                utterance.lang = 'hi-IN';
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
 
-        } else {
-            alert("क्षमा करें, आपका ब्राउज़र आवाज़ सपोर्ट नहीं करता।");
-        }
-    });
+                window.speechSynthesis.speak(utterance);
+                sarthiBtn.innerText = "📢 सारथी बोल रहा है...";
 
+                utterance.onend = () => {
+                    sarthiBtn.innerText = "🔊 KRYA सारथी चालू करें";
+                };
+            } else {
+                alert("कृपया ध्यान दें, आपका ब्राउज़र आवाज़ सपोर्ट नहीं करता है।");
+            }
+        });
+    }
 
     // ==========================================
-    // 3. प्रवेश बटन (Entry Button Logic - Auth Link)
+    // 3. प्रवेश बटन लॉजिक (Direct Link to Dashboard)
     // ==========================================
     const entryBtn = document.getElementById('entry-btn');
-    entryBtn.addEventListener('click', () => {
-        // अभी के लिए पॉपअप, अगले स्टेप में हम इसे Auth (लॉगिन) पेज से जोड़ेंगे
-        alert("KRYA निजता-शील्ड (सुरक्षित लॉगिन सिस्टम) एक्टिवेट हो रहा है... कृपया प्रतीक्षा करें।");
-    });
+    if (entryBtn) {
+        entryBtn.addEventListener('click', () => {
+            // सुरक्षा कवच का अलर्ट दिखाना
+            alert("🛡️ KRYA निजता-शील्ड: सुरक्षित लॉगिन सिस्टम सक्रिय हो रहा है... सीधे डैशबोर्ड पर भेजा जा रहा है।");
+            
+            // सीधे लाइव डैशबोर्ड पेज पर भेज देना (Redirect)
+            window.location.href = "dashboard.html";
+        });
+    }
 
 });
