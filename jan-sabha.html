@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA जन-सभा</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--royal-gold);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--monaco-green);
+            font-size: 14px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--royal-gold);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 2px solid var(--royal-gold);
+            padding: 15px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .submit-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+            border-color: var(--monaco-green);
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>👥 KRYA जन-सभा</h2>
+        <p>आपकी समस्या, आपकी राय - पारदर्शी डिजिटल पंचायत</p>
+    </div>
+
+    <div class="container">
+        <div class="form-box">
+            <div class="form-group">
+                <label>समस्या या प्रस्ताव का विषय (Issue Title)</label>
+                <input type="text" id="issueTitle" placeholder="जैसे: मुख्य सड़क की मरम्मत, स्ट्रीट लाइट की ज़रूरत...">
+            </div>
+            <div class="form-group">
+                <label>समस्या का प्रकार (Category)</label>
+                <select id="issueCategory">
+                    <option value="सड़क-यातायात">सड़क एवं यातायात</option>
+                    <option value="पेयजल-सफाई">पेयजल एवं सफाई</option>
+                    <option value="बिजली">बिजली आपूर्ति</option>
+                    <option value="कृषि-विकास">कृषि एवं ग्राम विकास</option>
+                    <option value="अन्य">अन्य सामाजिक मुद्दे</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>विस्तृत विवरण (Detailed Description)</label>
+                <textarea id="issueDesc" placeholder="समस्या या विचार को विस्तार से यहाँ लिखें ताकि लोग इस पर विचार कर सकें..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>गाँव / वार्ड / क्षेत्र (Location)</label>
+                <input type="text" id="issueLoc" placeholder="अपने क्षेत्र या गाँव का नाम लिखें">
+            </div>
+
+            <button class="submit-btn" onclick="submitIssue()">सभा में प्रस्ताव रखें</button>
+        </div>
+
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        function submitIssue() {
+            const title = document.getElementById('issueTitle').value;
+            const desc = document.getElementById('issueDesc').value;
+            const loc = document.getElementById('issueLoc').value;
+
+            if (!title || !desc || !loc) {
+                alert("कृपया सभी अनिवार्य जानकारी सही-सही भरें।");
+                return;
+            }
+
+            alert("👥 KRYA जन-सभा: आपका प्रस्ताव डिजिटल पंचायत में दर्ज कर लिया गया है। जल्द ही इस पर सामुदायिक मतदान और चर्चा शुरू होगी!");
+            
+            document.getElementById('issueTitle').value = '';
+            document.getElementById('issueDesc').value = '';
+            document.getElementById('issueLoc').value = '';
+        }
+    </script>
+</body>
+</html>
