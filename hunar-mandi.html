@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA हुनर-मंडी</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--royal-gold);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--monaco-green);
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--royal-gold);
+        }
+        .submit-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 2px solid var(--royal-gold);
+            padding: 15px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .submit-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+            border-color: var(--monaco-green);
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>💼 KRYA हुनर-मंडी</h2>
+        <p>स्थानीय रोज़गार और कुशल कारीगरों का डिजिटल मंच</p>
+    </div>
+
+    <div class="container">
+        <div class="form-box">
+            <div class="form-group">
+                <label>आपका नाम (Your Name)</label>
+                <input type="text" id="workerName" placeholder="अपना पूरा नाम लिखें">
+            </div>
+            <div class="form-group">
+                <label>आपका हुनर / पेशा (Your Skill / Profession)</label>
+                <input type="text" id="workerSkill" placeholder="जैसे: कारपेंटर, मज़दूर, ड्राइवर, टेलर, राजमिस्त्री...">
+            </div>
+            <div class="form-group">
+                <label>अनुभव (Experience - वर्षों में)</label>
+                <input type="number" id="workerExp" placeholder="कितने साल का अनुभव है">
+            </div>
+            <div class="form-group">
+                <label>दैनिक मज़दूरी / फीस (Daily Wage / Fee - ₹)</label>
+                <input type="number" id="workerWage" placeholder="एक दिन का अपेक्षित दाम लिखें">
+            </div>
+            <div class="form-group">
+                <label>कार्य क्षेत्र / स्थान (Work Location)</label>
+                <input type="text" id="workerLoc" placeholder="गाँव, शहर या ज़िले का नाम">
+            </div>
+            
+            <button class="submit-btn" onclick="submitHunar()">हुनर का विज्ञापन डालें</button>
+        </div>
+        
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        // बटन दबाने पर हुनर सबमिट करने का लॉजिक
+        function submitHunar() {
+            const name = document.getElementById('workerName').value;
+            const skill = document.getElementById('workerSkill').value;
+            const exp = document.getElementById('workerExp').value;
+            const wage = document.getElementById('workerWage').value;
+            const loc = document.getElementById('workerLoc').value;
+            
+            if (!name || !skill || !wage || !loc) {
+                alert("कृपया सभी अनिवार्य जानकारी सही-सही भरें।");
+                return;
+            }
+            
+            alert("💼 KRYA हुनर-मंडी: आपका हुनर विज्ञापन सफलतापूर्वक दर्ज हो गया है। स्थानीय लोग आपसे सीधे संपर्क कर सकेंगे।");
+        }
+    </script>
+</body>
+</html>
