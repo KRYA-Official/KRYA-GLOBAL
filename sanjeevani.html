@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA संजीवनी</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+            --alert-red: #D32F2F;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .alert-box {
+            background: #FFEBEE;
+            color: var(--alert-red);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--alert-red);
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--alert-red);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--monaco-green);
+            font-size: 14px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--alert-red);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .submit-btn {
+            background-color: var(--alert-red);
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .submit-btn:hover {
+            background-color: #B71C1C;
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>🚑 KRYA संजीवनी</h2>
+        <p>आपातकालीन स्वास्थ्य सहायता और रक्त-दान नेटवर्क</p>
+    </div>
+
+    <div class="container">
+        <div class="alert-box">
+            🚨 ध्यान दें: केवल वास्तविक मेडिकल इमरजेंसी के लिए ही इस सुविधा का उपयोग करें।
+        </div>
+
+        <div class="form-box">
+            <div class="form-group">
+                <label>किस प्रकार की मदद चाहिए? (Type of Help)</label>
+                <select id="helpType">
+                    <option value="रक्त (Blood Donation)">रक्त की आवश्यकता (Blood)</option>
+                    <option value="एम्बुलेंस (Ambulance)">एम्बुलेंस सेवा (Ambulance)</option>
+                    <option value="डॉक्टर/दवा (Doctor/Medicine)">डॉक्टर या दवा (Doctor/Medicine)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>मरीज़ का नाम और स्थिति (Patient Details)</label>
+                <textarea id="patientDetails" placeholder="मरीज़ का नाम और उन्हें क्या समस्या है, यहाँ लिखें..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>अस्पताल / वर्तमान स्थान (Hospital / Location)</label>
+                <input type="text" id="hospitalLoc" placeholder="अस्पताल का नाम या पूरा पता लिखें">
+            </div>
+            <div class="form-group">
+                <label>संपर्क नंबर (Contact Number)</label>
+                <input type="number" id="contactNum" placeholder="चालू मोबाइल नंबर लिखें">
+            </div>
+
+            <button class="submit-btn" onclick="submitEmergency()">मदद के लिए अनुरोध करें (SOS)</button>
+        </div>
+
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        function submitEmergency() {
+            const type = document.getElementById('helpType').value;
+            const details = document.getElementById('patientDetails').value;
+            const loc = document.getElementById('hospitalLoc').value;
+            const num = document.getElementById('contactNum').value;
+
+            if (!details || !loc || !num) {
+                alert("कृपया मरीज़ का विवरण, स्थान और अपना संपर्क नंबर ज़रूर भरें।");
+                return;
+            }
+
+            alert("🚑 KRYA संजीवनी SOS अलर्ट: '" + type + "' के लिए आपका आपातकालीन अनुरोध हमारे नेटवर्क में भेज दिया गया है। आस-पास के लोग जल्द ही आपसे संपर्क करेंगे। धैर्य रखें!");
+            
+            document.getElementById('patientDetails').value = '';
+            document.getElementById('hospitalLoc').value = '';
+            document.getElementById('contactNum').value = '';
+        }
+    </script>
+</body>
+  </html>
+  
