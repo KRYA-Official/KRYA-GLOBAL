@@ -2,14 +2,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 15 अजूबों का डेटा (यहाँ हमने समय-मुद्रा का लिंक भी जोड़ दिया है)
+    // 15 अजूबों का डेटा (यहाँ हमने हुनर-हब का लिंक भी जोड़ दिया है)
     const kryaWonders = [
         { id: "kisan-setu", name: "KRYA किसान-सेतु", icon: "🌾", link: "kisan-setu.html" },
         { id: "hunar-mandi", name: "KRYA हुनर-मंडी", icon: "💼", link: "hunar-mandi.html" },
         { id: "sukoon", name: "KRYA सुकून", icon: "🤝", link: "sukoon.html" },
         { id: "imaandari-score", name: "KRYA ईमानदारी-स्कोर", icon: "⚖️", link: "imaandari-score.html" },
         { id: "samay-mudra", name: "KRYA समय-मुद्रा", icon: "⏳", link: "samay-mudra.html" },
-        { id: "hunar-hub", name: "KRYA हुनर-हब", icon: "🛠️", link: "#" },
+        { id: "hunar-hub", name: "KRYA हुनर-हब", icon: "🛠️", link: "hunar-hub.html" },
         { id: "nano-mart", name: "KRYA नैनो-मार्ट", icon: "🏪", link: "#" },
         { id: "goonj", name: "KRYA गूँज", icon: "📢", link: "#" },
         { id: "jan-sabha", name: "KRYA जन-सभा", icon: "👥", link: "#" },
