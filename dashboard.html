@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA डैशबोर्ड - 15 डिजिटल अजूबे</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* डैशबोर्ड की खास डिज़ाइन (Monaco Green & Royal Gold) */
+        .dashboard-header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .dashboard-header h2 { color: var(--royal-gold); margin-bottom: 5px; }
+        
+        .wonders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            padding: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .wonder-card {
+            background: white;
+            border: 2px solid var(--royal-gold);
+            border-radius: 12px;
+            padding: 20px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .wonder-card:hover {
+            background: var(--monaco-green);
+            color: var(--royal-gold);
+            transform: translateY(-5px);
+            border-color: var(--monaco-green);
+        }
+        
+        .wonder-icon { font-size: 45px; margin-bottom: 10px; }
+        .wonder-name { font-weight: 600; font-size: 14px; color: inherit; }
+        
+        .tour-btn {
+            display: block;
+            margin: 30px auto 10px auto;
+            padding: 12px 30px;
+            background: var(--royal-gold);
+            color: var(--monaco-green);
+            border: 2px solid var(--monaco-green);
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-header">
+        <h2>KRYA GLOBAL डैशबोर्ड</h2>
+        <p>इंसानियत की पहली डिजिटल क्रांति में आपका स्वागत है</p>
+    </div>
+
+    <button class="tour-btn" onclick="startKryaTour()">🔊 KRYA मार्गदर्शक चालू करें</button>
+
+    <div id="wonders-container" class="wonders-grid">
+        </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
