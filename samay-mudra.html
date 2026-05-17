@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA समय-मुद्रा</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .wallet-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 2px solid var(--royal-gold);
+            margin-bottom: 20px;
+        }
+        .balance-display {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--monaco-green);
+            margin: 15px 0;
+        }
+        .balance-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+        }
+        .form-group {
+            margin-top: 25px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--monaco-green);
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+        }
+        .action-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 2px solid var(--royal-gold);
+            padding: 14px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .action-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+            border-color: var(--monaco-green);
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>⏳ KRYA समय-मुद्रा बैंक</h2>
+        <p>सेवा के बदले सेवा - बिना पैसों का डिजिटल वॉलेट</p>
+    </div>
+
+    <div class="container">
+        <div class="wallet-box">
+            <div class="balance-label">आपका वर्तमान समय-बैलेंस</div>
+            <div class="balance-display" id="timeBalance">5.0 घंटे</div>
+            <p style="color: #555; font-size: 14px;">(आपको शामिल होने पर 5 घंटे की समय-मुद्रा उपहार में मिली है)</p>
+            
+            <div class="form-group">
+                <label>किसे समय भेजना है? (यूज़र आईडी/मोबाइल नंबर)</label>
+                <input type="text" id="receiverId" placeholder="यूज़र आईडी दर्ज करें">
+            </div>
+            
+            <div class="form-group">
+                <label>कितने घंटे भेजने हैं? (Time in Hours)</label>
+                <input type="number" id="timeAmount" placeholder="जैसे: 1, 2, 3 घंटे...">
+            </div>
+            
+            <button class="action-btn" onclick="transferTime()">समय-मुद्रा ट्रांसफर करें</button>
+        </div>
+        
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        // समय ट्रांसफर करने का डेमो लॉजिक
+        function transferTime() {
+            const receiver = document.getElementById('receiverId').value;
+            const amount = parseFloat(document.getElementById('timeAmount').value);
+            let currentBalance = 5.0;
+            
+            if (!receiver || !amount || amount <= 0) {
+                alert("कृपया सही यूज़र आईडी और घंटों की संख्या भरें।");
+                return;
+            }
+            
+            if (amount > currentBalance) {
+                alert("त्रुटि: आपके पास पर्याप्त समय-मुद्रा बैलेंस नहीं है।");
+                return;
+            }
+            
+            let newBalance = currentBalance - amount;
+            document.getElementById('timeBalance').innerText = newBalance.toFixed(1) + " घंटे";
+            
+            alert("⏳ KRYA समय-मुद्रा: " + amount + " घंटे सफलतापूर्वक आईडी " + receiver + " को ट्रांसफर कर दिए गए हैं।");
+            
+            document.getElementById('receiverId').value = '';
+            document.getElementById('timeAmount').value = '';
+        }
+    </script>
+</body>
+</html>
