@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA नैनो-मार्ट</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--royal-gold);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--monaco-green);
+            font-size: 14px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--royal-gold);
+        }
+        .submit-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 2px solid var(--royal-gold);
+            padding: 15px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .submit-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+            border-color: var(--monaco-green);
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+        <div class="header">
+            <h2>🏪 KRYA नैनो-मार्ट</h2>
+            <p>छोटे दुकानदारों और स्थानीय व्यापार का डिजिटल बाज़ार</p>
+        </div>
+
+        <div class="container">
+            <div class="form-box">
+                <div class="form-group">
+                    <label>उत्पाद / सामान का नाम (Product Name)</label>
+                    <input type="text" id="prodName" placeholder="जैसे: ताज़ी सब्जियां, हाथ से बने पापड़, किराना सामान...">
+                </div>
+                <div class="form-group">
+                    <label>कैटेगरी (Category)</label>
+                    <select id="prodCategory">
+                        <option value="किराना">किराना एवं घरेलू सामान</option>
+                        <option value="सब्जी-फल">ताज़े फल एवं सब्जियां</option>
+                        <option value="डेयरी">दूध और डेयरी उत्पाद</option>
+                        <option value="हस्तशिल्प">हस्तशिल्प एवं कुटीर उद्योग</option>
+                        <option value="अन्य">अन्य उत्पाद</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>कीमत (Price - ₹)</label>
+                    <input type="number" id="prodPrice" placeholder="सामान का दाम लिखें">
+                </div>
+                <div class="form-group">
+                    <label>दुकान / विक्रेता का नाम (Shop / Seller Name)</label>
+                    <input type="text" id="sellerName" placeholder="अपनी दुकान या अपना नाम लिखें">
+                </div>
+                <div class="form-group">
+                    <label>स्थान / पता (Location)</label>
+                    <input type="text" id="prodLoc" placeholder="गाँव, मोहल्ला या ज़िले का नाम">
+                </div>
+
+                <button class="submit-btn" onclick="submitProduct()">उत्पाद लिस्ट करें</button>
+            </div>
+
+            <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+        </div>
+
+        <script>
+            function submitProduct() {
+                const name = document.getElementById('prodName').value;
+                const price = document.getElementById('prodPrice').value;
+                const seller = document.getElementById('sellerName').value;
+                const loc = document.getElementById('prodLoc').value;
+
+                if (!name || !price || !seller || !loc) {
+                    alert("कृपया सभी अनिवार्य जानकारी सही-सही भरें।");
+                    return;
+                }
+
+                alert("🏪 KRYA नैनो-मार्ट: आपका उत्पाद सफलतापूर्वक लाइव बाज़ार में लिस्ट हो गया है!");
+                
+                document.getElementById('prodName').value = '';
+                document.getElementById('prodPrice').value = '';
+                document.getElementById('sellerName').value = '';
+                document.getElementById('prodLoc').value = '';
+            }
+        </script>
+</body>
+                      </html>
+                      
