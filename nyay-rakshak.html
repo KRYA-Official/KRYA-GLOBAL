@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA न्याय-रक्षक</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+            --alert-blue: #0288D1;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--alert-blue);
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .guide-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--royal-gold);
+        }
+        .guide-title {
+            font-weight: 700;
+            color: var(--monaco-green);
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .law-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            text-align: left;
+        }
+        .law-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+            color: var(--monaco-green);
+        }
+        .law-card p {
+            margin: 0;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+        .action-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 2px solid var(--royal-gold);
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        .action-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+            border-color: var(--monaco-green);
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>🛡️ KRYA न्याय-रक्षक</h2>
+        <p>कानूनी जागरूकता, डिजिटल सुरक्षा और आपके अधिकारों का रक्षक</p>
+    </div>
+
+    <div class="container">
+        <div class="info-box">
+            <b>📢 साइबर चेतावनी:</b> यदि आपके साथ कभी भी ऑनलाइन पैसों की धोखाधड़ी होती है, तो तुरंत बिना समय गंवाए राष्ट्रीय साइबर अपराध हेल्पलाइन नंबर <b>1930</b> पर कॉल करें। यह भारत सरकार की 100% प्रामाणिक सेवा है।
+        </div>
+
+        <div class="guide-box">
+            <div class="guide-title">⚖️ बुनियादी कानूनी एवं डिजिटल अधिकार</div>
+            
+            <div class="law-card">
+                <h3>🔒 डिजिटल सुरक्षा अधिकार</h3>
+                <p>कोई भी बैंक या सरकारी अधिकारी आपसे कभी भी आपका एटीएम पिन, ओटीपी या पासवर्ड नहीं मांगता। अपनी गुप्त जानकारी किसी को न बताएं।</p>
+            </div>
+
+            <div class="law-card">
+                <h3>📜 उपभोक्ता अधिकार (Consumer Rights)</h3>
+                <p>यदि कोई दुकानदार आपसे तय एमआरपी (MRP) से ज़्यादा पैसे वसूलता है या खराब सामान देता है, तो आपके पास शिकायत करने का पूरा कानूनी अधिकार है।</p>
+            </div>
+
+            <div class="law-card">
+                <h3>🌾 किसान कानूनी सुरक्षा</h3>
+                <p>फसल बीमा और सरकारी मुआवज़े से जुड़ी किसी भी समस्या के समाधान के लिए सही कानूनी प्रक्रिया और आवेदन की जानकारी यहाँ प्राप्त करें।</p>
+            </div>
+
+            <button class="action-btn" onclick="requestLegalAid()">मुफ्त कानूनी परामर्श सहायता अनुरोध</button>
+        </div>
+
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        function requestLegalAid() {
+            alert("🛡️ KRYA न्याय-रक्षक: आपका सहायता अनुरोध दर्ज किया जा रहा है। हमारी टीम आपको सही और 100% कानूनी प्रक्रिया के बारे में मार्गदर्शन करेगी।");
+        }
+    </script>
+</body>
+</html>
+
