@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA विद्या-दीप</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --monaco-green: #0E3B20;
+            --royal-gold: #D4AF37;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--royal-gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 24px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .intro-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15 rgba(0,0,0,0.05);
+            border-left: 5px solid var(--royal-gold);
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .resource-title {
+            font-weight: 700;
+            color: var(--monaco-green);
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .resource-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+        .resource-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--royal-gold);
+        }
+        .resource-info {
+            text-align: left;
+        }
+        .resource-name {
+            font-weight: 600;
+            color: var(--monaco-green);
+            font-size: 16px;
+        }
+        .resource-desc {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+        .open-btn {
+            background-color: var(--monaco-green);
+            color: var(--royal-gold);
+            border: 1px solid var(--royal-gold);
+            padding: 8px 15px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .open-btn:hover {
+            background-color: var(--royal-gold);
+            color: var(--monaco-green);
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--monaco-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>🪔 KRYA विद्या-दीप</h2>
+        <p>ज्ञान का प्रकाश - मुफ्त किताबें, छात्रवृत्ति और डिजिटल लाइब्रेरी</p>
+    </div>
+
+    <div class="container">
+        <div class="intro-box">
+            KRYA विद्या-दीप में आपका स्वागत है। यह मंच बच्चों, युवाओं और हर उस व्यक्ति के लिए है जो जीवन में आगे बढ़ना और सीखना चाहता है। यहाँ आपको शिक्षा से जुड़ी हर ज़रूरी सामग्री बिल्कुल मुफ्त मिलेगी।
+        </div>
+
+        <div class="resource-title">📚 उपलब्ध शैक्षणिक साधन</div>
+
+        <div class="resource-card">
+            <div class="resource-info">
+                <div class="resource-name">📖 डिजिटल लाइब्रेरी (Free E-Books)</div>
+                <div class="resource-desc">एनसीईआरटी (NCERT) और सामान्य ज्ञान की मुफ्त किताबें।</div>
+            </div>
+            <button class="open-btn" onclick="openResource('डिजिटल लाइब्रेरी')">पढ़ना शुरू करें</button>
+        </div>
+
+        <div class="resource-card">
+            <div class="resource-info">
+                <div class="resource-name">🎓 छात्रवृत्ति गाइड (Scholarship Alerts)</div>
+                <div class="resource-desc">सरकारी और प्राइवेट स्कॉलरशिप की सही जानकारी और आवेदन प्रक्रिया।</div>
+            </div>
+            <button class="open-btn" onclick="openResource('छात्रवृत्ति गाइड')">विवरण देखें</button>
+        </div>
+
+        <div class="resource-card">
+            <div class="resource-info">
+                <div class="resource-name">🧠 प्रतियोगिता परीक्षा तैयारी (Exam Prep)</div>
+                <div class="resource-desc">लोकल और नेशनल लेवल की परीक्षाओं के लिए ज़रूरी स्टडी मटेरियल।</div>
+            </div>
+            <button class="open-btn" onclick="openResource('प्रतियोगिता परीक्षा तैयारी')">मटेरियल खोलें</button>
+        </div>
+        
+        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Future enhancements can be added here
+        });
+
+        function openResource(name) {
+            alert("🪔 KRYA विद्या-दीप: '" + name + "' का पोर्टल लोड हो रहा है... ज्ञान के इस सफर में आपका स्वागत है।");
+        }
+    </script>
+</body>
+</html>
+  
