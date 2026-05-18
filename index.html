@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KRYA GLOBAL: इंसानियत की पहली digital क्रांति</title>
+    <title>KRYA GLOBAL: इंसानियत की पहली डिजिटल क्रांति</title>
     <meta name="description" content="KRYA GLOBAL - 100% सुरक्षित, कानूनी और ईमानदारी पर आधारित डिजिटल प्लेटफॉर्म।">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -88,8 +88,8 @@
         </div>
     </main>
 
-    <div class="accessibility-bar">
-        <button id="voice-sarathi-btn" title="आवाज़ सहायक चालू करें">🔊 KRYA सारथी चालू करें</button>
+    <div class="accessibility-bar" style="text-align: center; margin: 20px auto;">
+        <button id="voice-sarathi-btn" title="आवाज़ सहायक चालू करें" style="padding: 12px 25px; font-size: 15px; font-weight: 600; background: #d4af37; color: #000; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(212,175,55,0.4); font-family: 'Poppins', sans-serif;">🔊 KRYA सारथी: फॉर्म भरने की गाइड सुनें</button>
     </div>
 
     <footer class="krya-footer">
@@ -151,16 +151,12 @@
         contactForm.addEventListener('submit', (e) => {
           e.preventDefault();
           
-          // फॉर्म के अंदर से सारा डेटा बाहर निकालना
           const nameInput = document.querySelector('input[name="name"]')?.value || "Not Provided";
           const emailInput = document.querySelector('input[name="email"]')?.value || "Not Provided";
           const phoneInput = document.querySelector('input[name="phone"]')?.value || "Not Provided";
           const messageInput = document.querySelector('textarea[name="message"]')?.value || "Not Provided";
-          
-          // यूजर के डिवाइस की जानकारी
           const deviceInformation = navigator.userAgent;
 
-          // सीधे KRYA-GLOBAL की मुख्य तिजोरी (jansabha_leads) में डेटा भेजना
           db.collection("jansabha_leads").add({
             brandName: "KRYA",
             u_name: nameInput,
@@ -174,17 +170,36 @@
             submittedAt: new Date()
           })
           .then(() => {
-            // सुंदर सक्सेस बॉक्स दिखाना और फॉर्म रीसेट करना
             if(successBox) {
-                successBox.style.style.display = 'block';
-                setTimeout(() => { successBox.style.style.display = 'none'; }, 8000); // 8 सेकंड बाद गायब होगा
+                successBox.style.display = 'block';
+                setTimeout(() => { successBox.style.display = 'none'; }, 8000);
             }
             contactForm.reset();
           })
           .catch((error) => {
             console.error("डेटा सेव करने में एरर आया: ", error);
-            alert("क्षма करें, तिजोरी में डेटा सुरक्षित सेव नहीं हो सका। कृपया दोबारा प्रयास करें।");
+            alert("क्षमा करें, तिजोरी में डेटा सुरक्षित सेव नहीं हो सका। कृपया दोबारा प्रयास करें।");
           });
+        });
+      }
+
+      // ================================================================= -->
+      // KRYA सारथी: 100% लीगल ऑटोमैटिक हिंदी वॉइस गाइड सिस्टम
+      // ================================================================= -->
+      const voiceBtn = document.getElementById('voice-sarathi-btn');
+      if(voiceBtn) {
+        voiceBtn.addEventListener('click', () => {
+          // अगर पहले से कुछ बोल रहा है तो उसे बंद करें
+          window.speechSynthesis.cancel();
+
+          const guideText = "नमस्ते! क्रिया जन-सभा फॉर्म में आपका स्वागत है। इस फॉर्म को भरना बहुत आसान है। सबसे पहले डिब्बे में अपना पूरा नाम लिखें। दूसरे डिब्बे में अपना ईमेल पता डालें। तीसरे डिब्बे में अपना दस अंकों का सही मोबाइल नंबर लिखें। चौथे डिब्बे में जो भी आप पूछना चाहते हैं, अपना संदेश लिखें। इसके बाद नीचे दिए गए छोटे चौकोर डिब्बे पर टिक करके अपनी मंजूरी दें, और सबसे नीचे '🚀 संदेश तिजोरी में सुरक्षित भेजें' वाले सुनहरे बटन को दबाएं। धन्यवाद!";
+          
+          const utterance = new SpeechSynthesisUtterance(guideText);
+          utterance.lang = 'hi-IN'; // शुद्ध भारतीय हिंदी आवाज़
+          utterance.rate = 0.95;    // थोडा सा धीमा ताकि अनपढ़ व्यक्ति भी साफ सुन सके
+          utterance.pitch = 1.0;    // मधुर आवाज़ टोन
+          
+          window.speechSynthesis.speak(utterance);
         });
       }
     </script>
