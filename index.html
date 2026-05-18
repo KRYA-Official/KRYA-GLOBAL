@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KRYA GLOBAL: इंसानियत की पहली डिजिटल क्रांति</title>
+    <title>KRYA GLOBAL: इंसानियत की पहली digital क्रांति</title>
     <meta name="description" content="KRYA GLOBAL - 100% सुरक्षित, कानूनी और ईमानदारी पर आधारित डिजिटल प्लेटफॉर्म।">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* सक्सेस बॉक्स को धीरे से स्क्रीन पर लाने का जादुई एनीमेशन */
+        @keyframes kryaFadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* प्रीमियम बटन पर टच करने का स्मूथ इफेक्ट */
+        .jansabha-submit-btn:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,38 +47,38 @@
             </div>
         </div>
 
-        <div class="contact-section" style="max-width: 500px; margin: 40px auto; padding: 30px; background: #013220; border-radius: 15px; border: 2px solid #d4af37; text-align: left; box-shadow: 0 8px 32px rgba(0,0,0,0.3); font-family: 'Poppins', sans-serif; color: #fff;">
-            <h3 style="text-align: center; color: #d4af37; margin-bottom: 25px; font-weight: 700; letter-spacing: 1px;">KRYA जन-सभा (Inquiry Form)</h3>
+        <div class="contact-section" style="max-width: 450px; margin: 40px auto; padding: 25px; background: #013220; border-radius: 15px; border: 2px solid #d4af37; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.4); font-family: 'Poppins', sans-serif; color: #fff; box-sizing: border-box;">
+            <h3 style="text-align: center; color: #d4af37; margin-bottom: 25px; font-weight: 700; letter-spacing: 1px; font-size: 22px;">KRYA जन-सभा (Inquiry Form)</h3>
             
             <form id="jansabha-form">
                 <div style="margin-bottom: 18px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #f0f0f0;">आपका पूरा नाम:</label>
-                    <input type="text" name="name" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: rgba(255,255,255,0.9); color: #000; font-size: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #f0f0f0; font-size: 14px;">आपका पूरा नाम:</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: rgba(255,255,255,0.95); color: #000; font-size: 16px; font-family: 'Poppins', sans-serif;">
                 </div>
                 <div style="margin-bottom: 18px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #f0f0f0;">आपका ईमेल पता:</label>
-                    <input type="email" name="email" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: rgba(255,255,255,0.9); color: #000; font-size: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #f0f0f0; font-size: 14px;">आपका ईमेल पता:</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: rgba(255,255,255,0.95); color: #000; font-size: 16px; font-family: 'Poppins', sans-serif;">
                 </div>
                 <div style="margin-bottom: 18px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #f0f0f0;">आपका मोबाइल नंबर (10 अंक):</label>
-                    <input type="tel" id="user-phone" name="phone" required pattern="[0-9]{10}" title="कृपया 10 अंकों का सही मोबाइल नंबर डालें" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: rgba(255,255,255,0.9); color: #000; font-size: 15px;" placeholder="91XXXXXXXX">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #f0f0f0; font-size: 14px;">आपका मोबाइल नंबर (10 अंक):</label>
+                    <input type="tel" id="user-phone" name="phone" required pattern="[0-9]{10}" title="कृपया 10 अंकों का सही मोबाइल नंबर डालें" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: rgba(255,255,255,0.95); color: #000; font-size: 16px; font-family: 'Poppins', sans-serif;" placeholder="91XXXXXXXX">
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #f0f0f0;">आपका संदेश / पूछताछ:</label>
-                    <textarea name="message" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; height: 110px; background: rgba(255,255,255,0.9); color: #000; font-size: 15px; resize: none;"></textarea>
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #f0f0f0; font-size: 14px;">आपका संदेश / पूछताछ:</label>
+                    <textarea name="message" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; height: 110px; background: rgba(255,255,255,0.95); color: #000; font-size: 16px; font-family: 'Poppins', sans-serif; resize: none;"></textarea>
                 </div>
                 
                 <div style="margin-bottom: 22px; display: flex; align-items: flex-start;">
-                    <input type="checkbox" id="privacy-check" required style="margin-top: 4px; margin-right: 10px; cursor: pointer; transform: scale(1.2);">
-                    <label for="privacy-check" style="font-size: 12px; color: #e0e0e0; cursor: pointer; line-height: 1.4;">मैं प्रमाणित करता हूँ कि मैं अपनी स्वेच्छा से अपना डेटा KRYA GLOBAL के साथ साझा कर रहा हूँ और प्लेटफ़ॉर्म की <a href="legal/privacy.html" style="color: #d4af37; text-decoration: underline;">निजता नीति</a> से पूरी तरह सहमत हूँ।</label>
+                    <input type="checkbox" id="privacy-check" required style="margin-top: 3px; margin-right: 10px; cursor: pointer; transform: scale(1.2);">
+                    <label for="privacy-check" style="font-size: 12px; color: #e0e0e0; cursor: pointer; line-height: 1.5; font-weight: 300;">मैं प्रमाणित करता हूँ कि मैं अपनी स्वेच्छा से अपना डेटा KRYA GLOBAL के साथ साझा कर रहा हूँ और प्लेटफ़ॉर्म की <a href="legal/privacy.html" style="color: #d4af37; text-decoration: underline; font-weight: 500;">निजता नीति</a> से पूरी तरह सहमत हूँ।</label>
                 </div>
 
                 <div style="text-align: center;">
-                    <button type="submit" style="padding: 14px 35px; cursor: pointer; background: #d4af37; color: #000; border: none; font-weight: 700; font-size: 16px; border-radius: 8px; width: 100%; transition: 0.3s; box-shadow: 0 4px 15px rgba(212,175,55,0.2);">🚀 संदेश तिजोरी में सुरक्षित भेजें</button>
+                    <button type="submit" class="jansabha-submit-btn" style="padding: 14px 35px; cursor: pointer; background: #d4af37; color: #000; border: none; font-weight: 700; font-size: 16px; border-radius: 8px; width: 100%; box-shadow: 0 4px 15px rgba(212,175,55,0.3); font-family: 'Poppins', sans-serif; transition: transform 0.1s ease, background 0.2s;">🚀 संदेश तिजोरी में सुरक्षित भेजें</button>
                 </div>
             </form>
 
-            <div id="success-box" style="display: none; margin-top: 20px; padding: 15px; background: #d4af37; color: #000; text-align: center; border-radius: 8px; font-weight: bold; font-size: 15px; animation: fadeIn 0.5s ease;">
+            <div id="success-box" style="display: none; margin-top: 25px; padding: 15px; background: #d4af37; color: #000; text-align: center; border-radius: 8px; font-weight: 600; font-size: 15px; border: 1px solid #000; line-height: 1.4; animation: kryaFadeIn 0.5s ease-out; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
                 🎉 KRYA जन-सभा: आपका संदेश, मोबाइल नंबर और लाइव लोकेशन सुरक्षित रूप से हमारी मुख्य तिजोरी में 100% लीगल तरीके से सेव कर लिया गया है। धन्यवाद!
             </div>
         </div>
@@ -163,14 +176,14 @@
           .then(() => {
             // सुंदर सक्सेस बॉक्स दिखाना और फॉर्म रीसेट करना
             if(successBox) {
-                successBox.style.display = 'block';
-                setTimeout(() => { successBox.style.display = 'none'; }, 8000); // 8 सेकंड बाद अपने आप गायब होगा
+                successBox.style.style.display = 'block';
+                setTimeout(() => { successBox.style.style.display = 'none'; }, 8000); // 8 सेकंड बाद गायब होगा
             }
             contactForm.reset();
           })
           .catch((error) => {
             console.error("डेटा सेव करने में एरर आया: ", error);
-            alert("क्षमा करें, तिजोरी में डेटा सुरक्षित सेव नहीं हो सका। कृपया दोबारा प्रयास करें।");
+            alert("क्षма करें, तिजोरी में डेटा सुरक्षित सेव नहीं हो सका। कृपया दोबारा प्रयास करें।");
           });
         });
       }
