@@ -3,57 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KRYA GLOBAL: सुपर-ऐप डैशबोर्ड</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>KRYA GLOBAL डैशबोर्ड - 15 डिजिटल अजूबे</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     
     <style>
-        /* प्रीमियम मोबाइल ऐप वाला बैकग्राउंड */
+        /* प्रीमियम मोबाइल ऐप वाला बैकग्राउंड (सफ़ेद की जगह हल्का ग्रे) */
         body {
-            background-color: #f4f6f9; /* हल्का ग्रे रंग जिससे बटन उभर कर आएं */
+            background-color: #f4f6f9; 
             margin: 0;
             font-family: 'Poppins', sans-serif;
             padding-bottom: 40px;
         }
 
         /* शानदार हेडर (मॉल का मुख्य बोर्ड) */
-        .app-header {
-            background: #013220; /* Monaco Green */
-            color: #d4af37; /* KRYA Gold */
+        .dashboard-header {
+            background-color: var(--monaco-green, #013220);
+            color: var(--royal-gold, #d4af37);
             padding: 20px 15px;
             text-align: center;
-            border-bottom: 4px solid #d4af37;
+            border-bottom: 4px solid var(--royal-gold, #d4af37);
             border-radius: 0 0 20px 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        .app-header h1 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 1px;}
-        .app-header p { margin: 5px 0 0; font-size: 12px; color: #fff; font-weight: 300;}
-
-        /* कैटेगरी का टाइटल */
-        .category-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #013220;
-            margin: 25px 15px 15px;
-            border-left: 5px solid #d4af37;
-            padding-left: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        /* बटनों का जादुई ग्रिड (3 की लाइन) */
-        .app-grid {
+        .dashboard-header h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 1px;}
+        .dashboard-header p { margin: 5px 0 0; font-size: 12px; color: #fff; font-weight: 300;}
+        
+        /* बटनों का जादुई ग्रिड (मोबाइल स्क्रीन के लिए बिल्कुल परफेक्ट 3 की लाइन) */
+        .wonders-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            padding: 0 15px;
+            padding: 20px 15px;
+            max-width: 600px;
+            margin: 0 auto;
         }
-
-        /* 3D प्रीमियम बटन */
-        .app-btn {
+        
+        /* 3D प्रीमियम बटन (जो आपकी JS फाइल से आएंगे) */
+        .wonder-card {
             background: #fff;
             border-radius: 15px;
             padding: 15px 5px;
@@ -65,127 +55,51 @@
             flex-direction: column;
             align-items: center;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
 
-        /* जब कोई बटन को छुएगा (Touch Effect) */
-        .app-btn:active {
+        /* जब कोई बटन को छुएगा (Asli App Touch Effect) */
+        .wonder-card:active {
             transform: scale(0.94);
             box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-            border-color: #d4af37;
+            border-color: var(--royal-gold, #d4af37);
             background: #fdfbf7;
         }
-
-        .btn-icon {
-            font-size: 30px;
-            margin-bottom: 8px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-        }
-
-        .btn-text {
-            font-size: 11px;
-            color: #333;
-            font-weight: 600;
-            line-height: 1.2;
-        }
         
-        /* सारथी बटन */
-        .sarathi-wrapper { text-align: center; margin: 25px 15px 10px; }
-        .sarathi-btn {
-            background: linear-gradient(135deg, #d4af37, #b5952f);
+        /* आइकॉन और नाम की सेटिंग */
+        .wonder-icon { font-size: 30px; margin-bottom: 8px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+        .wonder-name { font-weight: 600; font-size: 11px; color: #333; line-height: 1.2; }
+        
+        /* मुकेश भाई का KRYA मार्गदर्शक बटन */
+        .tour-btn {
+            display: block;
+            margin: 25px auto 10px auto;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--royal-gold, #d4af37), #b5952f);
             color: #000;
             border: none;
-            padding: 12px 25px;
             border-radius: 30px;
             font-size: 14px;
             font-weight: 700;
-            box-shadow: 0 5px 15px rgba(212,175,55,0.4);
             cursor: pointer;
-            width: 100%;
+            box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+            width: 90%;
+            max-width: 400px;
         }
     </style>
 </head>
 <body>
 
-    <header class="app-header">
-        <h1>KRYA GLOBAL</h1>
+    <div class="dashboard-header">
+        <h2>KRYA GLOBAL</h2>
         <p>इंसानियत की पहली डिजिटल क्रांति में आपका स्वागत है</p>
-    </header>
-
-    <div class="sarathi-wrapper">
-        <button class="sarathi-btn">🔊 KRYA मार्गदर्शक चालू करें</button>
     </div>
 
-    <div class="category-title">💰 KRYA व्यापार और कमाई</div>
-    <div class="app-grid">
-        <a href="index.html" class="app-btn">
-            <span class="btn-icon">🛒</span>
-            <span class="btn-text">डायरेक्टकार्ट</span>
-        </a>
-        <a href="vyapar-rath.html" class="app-btn">
-            <span class="btn-icon">📈</span>
-            <span class="btn-text">व्यापार-रथ</span>
-        </a>
-        <a href="hunar-mandi.html" class="app-btn">
-            <span class="btn-icon">🛠️</span>
-            <span class="btn-text">हुनर-मंडी</span>
-        </a>
-        <a href="nano-mart.html" class="app-btn">
-            <span class="btn-icon">🏪</span>
-            <span class="btn-text">नैनो-मार्ट</span>
-        </a>
-        <a href="samay-mudra.html" class="app-btn">
-            <span class="btn-icon">⏳</span>
-            <span class="btn-text">समय-मुद्रा</span>
-        </a>
-        <a href="arth-saarthi.html" class="app-btn">
-            <span class="btn-icon">📊</span>
-            <span class="btn-text">अर्थ-सारथी</span>
-        </a>
+    <button class="tour-btn" onclick="startKryaTour()">🔊 KRYA मार्गदर्शक चालू करें</button>
+
+    <div id="wonders-container" class="wonders-grid">
     </div>
 
-    <div class="category-title">⚖️ न्याय और जन-सहायता</div>
-    <div class="app-grid">
-        <a href="nyay-rakshak.html" class="app-btn">
-            <span class="btn-icon">🛡️</span>
-            <span class="btn-text">न्याय-रक्षक</span>
-        </a>
-        <a href="index.html#jansabha-form" class="app-btn">
-            <span class="btn-icon">👥</span>
-            <span class="btn-text">जन-सभा</span>
-        </a>
-        <a href="sanjeevani.html" class="app-btn">
-            <span class="btn-icon">🚑</span>
-            <span class="btn-text">संजीवनी</span>
-        </a>
-        <a href="imaandari-score.html" class="app-btn">
-            <span class="btn-icon">⭐</span>
-            <span class="btn-text">ईमानदारी स्कोर</span>
-        </a>
-    </div>
-
-    <div class="category-title">🤝 समाज और ज्ञान</div>
-    <div class="app-grid">
-        <a href="kisan-setu.html" class="app-btn">
-            <span class="btn-icon">🌾</span>
-            <span class="btn-text">किसान-सेतु</span>
-        </a>
-        <a href="vidya-deep.html" class="app-btn">
-            <span class="btn-icon">🪔</span>
-            <span class="btn-text">विद्या-दीप</span>
-        </a>
-        <a href="samvad-sutra.html" class="app-btn">
-            <span class="btn-icon">💬</span>
-            <span class="btn-text">संवाद-सूत्र</span>
-        </a>
-        <a href="goonj.html" class="app-btn">
-            <span class="btn-icon">📢</span>
-            <span class="btn-text">गूंज</span>
-        </a>
-        <a href="sukoon.html" class="app-btn">
-            <span class="btn-icon">🧘</span>
-            <span class="btn-text">सुकून</span>
-        </a>
-    </div>
-
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
