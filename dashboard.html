@@ -7,8 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
+    <link rel="manifest" href="manifest.json">
+    
     <style>
-        /* प्रीमियम मोबाइल ऐप वाला बैकग्राउंड (सफ़ेद की जगह हल्का ग्रे) */
+        /* प्रीमियम मोबाइल ऐप वाला बैकग्राउंड */
         body {
             background-color: #f4f6f9; 
             margin: 0;
@@ -16,7 +18,13 @@
             padding-bottom: 40px;
         }
 
-        /* शानदार हेडर (मॉल का मुख्य बोर्ड) */
+        /* बैनर का ऊपर से नीचे आने वाला जादुई एनीमेशन */
+        @keyframes kryaSlideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        /* शानदार हेडर */
         .dashboard-header {
             background-color: var(--monaco-green, #013220);
             color: var(--royal-gold, #d4af37);
@@ -32,7 +40,7 @@
         .dashboard-header h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 1px;}
         .dashboard-header p { margin: 5px 0 0; font-size: 12px; color: #fff; font-weight: 300;}
         
-        /* बटनों का जादुई ग्रिड (मोबाइल स्क्रीन के लिए बिल्कुल परफेक्ट 3 की लाइन) */
+        /* बटनों का जादुई ग्रिड (3 की लाइन) */
         .wonders-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -42,7 +50,7 @@
             margin: 0 auto;
         }
         
-        /* 3D प्रीमियम बटन (जो आपकी JS फाइल से आएंगे) */
+        /* 3D प्रीमियम बटन (JS फाइल से लोड होंगे) */
         .wonder-card {
             background: #fff;
             border-radius: 15px;
@@ -58,7 +66,7 @@
             cursor: pointer;
         }
 
-        /* जब कोई बटन को छुएगा (Asli App Touch Effect) */
+        /* बटन टच इफेक्ट */
         .wonder-card:active {
             transform: scale(0.94);
             box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
@@ -66,11 +74,10 @@
             background: #fdfbf7;
         }
         
-        /* आइकॉन और नाम की सेटिंग */
         .wonder-icon { font-size: 30px; margin-bottom: 8px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
         .wonder-name { font-weight: 600; font-size: 11px; color: #333; line-height: 1.2; }
         
-        /* मुकेश भाई का KRYA मार्गदर्शक बटन */
+        /* मार्गदर्शक बटन */
         .tour-btn {
             display: block;
             margin: 25px auto 10px auto;
@@ -90,6 +97,14 @@
 </head>
 <body>
 
+    <div id="krya-top-banner" style="display: none; position: fixed; top: 0; left: 0; width: 100%; background: #013220; border-bottom: 3px solid #d4af37; padding: 15px; box-sizing: border-box; text-align: center; z-index: 99999; font-family: 'Poppins', sans-serif; box-shadow: 0 5px 15px rgba(0,0,0,0.3); animation: kryaSlideDown 0.5s ease-out;">
+        <p style="margin: 0 0 10px 0; color: #fff; font-size: 14px; font-weight: 500;">
+            📱 <b>KRYA GLOBAL ऐप डाउनलोड करें:</b> सीधे अपने मोबाइल स्क्रीन पर सुरक्षित इंस्टॉल करें!
+        </p>
+        <button id="krya-top-install-btn" style="background: #d4af37; color: #000; border: none; padding: 8px 20px; font-weight: 700; border-radius: 5px; cursor: pointer; margin-right: 10px; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">📲 इंस्टॉल करें</button>
+        <button id="krya-top-close-btn" style="background: transparent; color: #fff; border: 1px solid #fff; padding: 6px 15px; font-weight: 500; border-radius: 5px; cursor: pointer; font-size: 13px;">बंद करें</button>
+    </div>
+
     <div class="dashboard-header">
         <h2>KRYA GLOBAL</h2>
         <p>इंसानियत की पहली डिजिटल क्रांति में आपका स्वागत है</p>
@@ -101,5 +116,51 @@
     </div>
 
     <script src="js/dashboard.js"></script>
+
+    <script>
+        // 1. सर्विस वर्कर चालू करना
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('KRYA PWA: डैशबोर्ड सर्विस वर्कर एक्टिव है'))
+                .catch(err => console.log('सर्विस वर्कर एरर:', err));
+        }
+
+        // 2. ऊपर से नीचे आने वाले बैनर का लॉजिक
+        let deferredPrompt;
+        const topBanner = document.getElementById('krya-top-banner');
+        const topInstallBtn = document.getElementById('krya-top-install-btn');
+        const topCloseBtn = document.getElementById('krya-top-close-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // डिफ़ॉल्ट सिस्टम पॉप-अप को रोकें
+            e.preventDefault();
+            deferredPrompt = e;
+            // हमारा कस्टमाइज़्ड ऊपर से नीचे आने वाला बैनर दिखाएं
+            if(topBanner) {
+                topBanner.style.display = 'block';
+            }
+        });
+
+        if(topInstallBtn) {
+            topInstallBtn.addEventListener('click', () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('यूज़र ने डैशबोर्ड से KRYA ऐप इंस्टॉल कर लिया');
+                        }
+                        if(topBanner) topBanner.style.display = 'none';
+                        deferredPrompt = null;
+                    });
+                }
+            });
+        }
+
+        if(topCloseBtn) {
+            topCloseBtn.addEventListener('click', () => {
+                if(topBanner) topBanner.style.display = 'none';
+            });
+        }
+    </script>
 </body>
 </html>
