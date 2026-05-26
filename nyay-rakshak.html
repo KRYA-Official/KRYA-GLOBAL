@@ -2,62 +2,72 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KRYA न्याय-रक्षक</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KRYA न्याय-रक्षक: कानूनी और जन-सहायता केंद्र</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
     <style>
-        :root {
-            --monaco-green: #0E3B20;
-            --royal-gold: #D4AF37;
-            --alert-blue: #0288D1;
-        }
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f7f6;
+            background-color: #f4f6f9;
             margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
         }
-        .header {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            padding: 25px 20px;
+        /* प्रीमियम हेडर */
+        .nyay-header {
+            background: #013220;
+            color: #d4af37;
+            padding: 20px 15px;
             text-align: center;
-            border-bottom: 4px solid var(--royal-gold);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 4px solid #d4af37;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
-        .header h2 { margin: 0; font-size: 24px; }
-        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
         
-        .container {
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        /* मुकेश भाई का पुराना साइबर अलर्ट बॉक्स (अपडेटेड डिज़ाइन) */
         .info-box {
             background: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--alert-blue);
-            margin-bottom: 25px;
+            border-left: 5px solid #0288D1;
+            margin: 20px auto;
+            max-width: 450px;
             color: #333;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.6;
+            box-sizing: border-box;
         }
-        .guide-box {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--royal-gold);
+
+        /* 3D सर्विस कार्ड (कमाई के लिए) */
+        .service-card {
+            background: #fff;
+            border: 2px solid #eaeaea;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 450px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            transition: transform 0.2s;
         }
-        .guide-title {
+        .service-card:active {
+            transform: scale(0.97);
+            border-color: #d4af37;
+        }
+        .price-tag {
+            background: #013220;
+            color: #d4af37;
+            padding: 5px 15px;
+            border-radius: 20px;
             font-weight: 700;
-            color: var(--monaco-green);
-            margin-bottom: 15px;
-            font-size: 18px;
-            text-align: center;
+            font-size: 14px;
+            float: right;
         }
+
+        /* मुकेश भाई का पुराना कानूनी ज्ञान बॉक्स */
         .law-card {
             background: #f9f9f9;
             padding: 15px;
@@ -65,88 +75,176 @@
             margin-bottom: 15px;
             border: 1px solid #eee;
             text-align: left;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .law-card h3 {
-            margin: 0 0 5px 0;
-            font-size: 16px;
-            color: var(--monaco-green);
+        .law-card h3 { margin: 0 0 5px 0; font-size: 15px; color: #013220; }
+        .law-card p { margin: 0; font-size: 12px; color: #555; line-height: 1.5; }
+
+        /* जन-सुनवाई फॉर्म */
+        .form-container {
+            background: #013220;
+            color: #fff;
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-sizing: border-box;
         }
-        .law-card p {
-            margin: 0;
-            font-size: 13px;
-            color: #555;
-            line-height: 1.5;
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 500; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;
         }
-        .action-btn {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            border: 2px solid var(--royal-gold);
-            padding: 12px;
-            width: 100%;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: all 0.3s;
+        .submit-btn {
+            background: #d4af37; color: #000; padding: 14px; border: none; border-radius: 8px; width: 100%; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 4px 15px rgba(212,175,55,0.3);
         }
-        .action-btn:hover {
-            background-color: var(--royal-gold);
-            color: var(--monaco-green);
-            border-color: var(--monaco-green);
-        }
-        .back-btn {
-            display: block;
-            text-align: center;
-            margin-top: 25px;
-            color: var(--monaco-green);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
+        @keyframes kryaFadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h2>🛡️ KRYA न्याय-रक्षक</h2>
-        <p>कानूनी जागरूकता, डिजिटल सुरक्षा और आपके अधिकारों का रक्षक</p>
+    <header class="nyay-header">
+        <h1 style="margin: 0; font-size: 24px; font-weight: 700;">🛡️ KRYA न्याय-रक्षक</h1>
+        <p style="margin: 5px 0 0 0; font-size: 13px; color: #fff; font-weight: 300;">कानूनी जागरूकता और आपके अधिकारों का रक्षक</p>
+    </header>
+
+    <div style="max-width: 450px; margin: 15px auto; padding: 0 10px; text-align: center;">
+        <a href="dashboard.html" style="text-decoration: none; color: #013220; font-weight: 600; font-size: 14px;">🔙 डैशबोर्ड पर वापस जाएँ</a>
     </div>
 
-    <div class="container">
-        <div class="info-box">
-            <b>📢 साइबर चेतावनी:</b> यदि आपके साथ कभी भी ऑनलाइन पैसों की धोखाधड़ी होती है, तो तुरंत बिना समय गंवाए राष्ट्रीय साइबर अपराध हेल्पलाइन नंबर <b>1930</b> पर कॉल करें। यह भारत सरकार की 100% प्रामाणिक सेवा है।
-        </div>
-
-        <div class="guide-box">
-            <div class="guide-title">⚖️ बुनियादी कानूनी एवं डिजिटल अधिकार</div>
-            
-            <div class="law-card">
-                <h3>🔒 डिजिटल सुरक्षा अधिकार</h3>
-                <p>कोई भी बैंक या सरकारी अधिकारी आपसे कभी भी आपका एटीएम पिन, ओटीपी या पासवर्ड नहीं मांगता। अपनी गुप्त जानकारी किसी को न बताएं।</p>
-            </div>
-
-            <div class="law-card">
-                <h3>📜 उपभोक्ता अधिकार (Consumer Rights)</h3>
-                <p>यदि कोई दुकानदार आपसे तय एमआरपी (MRP) से ज़्यादा पैसे वसूलता है या खराब सामान देता है, तो आपके पास शिकायत करने का पूरा कानूनी अधिकार है।</p>
-            </div>
-
-            <div class="law-card">
-                <h3>🌾 किसान कानूनी सुरक्षा</h3>
-                <p>फसल बीमा और सरकारी मुआवज़े से जुड़ी किसी भी समस्या के समाधान के लिए सही कानूनी प्रक्रिया और आवेदन की जानकारी यहाँ प्राप्त करें।</p>
-            </div>
-
-            <button class="action-btn" onclick="requestLegalAid()">मुफ्त कानूनी परामर्श सहायता अनुरोध</button>
-        </div>
-
-        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+    <div class="info-box">
+        <b style="color: #0288D1; font-size: 14px;">📢 साइबर चेतावनी:</b> यदि आपके साथ कभी भी ऑनलाइन पैसों की धोखाधड़ी होती है, तो तुरंत बिना समय गंवाए राष्ट्रीय साइबर अपराध हेल्पलाइन नंबर <b>1930</b> पर कॉल करें। यह भारत सरकार की 100% प्रामाणिक सेवा है।
     </div>
+
+    <h3 style="text-align: center; color: #013220; margin-top: 30px;">KRYA प्रीमियम कानूनी सेवाएं</h3>
+
+    <div class="service-card">
+        <span class="price-tag">फीस: ₹50</span>
+        <h3 style="margin: 0 0 10px 0; color: #013220;">📱 PF बैलेंस व ई-श्रम सेवा</h3>
+        <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.5;">घर बैठे पीएफ (PF) बैलेंस चेक करवाएं या नया ई-श्रम कार्ड सुरक्षित रूप से बनवाएं।</p>
+        <button onclick="selectService('PF बैलेंस और ई-श्रम कार्ड सेवा (₹50)')" style="margin-top: 15px; background: #013220; color: #d4af37; border: none; padding: 8px 15px; border-radius: 5px; font-weight: 600; font-size: 12px; cursor: pointer;">👉 यह सेवा चुनें</button>
+    </div>
+
+    <div class="service-card">
+        <span class="price-tag">फीस: ₹100</span>
+        <h3 style="margin: 0 0 10px 0; color: #013220;">📝 पुलिस / थाना लिखित अर्ज़ी</h3>
+        <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.5;">थाने में शिकायत या किसी भी सरकारी काम के लिए 100% लीगल लिखित आवेदन तैयार करवाएं।</p>
+        <button onclick="selectService('पुलिस/थाना लिखित अर्ज़ी ड्राफ्टिंग (₹100)')" style="margin-top: 15px; background: #013220; color: #d4af37; border: none; padding: 8px 15px; border-radius: 5px; font-weight: 600; font-size: 12px; cursor: pointer;">👉 यह सेवा चुनें</button>
+    </div>
+
+    <div class="form-container" id="order-form-section">
+        <h3 style="text-align: center; color: #d4af37; margin-top: 0; margin-bottom: 20px; font-size: 20px;">🔒 सर्विस बुकिंग फॉर्म</h3>
+        <form id="nyay-form">
+            <div class="form-group">
+                <label>आपका पूरा नाम:</label>
+                <input type="text" id="u-name" required placeholder="अपना नाम लिखें">
+            </div>
+            <div class="form-group">
+                <label>मोबाइल नंबर (10 अंक):</label>
+                <input type="tel" id="u-phone" required pattern="[0-9]{10}" placeholder="91XXXXXXXX">
+            </div>
+            <div class="form-group">
+                <label>चुनी गई सेवा:</label>
+                <select id="u-service" required>
+                    <option value="">-- कृपया नीचे से सेवा चुनें --</option>
+                    <option value="PF बैलेंस और ई-श्रम कार्ड सेवा (₹50)">PF बैलेंस और ई-श्रम कार्ड सेवा (₹50)</option>
+                    <option value="पुलिस/थाना लिखित अर्ज़ी ड्राफ्टिंग (₹100)">पुलिस/थाना लिखित अर्ज़ी ड्राफ्टिंग (₹100)</option>
+                    <option value="मुफ्त कानूनी सहायता / अन्य">मुफ्त कानूनी सहायता / अन्य</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>समस्या का विवरण:</label>
+                <textarea id="u-message" required style="height: 100px; resize: none;" placeholder="यहाँ अपनी समस्या लिखें..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">🚀 सुरक्षित अर्ज़ी भेजें</button>
+        </form>
+        <div id="nyay-success" style="display: none; margin-top: 20px; padding: 15px; background: #d4af37; color: #000; text-align: center; border-radius: 8px; font-weight: 600; font-size: 14px; animation: kryaFadeIn 0.5s ease-out; line-height: 1.4;">
+            🎉 आपकी अर्ज़ी सेव हो गई है। हमारी टीम जल्द ही आपसे संपर्क करेगी!
+        </div>
+    </div>
+
+    <h3 style="text-align: center; color: #013220; margin-top: 40px;">⚖️ बुनियादी कानूनी अधिकार</h3>
+    
+    <div class="law-card">
+        <h3>🔒 डिजिटल सुरक्षा अधिकार</h3>
+        <p>कोई भी बैंक अधिकारी आपसे कभी भी आपका एटीएम पिन, ओटीपी या पासवर्ड नहीं मांगता। अपनी गुप्त जानकारी किसी को न बताएं।</p>
+    </div>
+    <div class="law-card">
+        <h3>📜 उपभोक्ता अधिकार</h3>
+        <p>यदि कोई दुकानदार आपसे तय एमआरपी (MRP) से ज़्यादा पैसे वसूलता है, तो आपके पास शिकायत करने का पूरा कानूनी अधिकार है.</p>
+    </div>
+    <div class="law-card">
+        <h3>🌾 किसान कानूनी सुरक्षा</h3>
+        <p>फसल बीमा और सरकारी मुआवज़े से जुड़ी किसी भी समस्या के समाधान के लिए सही कानूनी प्रक्रिया का पालन करें।</p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
-        function requestLegalAid() {
-            alert("🛡️ KRYA न्याय-रक्षक: आपका सहायता अनुरोध दर्ज किया जा रहा है। हमारी टीम आपको सही और 100% कानूनी प्रक्रिया के बारे में मार्गदर्शन करेगी।");
-        }
+      // Firebase Config
+      const firebaseConfig = {
+        apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
+        authDomain: "krya-global.firebaseapp.com",
+        projectId: "krya-global",
+        storageBucket: "krya-global.firebasestorage.app",
+        messagingSenderId: "372340448782",
+        appId: "1:372340448782:web:8e26d6d1169a3b8af8665f"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      let userLocation = { city: "Unknown", region: "Unknown", country: "Unknown" };
+      fetch('https://ipapi.co/json/').then(res => res.json()).then(data => {
+          userLocation = { city: data.city || "Unknown", region: data.region || "Unknown", country: data.country_name || "Unknown" };
+      }).catch(err => console.log("Location Error"));
+
+      // सेवा चुनने पर फॉर्म तक ले जाने वाला लॉजिक
+      function selectService(serviceName) {
+          const serviceSelect = document.getElementById('u-service');
+          if(serviceSelect) {
+              serviceSelect.value = serviceName;
+              document.getElementById('order-form-section').scrollIntoView({ behavior: 'smooth' });
+          }
+      }
+
+      // फॉर्म सबमिट लॉजिक
+      const nyayForm = document.getElementById('nyay-form');
+      const successBox = document.getElementById('nyay-success');
+
+      if(nyayForm) {
+        nyayForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const nameValue = document.getElementById('u-name').value;
+          const phoneValue = document.getElementById('u-phone').value;
+          const serviceValue = document.getElementById('u-service').value;
+          const messageValue = document.getElementById('u-message').value;
+
+          db.collection("nyay_rakshak_leads").add({
+            brandName: "KRYA", serviceType: "Nyay Rakshak",
+            u_name: nameValue, u_phone: phoneValue, u_service: serviceValue, u_message: messageValue,
+            u_city: userLocation.city, u_region: userLocation.region, u_country: userLocation.country,
+            submittedAt: new Date()
+          }).then(() => {
+            if(successBox) {
+                successBox.style.display = 'block';
+                setTimeout(() => { successBox.style.display = 'none'; }, 8000);
+            }
+            nyayForm.reset();
+          }).catch((error) => {
+            alert("डेटा सेव नहीं हो सका। कृपया दोबारा प्रयास करें।");
+          });
+        });
+      }
     </script>
 </body>
-</html>
-
+    </html>
+    
