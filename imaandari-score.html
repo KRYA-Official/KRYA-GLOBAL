@@ -2,96 +2,121 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KRYA ईमानदारी-स्कोर</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --monaco-green: #0E3B20;
-            --royal-gold: #D4AF37;
-        }
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f7f6;
+            background-color: #f4f6f9;
             margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
         }
         .header {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            padding: 25px 20px;
+            background-color: #013220;
+            color: #d4af37;
+            padding: 20px 15px;
             text-align: center;
-            border-bottom: 4px solid var(--royal-gold);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 4px solid #d4af37;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
-        .header h2 { margin: 0; font-size: 24px; }
-        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        .header h2 { margin: 0; font-size: 24px; font-weight: 700; }
+        .header p { margin: 5px 0 0 0; font-size: 13px; opacity: 0.9; }
         
         .container {
             padding: 20px;
-            max-width: 600px;
+            max-width: 450px;
             margin: 0 auto;
             text-align: center;
         }
+        
+        /* सर्च बॉक्स डिज़ाइन */
+        .search-box {
+            background: #013220;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #d4af37;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            box-sizing: border-box;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .check-btn {
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(212,175,55,0.3);
+            transition: transform 0.2s;
+        }
+        .check-btn:active { transform: scale(0.97); }
+
+        /* स्कोर कार्ड डिज़ाइन */
         .score-card {
+            display: none; /* शुरुआत में छिपा रहेगा */
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 2px solid var(--royal-gold);
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 3px solid #d4af37;
             margin-bottom: 20px;
+            animation: fadeIn 0.5s ease-in-out;
         }
         .score-circle {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            background: var(--monaco-green);
-            color: var(--royal-gold);
+            background: #013220;
+            color: #d4af37;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 40px;
             font-weight: 700;
             margin: 0 auto 20px auto;
-            border: 5px solid var(--royal-gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 5px solid #d4af37;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.2);
         }
         .badge-text {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--monaco-green);
+            font-size: 20px;
+            font-weight: 700;
+            color: #013220;
             margin-bottom: 10px;
         }
         .info-text {
             color: #555;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        .check-btn {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            border: 2px solid var(--royal-gold);
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .check-btn:hover {
-            background-color: var(--royal-gold);
-            color: var(--monaco-green);
-            border-color: var(--monaco-green);
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 15px;
         }
         .back-btn {
-            display: block;
-            text-align: center;
-            margin-top: 25px;
-            color: var(--monaco-green);
+            display: inline-block;
+            margin-top: 15px;
+            color: #013220;
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -103,34 +128,97 @@
     </div>
 
     <div class="container">
-        <div class="score-card">
+        
+        <div class="search-box" id="searchSection">
+            <h3 style="color: #d4af37; margin-top: 0; font-size: 16px;">अपना लाइव स्कोर जांचें</h3>
+            <input type="tel" id="userPhone" placeholder="अपना 10 अंकों का मोबाइल नंबर डालें" pattern="[0-9]{10}" maxlength="10">
+            <button class="check-btn" onclick="fetchMyScore()">स्कोर खोजें 🔍</button>
+        </div>
+
+        <div class="score-card" id="resultSection">
+            <h3 style="margin-top: 0; color: #013220; font-size: 18px;">डिजिटल सत्यनिष्ठा रिकॉर्ड</h3>
             <div class="score-circle" id="displayScore">0</div>
             <div class="badge-text" id="displayBadge">बैज: इंतज़ार...</div>
-            <p class="info-text">आपका स्कोर हर सफल और ईमानदार लेन-देन के साथ बढ़ता है। धोखाधड़ी करने पर आईडी हमेशा के लिए ब्लॉक हो सकती है।</p>
-            
-            <button class="check-btn" onclick="checkMyScore()">मेरा वर्तमान स्कोर जांचें</button>
+            <p class="info-text">आपका स्कोर हर सफल और ईमानदार लेन-देन के साथ बढ़ता है। KRYA धोखाधड़ी करने वालों की आईडी हमेशा के लिए ब्लॉक कर देता है।</p>
+            <button class="check-btn" onclick="location.reload()" style="background: #013220; color: #fff; margin-top: 10px;">नया नंबर जांचें</button>
         </div>
         
-        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+        <a href="dashboard.html" class="back-btn">🔙 डैशबोर्ड पर वापस जाएँ</a>
     </div>
 
-    <script src="js/modules/imaandari-score.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
     <script>
-        function checkMyScore() {
-            if(window.ImaandariScore) {
-                // अभी टेस्टिंग के लिए हम 240 पॉइंट्स का एक डेमो स्कोर दिखा रहे हैं
-                const result = window.ImaandariScore.calculateScore(240, 'SUCCESSFUL_TRANSACTION');
-                
-                document.getElementById('displayScore').innerText = result.score;
-                document.getElementById('displayBadge').innerText = "बैज: " + result.badge;
-                
-                // अगर गोल्ड बैज है तो रंग बदलें
-                if(result.badge.includes("सोना")) {
-                    document.getElementById('displayBadge').style.color = "#D4AF37"; // Gold color
-                }
-            } else {
-                alert("इंजन अभी लोड हो रहा है...");
+        // KRYA Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
+            authDomain: "krya-global.firebaseapp.com",
+            projectId: "krya-global",
+            storageBucket: "krya-global.firebasestorage.app",
+            messagingSenderId: "372340448782",
+            appId: "1:372340448782:web:8e26d6d1169a3b8af8665f"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        function fetchMyScore() {
+            const phone = document.getElementById('userPhone').value;
+            
+            if(phone.length !== 10) {
+                alert("कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।");
+                return;
             }
+
+            const searchBtn = document.querySelector('.check-btn');
+            searchBtn.innerText = "खोजा जा रहा है...";
+            searchBtn.disabled = true;
+
+            // Firebase में नंबर खोजना
+            db.collection("imaandari_scores").where("u_phone", "==", phone).get()
+            .then((querySnapshot) => {
+                let currentScore = 100; // नया यूज़र होने पर वेलकम 100 पॉइंट
+                let badge = "🌱 ब्रॉन्ज़ (नया सदस्य)";
+                let badgeColor = "#cd7f32"; 
+
+                if (!querySnapshot.empty) {
+                    // अगर पुराना यूज़र मिला तो उसका असली स्कोर निकालो
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+                        currentScore = data.finalScore || 100;
+                    });
+                } else {
+                    // नया यूज़र है तो तिजोरी में 100 पॉइंट के साथ एंट्री बना दो
+                    db.collection("imaandari_scores").add({
+                        brandName: "KRYA",
+                        u_phone: phone,
+                        finalScore: currentScore,
+                        joinedAt: new Date()
+                    });
+                }
+
+                // बैज तय करना
+                if(currentScore >= 500) { badge = "💎 डायमंड (सर्वश्रेष्ठ)"; badgeColor = "#b9f2ff"; }
+                else if(currentScore >= 300) { badge = "🏅 गोल्ड (उत्तम)"; badgeColor = "#D4AF37"; }
+                else if(currentScore >= 150) { badge = "🥈 सिल्वर (प्रगतिशील)"; badgeColor = "#C0C0C0"; }
+
+                // स्क्रीन पर जादू दिखाना
+                document.getElementById('searchSection').style.display = 'none';
+                document.getElementById('displayScore').innerText = currentScore;
+                
+                const badgeElement = document.getElementById('displayBadge');
+                badgeElement.innerText = "बैज: " + badge;
+                badgeElement.style.color = badgeColor;
+
+                document.getElementById('resultSection').style.display = 'block';
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+                alert("स्कोर खोजने में तकनीकी समस्या आई।");
+                searchBtn.innerText = "स्कोर खोजें 🔍";
+                searchBtn.disabled = false;
+            });
         }
     </script>
 </body>
