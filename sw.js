@@ -1,30 +1,31 @@
-/* KRYA GLOBAL - Service Worker for Offline-First Power v1.0 */
-// यह फाइल इंटरनेट न होने पर भी KRYA को ऐप की तरह चलाएगी
-
-const CACHE_NAME = 'krya-cache-v1';
-const ASSETS = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/main.js',
-  '/js/auth.js'
+const CACHE_NAME = 'krya-global-v1';
+const urlsToCache = [
+  './dashboard.html',
+  './vyapar-rath.html',
+  './nano-mart.html',
+  './nyay-rakshak.html',
+  './jan-sabha.html',
+  './imaandari-score.html'
 ];
 
-// इंस्टॉल करना और फाइलों को सेव (Cache) करना
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('KRYA Service Worker: Caching Files');
-      return cache.addAll(ASSETS);
-    })
+// इंस्टॉल इवेंट: जब ऐप पहली बार लोड होता है
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        console.log('KRYA इंजन: फाइलें सुरक्षित की जा रही हैं');
+        return cache.addAll(urlsToCache);
+      })
   );
 });
 
-// बिना इंटरनेट के सेव की गई फाइलें दिखाना
-self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((response) => {
-      return response || fetch(e.request);
-    })
+// फ़ेच (Fetch) इवेंट: यह ऐप को इंस्टॉल करने की अनुमति देने के लिए ज़रूरी है
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        // अगर फाइल कैशे में है तो वहाँ से दें, नहीं तो इंटरनेट से लाएं
+        return response || fetch(event.request);
+      })
   );
 });
