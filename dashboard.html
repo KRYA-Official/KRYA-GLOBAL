@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KRYA GLOBAL डैशबोर्ड - 15 डिजिटल अजूबे</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
     
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
     
     <style>
@@ -18,7 +17,7 @@
             padding-bottom: 40px;
         }
 
-        /* बैनर का ऊपर से नीचे आने वाला जादुई एनीमेशन */
+        /* बैनर का जादुई एनीमेशन */
         @keyframes kryaSlideDown {
             from { transform: translateY(-100%); }
             to { transform: translateY(0); }
@@ -26,11 +25,11 @@
 
         /* शानदार हेडर */
         .dashboard-header {
-            background-color: var(--monaco-green, #013220);
-            color: var(--royal-gold, #d4af37);
+            background-color: #013220; /* Monaco Green */
+            color: #d4af37; /* Royal Gold */
             padding: 20px 15px;
             text-align: center;
-            border-bottom: 4px solid var(--royal-gold, #d4af37);
+            border-bottom: 4px solid #d4af37;
             border-radius: 0 0 20px 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             position: sticky;
@@ -40,17 +39,55 @@
         .dashboard-header h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 1px;}
         .dashboard-header p { margin: 5px 0 0; font-size: 12px; color: #fff; font-weight: 300;}
         
+        /* मार्गदर्शक बटन */
+        .tour-btn {
+            display: block;
+            margin: 20px auto 10px auto;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #d4af37, #b5952f);
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        /* कैटेगरी टाइटल */
+        .category-title {
+            text-align: center;
+            color: #013220;
+            font-size: 16px;
+            font-weight: 700;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        .category-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #d4af37;
+            margin: 5px auto 0 auto;
+            border-radius: 2px;
+        }
+
         /* बटनों का जादुई ग्रिड (3 की लाइन) */
         .wonders-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            padding: 20px 15px;
-            max-width: 600px;
+            padding: 10px 15px;
+            max-width: 500px;
             margin: 0 auto;
         }
         
-        /* 3D प्रीमियम बटन (JS फाइल से लोड होंगे) */
+        /* 3D प्रीमियम बटन */
         .wonder-card {
             background: #fff;
             border-radius: 15px;
@@ -58,7 +95,7 @@
             text-align: center;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-            border: 1px solid #eaeaea;
+            border: 2px solid transparent;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -70,29 +107,14 @@
         .wonder-card:active {
             transform: scale(0.94);
             box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-            border-color: var(--royal-gold, #d4af37);
+            border-color: #d4af37;
             background: #fdfbf7;
         }
         
-        .wonder-icon { font-size: 30px; margin-bottom: 8px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
-        .wonder-name { font-weight: 600; font-size: 11px; color: #333; line-height: 1.2; }
-        
-        /* मार्गदर्शक बटन */
-        .tour-btn {
-            display: block;
-            margin: 25px auto 10px auto;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, var(--royal-gold, #d4af37), #b5952f);
-            color: #000;
-            border: none;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(212,175,55,0.4);
-            width: 90%;
-            max-width: 400px;
-        }
+        .wonder-icon { font-size: 32px; margin-bottom: 8px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+        .wonder-name { font-weight: 600; font-size: 12px; color: #333; line-height: 1.2; }
+        .badge { background: #d4af37; color: #000; font-size: 9px; padding: 2px 5px; border-radius: 5px; font-weight: 700; margin-bottom: 5px; }
+
     </style>
 </head>
 <body>
@@ -106,39 +128,88 @@
     </div>
 
     <div class="dashboard-header">
-        <h2>KRYA GLOBAL</h2>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1bixMJd4JUYrenIP1acbcd46lNVBY5rfCPPcjUCJjuZErSbl-Wee_0EW1obL3da5L23jC1XZlamC2kazOPj9YyRWd_sY5zebrtxVk53gb048BI1jiuHnc5ZRLKwMvBtAkcmbJHrKcr5OPeKyVcjTtAz8rUk89R7Vkt603kbahMh58ikA9S-bJDdiVdJ4/s600/1000537308.jpg" alt="KRYA Logo" style="height: 40px; border-radius: 8px; border: 2px solid #d4af37; margin-right: 10px;">
+            <h2>KRYA GLOBAL</h2>
+        </div>
         <p>इंसानियत की पहली डिजिटल क्रांति में आपका स्वागत है</p>
     </div>
 
-    <button class="tour-btn" onclick="startKryaTour()">🔊 KRYA मार्गदर्शक चालू करें</button>
+    <button class="tour-btn" onclick="alert('KRYA मार्गदर्शक (ऑडियो सिस्टम) जल्द ही जोड़ा जाएगा।')">🔊 KRYA मार्गदर्शक चालू करें</button>
 
-    <div id="wonders-container" class="wonders-grid">
+    <h3 class="category-title">कमाई और व्यापार</h3>
+    <div class="wonders-grid">
+        <a href="vyapar-rath.html" class="wonder-card">
+            <span class="badge">लाइव</span>
+            <div class="wonder-icon">🚚</div>
+            <div class="wonder-name">व्यापार-रथ</div>
+        </a>
+        <a href="nano-mart.html" class="wonder-card">
+            <span class="badge">लाइव</span>
+            <div class="wonder-icon">🏪</div>
+            <div class="wonder-name">नैनो-मार्ट</div>
+        </a>
+        <a href="nyay-rakshak.html" class="wonder-card">
+            <span class="badge">लाइव</span>
+            <div class="wonder-icon">⚖️</div>
+            <div class="wonder-name">न्याय-रक्षक</div>
+        </a>
     </div>
 
-    <script src="js/dashboard.js"></script>
+    <h3 class="category-title">समाज और पंचायत</h3>
+    <div class="wonders-grid">
+        <a href="jan-sabha.html" class="wonder-card">
+            <span class="badge">लाइव</span>
+            <div class="wonder-icon">👥</div>
+            <div class="wonder-name">जन-सभा</div>
+        </a>
+        <a href="imaandari-score.html" class="wonder-card">
+            <span class="badge">लाइव</span>
+            <div class="wonder-icon">⭐</div>
+            <div class="wonder-name">ईमानदारी स्कोर</div>
+        </a>
+        <a href="javascript:alert('रक्षक-बटन जल्द आ रहा है')" class="wonder-card">
+            <div class="wonder-icon" style="filter: grayscale(100%);">🚨</div>
+            <div class="wonder-name" style="color: #999;">रक्षक-बटन</div>
+        </a>
+    </div>
+
+    <h3 class="category-title">शिक्षा और स्वास्थ्य</h3>
+    <div class="wonders-grid">
+        <a href="javascript:alert('गुरु-कुल जल्द आ रहा है')" class="wonder-card">
+            <div class="wonder-icon" style="filter: grayscale(100%);">📚</div>
+            <div class="wonder-name" style="color: #999;">गुरु-कुल</div>
+        </a>
+        <a href="javascript:alert('आरोग्य-मित्र जल्द आ रहा है')" class="wonder-card">
+            <div class="wonder-icon" style="filter: grayscale(100%);">🏥</div>
+            <div class="wonder-name" style="color: #999;">आरोग्य-मित्र</div>
+        </a>
+        <a href="javascript:alert('अमृत-जल जल्द आ रहा है')" class="wonder-card">
+            <div class="wonder-icon" style="filter: grayscale(100%);">💧</div>
+            <div class="wonder-name" style="color: #999;">अमृत-जल</div>
+        </a>
+    </div>
+
+    <footer style="text-align: center; padding: 30px; font-size: 12px; color: #666; margin-top: 20px;">
+        <p>&copy; 2026 KRYA GLOBAL.<br>100% लीगल एवं पारदर्शी डिजिटल प्रणाली।</p>
+    </footer>
 
     <script>
-        // 1. सर्विस वर्कर चालू करना
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js')
-                .then(() => console.log('KRYA PWA: डैशबोर्ड सर्विस वर्कर एक्टिव है'))
-                .catch(err => console.log('सर्विस वर्कर एरर:', err));
+                .then(() => console.log('KRYA PWA Active'))
+                .catch(err => console.log('SW Error:', err));
         }
 
-        // 2. ऊपर से नीचे आने वाले बैनर का लॉजिक
         let deferredPrompt;
         const topBanner = document.getElementById('krya-top-banner');
         const topInstallBtn = document.getElementById('krya-top-install-btn');
         const topCloseBtn = document.getElementById('krya-top-close-btn');
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // डिफ़ॉल्ट सिस्टम पॉप-अप को रोकें
             e.preventDefault();
             deferredPrompt = e;
-            // हमारा कस्टमाइज़्ड ऊपर से नीचे आने वाला बैनर दिखाएं
-            if(topBanner) {
-                topBanner.style.display = 'block';
-            }
+            if(topBanner) { topBanner.style.display = 'block'; }
         });
 
         if(topInstallBtn) {
@@ -147,7 +218,7 @@
                     deferredPrompt.prompt();
                     deferredPrompt.userChoice.then((choiceResult) => {
                         if (choiceResult.outcome === 'accepted') {
-                            console.log('यूज़र ने डैशबोर्ड से KRYA ऐप इंस्टॉल कर लिया');
+                            console.log('App Installed');
                         }
                         if(topBanner) topBanner.style.display = 'none';
                         deferredPrompt = null;
