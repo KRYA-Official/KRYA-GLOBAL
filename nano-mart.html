@@ -2,158 +2,254 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KRYA नैनो-मार्ट</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KRYA नैनो-मार्ट: स्थानीय डिजिटल बाज़ार</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
     <style>
-        :root {
-            --monaco-green: #0E3B20;
-            --royal-gold: #D4AF37;
-        }
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f7f6;
+            background-color: #f4f6f9;
             margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
         }
-        .header {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            padding: 25px 20px;
+        /* प्रीमियम ऐप हेडर */
+        .mart-header {
+            background: #013220; /* Monaco Green */
+            color: #d4af37; /* KRYA Gold */
+            padding: 20px 15px;
             text-align: center;
-            border-bottom: 4px solid var(--royal-gold);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 4px solid #d4af37;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .header h2 { margin: 0; font-size: 24px; }
-        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
         
-        .container {
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-box {
+        /* सूचना बॉक्स */
+        .info-box {
             background: white;
-            padding: 25px;
+            padding: 15px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--royal-gold);
+            border-left: 5px solid #d4af37;
+            margin: 20px auto;
+            max-width: 450px;
+            color: #333;
+            font-size: 13px;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+
+        /* 3D डिजिटल फॉर्म कंटेनर */
+        .form-box {
+            background: #013220;
+            color: #fff;
+            max-width: 450px;
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-sizing: border-box;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
-        label {
+        .form-group label {
             display: block;
-            font-weight: 600;
             margin-bottom: 8px;
-            color: var(--monaco-green);
             font-size: 14px;
+            font-weight: 500;
+            color: #d4af37;
         }
-        input, select {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
             border-radius: 8px;
+            border: 1px solid #d4af37;
             box-sizing: border-box;
-            font-family: inherit;
+            background: #fff;
+            color: #000;
             font-size: 15px;
-        }
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--royal-gold);
+            font-family: inherit;
         }
         .submit-btn {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            border: 2px solid var(--royal-gold);
-            padding: 15px;
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            padding: 14px;
             width: 100%;
             font-size: 16px;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
             margin-top: 10px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+            transition: all 0.2s;
         }
-        .submit-btn:hover {
-            background-color: var(--royal-gold);
-            color: var(--monaco-green);
-            border-color: var(--monaco-green);
+        .submit-btn:active {
+            transform: scale(0.98);
         }
         .back-btn {
             display: block;
             text-align: center;
-            margin-top: 25px;
-            color: var(--monaco-green);
+            margin-top: 20px;
+            color: #013220;
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
+        }
+        @keyframes kryaFadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-        <div class="header">
-            <h2>🏪 KRYA नैनो-मार्ट</h2>
-            <p>छोटे दुकानदारों और स्थानीय व्यापार का डिजिटल बाज़ार</p>
+    <header class="mart-header">
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1bixMJd4JUYrenIP1acbcd46lNVBY5rfCPPcjUCJjuZErSbl-Wee_0EW1obL3da5L23jC1XZlamC2kazOPj9YyRWd_sY5zebrtxVk53gb048BI1jiuHnc5ZRLKwMvBtAkcmbJHrKcr5OPeKyVcjTtAz8rUk89R7Vkt603kbahMh58ikA9S-bJDdiVdJ4/s600/1000537308.jpg" alt="KRYA Logo" style="height: 45px; border-radius: 8px; border: 2px solid #d4af37; margin-right: 12px;">
+            <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 1px;">KRYA नैनो-मार्ट</h1>
         </div>
+        <p style="margin: 5px 0 0 0; font-size: 12px; color: #fff; font-weight: 300;">छोटे दुकानदारों और स्थानीय व्यापार का डिजिटल बाज़ार</p>
+    </header>
 
-        <div class="container">
-            <div class="form-box">
-                <div class="form-group">
-                    <label>उत्पाद / सामान का नाम (Product Name)</label>
-                    <input type="text" id="prodName" placeholder="जैसे: ताज़ी सब्जियां, हाथ से बने पापड़, किराना सामान...">
-                </div>
-                <div class="form-group">
-                    <label>कैटेगरी (Category)</label>
-                    <select id="prodCategory">
-                        <option value="किराना">किराना एवं घरेलू सामान</option>
-                        <option value="सब्जी-फल">ताज़े फल एवं सब्जियां</option>
-                        <option value="डेयरी">दूध और डेयरी उत्पाद</option>
-                        <option value="हस्तशिल्प">हस्तशिल्प एवं कुटीर उद्योग</option>
-                        <option value="अन्य">अन्य उत्पाद</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>कीमत (Price - ₹)</label>
-                    <input type="number" id="prodPrice" placeholder="सामान का दाम लिखें">
-                </div>
-                <div class="form-group">
-                    <label>दुकान / विक्रेता का नाम (Shop / Seller Name)</label>
-                    <input type="text" id="sellerName" placeholder="अपनी दुकान या अपना नाम लिखें">
-                </div>
-                <div class="form-group">
-                    <label>स्थान / पता (Location)</label>
-                    <input type="text" id="prodLoc" placeholder="गाँव, मोहल्ला या ज़िले का नाम">
-                </div>
+    <div style="max-width: 450px; margin: 15px auto; padding: 0 10px;">
+        <a href="dashboard.html" class="back-btn">🔙 ऐप डैशबोर्ड पर वापस जाएं</a>
+    </div>
 
-                <button class="submit-btn" onclick="submitProduct()">उत्पाद लिस्ट करें</button>
+    <div class="info-box">
+        <b>🏪 स्थानीय आत्मनिर्भरता:</b> बांका और आस-पास के हमारे छोटे दुकानदार भाई अपने उत्पादों को यहाँ बिल्कुल मुफ्त लिस्ट कर सकते हैं, ताकि स्थानीय ग्राहक सीधे उनसे संपर्क करके सामान खरीद सकें।
+    </div>
+
+    <div class="form-box">
+        <h3 style="text-align: center; color: #d4af37; margin-top: 0; margin-bottom: 20px; font-size: 18px;">🛒 उत्पाद लिस्टिंग फॉर्म</h3>
+        
+        <form id="nanomart-product-form">
+            <div class="form-group">
+                <label>उत्पाद / सामान का नाम (Product Name)</label>
+                <input type="text" id="prodName" required placeholder="जैसे: ताज़ी सब्जियां, हाथ से बने पापड़, किराना सामान...">
+            </div>
+            <div class="form-group">
+                <label>कैटेगरी (Category)</label>
+                <select id="prodCategory">
+                    <option value="किराना">किराना एवं घरेलू सामान</option>
+                    <option value="सब्जी-फल">ताज़े फल एवं सब्जियां</option>
+                    <option value="डेयरी">दूध और डेयरी उत्पाद</option>
+                    <option value="हस्तशिल्प">हस्तशिल्प एवं कुटीर उद्योग</option>
+                    <option value="अन्य">अन्य उत्पाद</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>कीमत (Price - ₹)</label>
+                <input type="number" id="prodPrice" required placeholder="सामान का दाम लिखें">
+            </div>
+            <div class="form-group">
+                <label>दुकान / विक्रेता का नाम (Shop / Seller Name)</label>
+                <input type="text" id="sellerName" required placeholder="अपनी दुकान या अपना नाम लिखें">
             </div>
 
-            <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+            <div class="form-group">
+                <label>विक्रेता का मोबाइल नंबर (10 अंक)</label>
+                <input type="tel" id="sellerPhone" required pattern="[0-9]{10}" placeholder="91XXXXXXXX">
+            </div>
+
+            <div class="form-group">
+                <label>स्थान / पता (Location)</label>
+                <input type="text" id="prodLoc" required placeholder="गाँव, मोहल्ला या ज़िले का नाम">
+            </div>
+
+            <p style="font-size: 11px; color: #e0e0e0; line-height: 1.4; text-align: center; font-style: italic; margin-bottom: 15px;">
+                "इंसानियत ही हमारा धर्म है, ईमानदारी ही हमारा कर्म है।"<br>आपका उत्पाद 100% सुरक्षित रूप से मुख्य तिजोरी में सेव होगा।
+            </p>
+
+            <button type="submit" class="submit-btn">🚀 उत्पाद डिजिटल बाज़ार में लाइव करें</button>
+        </form>
+
+        <div id="mart-success" style="display: none; margin-top: 20px; padding: 15px; background: #d4af37; color: #000; text-align: center; border-radius: 8px; font-weight: 600; font-size: 14px; animation: kryaFadeIn 0.5s ease-out; line-height: 1.4;">
+            🎉 KRYA नैनो-मार्ट: आपका उत्पाद सफलतापूर्वक लाइव डिजिटल बाज़ार तिजोरी में लिस्ट हो गया है! ग्राहक जल्द ही आपसे संपर्क करेंगे।
         </div>
+    </div>
 
-        <script>
-            function submitProduct() {
-                const name = document.getElementById('prodName').value;
-                const price = document.getElementById('prodPrice').value;
-                const seller = document.getElementById('sellerName').value;
-                const loc = document.getElementById('prodLoc').value;
+    <footer style="text-align: center; padding: 20px; font-size: 12px; color: #666;">
+        <p>&copy; 2026 KRYA GLOBAL. सर्वाधिकार सुरक्षित। 100% लीगल एवं पारदर्शी स्थानीय डिजिटल बाज़ार प्रणाली।</p>
+    </footer>
 
-                if (!name || !price || !seller || !loc) {
-                    alert("कृपया सभी अनिवार्य जानकारी सही-सही भरें।");
-                    return;
-                }
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-                alert("🏪 KRYA नैनो-मार्ट: आपका उत्पाद सफलतापूर्वक लाइव बाज़ार में लिस्ट हो गया है!");
-                
-                document.getElementById('prodName').value = '';
-                document.getElementById('prodPrice').value = '';
-                document.getElementById('sellerName').value = '';
-                document.getElementById('prodLoc').value = '';
+    <script>
+      // आपका सुरक्षित पुराना कॉन्फ़िगरेशन
+      const firebaseConfig = {
+        apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
+        authDomain: "krya-global.firebaseapp.com",
+        projectId: "krya-global",
+        storageBucket: "krya-global.firebasestorage.app",
+        messagingSenderId: "372340448782",
+        appId: "1:372340448782:web:8e26d6d1169a3b8af8665f"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      // लोकेशन ट्रैकिंग
+      let userLocation = { city: "Unknown", region: "Unknown", country: "Unknown" };
+      fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+          userLocation = { city: data.city || "Unknown", region: data.region || "Unknown", country: data.country_name || "Unknown" };
+        })
+        .catch(err => console.log("लोकेशन एरर"));
+
+      // उत्पाद फॉर्म सबमिशन लॉजिक
+      const martForm = document.getElementById('nanomart-product-form');
+      const successBox = document.getElementById('mart-success');
+
+      if(martForm) {
+        martForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const pName = document.getElementById('prodName').value;
+          const pCategory = document.getElementById('prodCategory').value;
+          const pPrice = document.getElementById('prodPrice').value;
+          const sName = document.getElementById('sellerName').value;
+          const sPhone = document.getElementById('sellerPhone').value;
+          const pLoc = document.getElementById('prodLoc').value;
+          const deviceInformation = navigator.userAgent;
+
+          // सीधा Firebase की "nano_mart_products" तिजोरी में सुरक्षित सेव
+          db.collection("nano_mart_products").add({
+            brandName: "KRYA",
+            u_product_name: pName,
+            u_category: pCategory,
+            u_price: Number(pPrice),
+            u_seller_name: sName,
+            u_seller_phone: sPhone,
+            u_location: pLoc,
+            u_city: userLocation.city,
+            u_region: userLocation.region,
+            u_country: userLocation.country,
+            u_device: deviceInformation,
+            submittedAt: new Date()
+          })
+          .then(() => {
+            if(successBox) {
+                successBox.style.display = 'block';
+                setTimeout(() => { successBox.style.display = 'none'; }, 8000);
             }
-        </script>
+            martForm.reset();
+          })
+          .catch((error) => {
+            console.error("सेव एरर: ", error);
+            alert("उत्पाद सुरक्षित लिस्ट नहीं हो सका। कृपया दोबारा प्रयास करें।");
+          });
+        });
+      }
+    </script>
 </body>
-                      </html>
-                      
+</html>
