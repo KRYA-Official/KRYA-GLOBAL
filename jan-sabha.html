@@ -2,155 +2,246 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KRYA जन-सभा</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KRYA जन-सभा: पारदर्शी डिजिटल पंचायत</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --monaco-green: #0E3B20;
-            --royal-gold: #D4AF37;
-        }
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f7f6;
+            background-color: #f4f6f9;
             margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
         }
-        .header {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            padding: 25px 20px;
+        /* प्रीमियम हेडर */
+        .sabha-header {
+            background: #013220; /* Monaco Green */
+            color: #d4af37; /* KRYA Gold */
+            padding: 20px 15px;
             text-align: center;
-            border-bottom: 4px solid var(--royal-gold);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 4px solid #d4af37;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .header h2 { margin: 0; font-size: 24px; }
-        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
         
-        .container {
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-box {
+        /* विज़न बॉक्स */
+        .vision-box {
             background: white;
-            padding: 25px;
+            padding: 15px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--royal-gold);
+            border-left: 5px solid #d4af37;
+            margin: 20px auto;
+            max-width: 450px;
+            color: #333;
+            font-size: 13px;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+
+        /* 3D फॉर्म कंटेनर */
+        .form-box {
+            background: #013220;
+            color: #fff;
+            max-width: 450px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-sizing: border-box;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
-        label {
+        .form-group label {
             display: block;
-            font-weight: 600;
             margin-bottom: 8px;
-            color: var(--monaco-green);
             font-size: 14px;
+            font-weight: 500;
+            color: #d4af37;
         }
-        input, textarea, select {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
             border-radius: 8px;
+            border: 1px solid #d4af37;
             box-sizing: border-box;
-            font-family: inherit;
+            background: #fff;
+            color: #000;
             font-size: 15px;
+            font-family: inherit;
         }
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--royal-gold);
-        }
-        textarea {
+        .form-group textarea {
             resize: vertical;
             min-height: 100px;
         }
         .submit-btn {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            border: 2px solid var(--royal-gold);
-            padding: 15px;
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            padding: 14px;
             width: 100%;
             font-size: 16px;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
             margin-top: 10px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+            transition: all 0.2s;
         }
-        .submit-btn:hover {
-            background-color: var(--royal-gold);
-            color: var(--monaco-green);
-            border-color: var(--monaco-green);
+        .submit-btn:active {
+            transform: scale(0.98);
         }
         .back-btn {
             display: block;
             text-align: center;
-            margin-top: 25px;
-            color: var(--monaco-green);
+            margin-top: 20px;
+            color: #013220;
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
+        }
+        @keyframes kryaFadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h2>👥 KRYA जन-सभा</h2>
-        <p>आपकी समस्या, आपकी राय - पारदर्शी डिजिटल पंचायत</p>
+    <header class="sabha-header">
+        <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 1px;">👥 KRYA जन-सभा</h1>
+        <p style="margin: 5px 0 0 0; font-size: 12px; color: #fff; font-weight: 300;">आपकी आवाज़, आपकी पंचायत</p>
+    </header>
+
+    <div style="max-width: 450px; margin: 15px auto; padding: 0 10px;">
+        <a href="dashboard.html" class="back-btn">🔙 ऐप डैशबोर्ड पर वापस जाएं</a>
     </div>
 
-    <div class="container">
-        <div class="form-box">
+    <div class="vision-box">
+        <b>🏛️ डिजिटल लोकतंत्र:</b> यह मंच बांका और देश के हर नागरिक के लिए है। अपनी समस्या, समाज सुधार का कोई विचार या प्रस्ताव यहाँ रखें। हम मिलकर आवाज़ उठाएंगे। (कृपया भाषा मर्यादित रखें)
+    </div>
+
+    <div class="form-box">
+        <h3 style="text-align: center; color: #d4af37; margin-top: 0; margin-bottom: 20px; font-size: 18px;">✍️ अपना प्रस्ताव रखें</h3>
+        
+        <form id="jansabha-form">
             <div class="form-group">
-                <label>समस्या या प्रस्ताव का विषय (Issue Title)</label>
-                <input type="text" id="issueTitle" placeholder="जैसे: मुख्य सड़क की मरम्मत, स्ट्रीट लाइट की ज़रूरत...">
+                <label>आपका पूरा नाम:</label>
+                <input type="text" id="s-name" required placeholder="अपना सही नाम लिखें">
             </div>
             <div class="form-group">
-                <label>समस्या का प्रकार (Category)</label>
-                <select id="issueCategory">
+                <label>मोबाइल नंबर (10 अंक):</label>
+                <input type="tel" id="s-phone" required pattern="[0-9]{10}" placeholder="91XXXXXXXX (गोपनीय रहेगा)">
+            </div>
+            <div class="form-group">
+                <label>समस्या या प्रस्ताव का विषय:</label>
+                <input type="text" id="issueTitle" required placeholder="जैसे: मुख्य सड़क की मरम्मत...">
+            </div>
+            <div class="form-group">
+                <label>समस्या का प्रकार:</label>
+                <select id="issueCategory" required>
+                    <option value="">-- कृपया विषय चुनें --</option>
                     <option value="सड़क-यातायात">सड़क एवं यातायात</option>
                     <option value="पेयजल-सफाई">पेयजल एवं सफाई</option>
                     <option value="बिजली">बिजली आपूर्ति</option>
                     <option value="कृषि-विकास">कृषि एवं ग्राम विकास</option>
+                    <option value="भ्रष्टाचार-शिकायत">भ्रष्टाचार शिकायत</option>
                     <option value="अन्य">अन्य सामाजिक मुद्दे</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>विस्तृत विवरण (Detailed Description)</label>
-                <textarea id="issueDesc" placeholder="समस्या या विचार को विस्तार से यहाँ लिखें ताकि लोग इस पर विचार कर सकें..."></textarea>
+                <label>विस्तृत विवरण (Detail):</label>
+                <textarea id="issueDesc" required placeholder="समस्या या विचार को विस्तार से यहाँ लिखें..."></textarea>
             </div>
             <div class="form-group">
-                <label>गाँव / वार्ड / क्षेत्र (Location)</label>
-                <input type="text" id="issueLoc" placeholder="अपने क्षेत्र या गाँव का नाम लिखें">
+                <label>गाँव / वार्ड / जिला का नाम:</label>
+                <input type="text" id="issueLoc" required placeholder="अपने क्षेत्र का नाम लिखें">
             </div>
 
-            <button class="submit-btn" onclick="submitIssue()">सभा में प्रस्ताव रखें</button>
-        </div>
+            <p style="font-size: 11px; color: #e0e0e0; line-height: 1.4; text-align: center; margin-bottom: 15px;">
+                आपका प्रस्ताव KRYA की जन-सभा तिजोरी में 100% सुरक्षित रूप से दर्ज किया जाएगा।
+            </p>
 
-        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
+            <button type="submit" class="submit-btn">📣 सभा में प्रस्ताव दर्ज करें</button>
+        </form>
+
+        <div id="sabha-success" style="display: none; margin-top: 20px; padding: 15px; background: #d4af37; color: #000; text-align: center; border-radius: 8px; font-weight: 600; font-size: 14px; animation: kryaFadeIn 0.5s ease-out; line-height: 1.4;">
+            🎉 धन्यवाद! KRYA जन-सभा में आपका प्रस्ताव सफलतापूर्वक दर्ज कर लिया गया है। जल्द ही इस पर सामुदायिक चर्चा शुरू होगी।
+        </div>
     </div>
 
+    <footer style="text-align: center; padding: 20px; font-size: 12px; color: #666;">
+        <p>&copy; 2026 KRYA GLOBAL. सर्वाधिकार सुरक्षित। 100% पारदर्शी डिजिटल पंचायत प्रणाली।</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
     <script>
-        function submitIssue() {
-            const title = document.getElementById('issueTitle').value;
-            const desc = document.getElementById('issueDesc').value;
-            const loc = document.getElementById('issueLoc').value;
+      // KRYA Firebase Config
+      const firebaseConfig = {
+        apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
+        authDomain: "krya-global.firebaseapp.com",
+        projectId: "krya-global",
+        storageBucket: "krya-global.firebasestorage.app",
+        messagingSenderId: "372340448782",
+        appId: "1:372340448782:web:8e26d6d1169a3b8af8665f"
+      };
 
-            if (!title || !desc || !loc) {
-                alert("कृपया सभी अनिवार्य जानकारी सही-सही भरें।");
-                return;
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      let userLocation = { city: "Unknown", region: "Unknown", country: "Unknown" };
+      fetch('https://ipapi.co/json/').then(res => res.json()).then(data => {
+          userLocation = { city: data.city || "Unknown", region: data.region || "Unknown", country: data.country_name || "Unknown" };
+      }).catch(err => console.log("Location Error"));
+
+      const sabhaForm = document.getElementById('jansabha-form');
+      const successBox = document.getElementById('sabha-success');
+
+      if(sabhaForm) {
+        sabhaForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const nameVal = document.getElementById('s-name').value;
+          const phoneVal = document.getElementById('s-phone').value;
+          const titleVal = document.getElementById('issueTitle').value;
+          const categoryVal = document.getElementById('issueCategory').value;
+          const descVal = document.getElementById('issueDesc').value;
+          const locVal = document.getElementById('issueLoc').value;
+          const deviceInformation = navigator.userAgent;
+
+          // जन-सभा की तिजोरी (Firebase) में सेव करना
+          db.collection("jan_sabha_posts").add({
+            brandName: "KRYA",
+            u_name: nameVal,
+            u_phone: phoneVal,
+            issue_title: titleVal,
+            issue_category: categoryVal,
+            issue_desc: descVal,
+            issue_location: locVal,
+            u_city: userLocation.city,
+            u_region: userLocation.region,
+            u_country: userLocation.country,
+            u_device: deviceInformation,
+            status: "Pending Review",
+            submittedAt: new Date()
+          }).then(() => {
+            if(successBox) {
+                successBox.style.display = 'block';
+                setTimeout(() => { successBox.style.display = 'none'; }, 8000);
             }
-
-            alert("👥 KRYA जन-सभा: आपका प्रस्ताव डिजिटल पंचायत में दर्ज कर लिया गया है। जल्द ही इस पर सामुदायिक मतदान और चर्चा शुरू होगी!");
-            
-            document.getElementById('issueTitle').value = '';
-            document.getElementById('issueDesc').value = '';
-            document.getElementById('issueLoc').value = '';
-        }
+            sabhaForm.reset();
+          }).catch((error) => {
+            alert("प्रस्ताव सुरक्षित सेव नहीं हो सका। कृपया दोबारा प्रयास करें।");
+          });
+        });
+      }
     </script>
 </body>
 </html>
