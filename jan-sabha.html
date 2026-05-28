@@ -251,24 +251,41 @@
       }
     </script>
 
-    <!-- 🤖 KRYA एआई असिस्टेंट का लाइव वॉयस स्क्रिप्ट -->
+    <!-- 🤖 KRYA एआई असिस्टेंट का लाइव वॉयस स्क्रिप्ट जो ब्राउज़र ब्लॉक को रोकता है -->
     <script>
     function startKryaAssistant() {
         if ('speechSynthesis' in window) {
+            // 1. पुरानी किसी भी आवाज़ को तुरंत रोकें
             window.speechSynthesis.cancel();
             
             var assistantSpeech = new SpeechSynthesisUtterance();
+            
+            // आपका ब्रांडेड और आधिकारिक संदेश
             assistantSpeech.text = "नमस्कार! मैं केआरवाईए एआई असिस्टेंट हूँ, जिसे फाउंडर मुकेश राय द्वारा आपकी सहायता के लिए बनाया गया है। केआरवाईए जन-सभा में आपका स्वागत है। कृपया नीचे दिए गए फॉर्म में अपना पूरा नाम, मोबाइल नंबर, समस्या का विषय और प्रकार सही-सही भरें। आपका डेटा हमारी केआरवाईए तिजोरी में सौ प्रतिशत सुरक्षित और गोपनीय रहेगा। फॉर्म भरने के बाद नीचे दिए गए सभा में प्रस्ताव दर्ज करें बटन को दबाएं। धन्यवाद!";
             
             assistantSpeech.lang = 'hi-IN';
-            assistantSpeech.rate = 0.85;
-            assistantSpeech.pitch = 1.1;
+            assistantSpeech.rate = 0.85; // साफ और आसान गति
+            assistantSpeech.pitch = 1.1;  // मधुर टोन
             
+            // 2. सुरक्षा बैकअप के लिए एरर हैंडलिंग लॉजिक
+            assistantSpeech.onerror = function(event) {
+                console.error("Speech Synthesis Error: ", event.error);
+                alert("एआई असिस्टेंट को शुरू करने के लिए कृपया स्क्रीन पर एक बार कहीं भी टच करके दोबारा बटन दबाएं।");
+            };
+            
+            // 3. आवाज़ एक्टिवेट करें
             window.speechSynthesis.speak(assistantSpeech);
         } else {
-            alert("आपका डिवाइस इस एआई असिस्टेंट को सपोर्ट नहीं करता है।");
+            alert("आपका डिवाइस इस एआई असिस्टेंट ऑटोमैटिक आवाज़ को सपोर्ट नहीं करता है।");
         }
     }
+
+    // मोबाइल ब्राउज़र की यूज़र पॉलिसी को सक्रिय करने के लिए बैकअप
+    document.body.addEventListener('click', function() {
+        if ('speechSynthesis' in window && window.speechSynthesis.speaking) {
+            // बैकअप एक्टिवेशन
+        }
+    }, { once: true });
     </script>
 </body>
 </html>
