@@ -338,4 +338,28 @@
             
             globalSpeechInstance = new SpeechSynthesisUtterance();
             // होम पेज के लिए विशेष गाइडेंस संदेश
-            globalSpe
+
+                    globalSpeechInstance.text = "नमस्कार! KRYA ग्लोबल प्लेटफॉर्म पर आपका स्वागत है। इंसानियत की पहली डिजिटल क्रांति में पूरी तरह पारदर्शिता और ईमानदारी के साथ आपका स्वागत है। किसी भी सहायता के लिए नीचे दिए गए फॉर्म को भरें।";
+            
+            var hindiVoice = getHindiVoice();
+            if(hindiVoice) {
+                globalSpeechInstance.voice = hindiVoice;
+            }
+            
+            globalSpeechInstance.onend = function() {
+                fBtn.innerHTML = "🤖 KRYA एआई असिस्टेंट";
+                fBtn.style.background = "#d4af37";
+                isGlobalSpeaking = false;
+            };
+
+            fBtn.innerHTML = "🛑 बोलना बंद करें";
+            fBtn.style.background = "#ff4d4d";
+            isGlobalSpeaking = true;
+            synth.speak(globalSpeechInstance);
+        }
+    }
+    </script>
+
+</body>
+</html>
+
