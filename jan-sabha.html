@@ -126,10 +126,9 @@
         <b>🏛️ डिजिटल लोकतंत्र:</b> यह मंच बांका और देश के हर नागरिक के लिए है। अपनी समस्या, समाज सुधार का कोई विचार या प्रस्ताव यहाँ रखें। हम मिलकर आवाज़ उठाएंगे। (कृपया भाषा मर्यादित रखें)
     </div>
 
-    <!-- 🤖 KRYA एआई असिस्टेंट बटन -->
     <div style="max-width: 450px; margin: 10px auto; padding: 0 10px; box-sizing: border-box;">
-        <button type="button" id="assistant-trigger" onclick="startKryaAssistant()" style="background: #d4af37; color: #000; border: 2px solid #fff; padding: 12px; width: 100%; font-size: 14px; font-weight: 700; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 8px;">
-            🤖 KRYA एआई असिस्टेंट से गाइड सुनें
+        <button type="button" id="krya-audio-btn" style="background: #d4af37; color: #000; border: 2px solid #fff; padding: 14px; width: 100%; font-size: 15px; font-weight: 700; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 8px;">
+            🤖 KRYA एआई असिस्टेंट एक्टिवेट करें
         </button>
     </div>
 
@@ -156,7 +155,7 @@
                     <option value="सड़क-यातायात">सड़क एवं यातायात</option>
                     <option value="पेयजल-सफाई">पेयजल एवं सफाई</option>
                     <option value="बिजली">बिजली आपूर्ति</option>
-                    <option value="कृषि-विकास">कृषि एवं ग्राम विकास</option> <!-- 'gram' को 'ग्राम' कर दिया गया है -->
+                    <option value="कृषि-विकास">कृषि एवं ग्राम विकास</option>
                     <option value="भ्रष्टाचार-शिकायत">भ्रष्टाचार शिकायत</option>
                     <option value="अन्य">अन्य सामाजिक मुद्दे</option>
                 </select>
@@ -251,56 +250,81 @@
       }
     </script>
 
-    <!-- 🤖 KRYA एआई असिस्टेंट का सुपर-फास्ट और अचूक वॉयस स्क्रिप्ट -->
     <script>
-    var synth = window.speechSynthesis;
-    var assistantSpeech = null;
+    var audioButton = document.getElementById('krya-audio-btn');
+    var isSpeaking = false;
+    var speechInstance = null;
 
-    function startKryaAssistant() {
-        if ('speechSynthesis' in window) {
-            synth.cancel(); // पुरानी आवाज़ तुरंत बंद करें
+    // ब्राउज़र की वॉयस लिस्ट लोड करने का फंक्शन
+    function getHindiVoice() {
+        var voices = window.speechSynthesis.getVoices();
+        for (var i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'hi-IN' || voices[i].lang.includes('hi')) {
+                return voices[i];
+            }
+        }
+        return null;
+    }
+
+    function toggleKryaSpeech() {
+        if (!('speechSynthesis' in window)) {
+            alert("क्षमा करें, आपका फोन लाइव वॉयस को सपोर्ट नहीं करता।");
+            return;
+        }
+
+        if (isSpeaking) {
+            // अगर पहले से बोल रहा है, तो बंद करें
+            window.speechSynthesis.cancel();
+            audioButton.innerHTML = "🤖 KRYA एआई असिस्टेंट सुनें";
+            audioButton.style.background = "#d4af37";
+            isSpeaking = false;
+        } else {
+            // नए सिरे से बोलना शुरू करें
+            window.speechSynthesis.cancel();
             
-            assistantSpeech = new SpeechSynthesisUtterance();
-            assistantSpeech.text = "नमस्कार! मैं केआरवाईए एआई असिस्टेंट हूँ, जिसे फाउंडर मुकेश राय द्वारा आपकी सहायता के लिए बनाया गया है। केआरवाईए जन-सभा में आपका स्वागत है। कृपया नीचे दिए गए फॉर्म में अपना पूरा नाम, मोबाइल नंबर, समस्या का विषय और प्रकार सही-सही भरें। आपका डेटा हमारी केआरवाईए तिजोरी में सौ प्रतिशत सुरक्षित और गोपनीय रहेगा। फॉर्म भरने के बाद नीचे दिए गए सभा में प्रस्ताव दर्ज करें बटन को दबाएं। धन्यवाद!";
+            speechInstance = new SpeechSynthesisUtterance();
+            speechInstance.text = "नमस्कार! मैं केआरवाईए एआई असिस्टेंट हूँ, जिसे फाउंडर मुकेश राय द्वारा आपकी सहायता के लिए बनाया गया है। केआरवाईए जन-सभा में आपका स्वागत है। कृपया नीचे दिए गए फॉर्म में अपना पूरा नाम, मोबाइल नंबर, समस्या का विषय और प्रकार सही-सही भरें। आपका डेटा हमारी केआरवाईए तिजोरी में सौ प्रतिशत सुरक्षित और गोपनीय रहेगा। फॉर्म भरने के बाद नीचे दिए गए सभा में प्रस्ताव दर्ज करें बटन को दबाएं। धन्यवाद!";
             
-            assistantSpeech.lang = 'hi-IN';
-            assistantSpeech.rate = 0.85; 
-            assistantSpeech.pitch = 1.1;  
-            
-            // मोबाइल क्रोम के लिए सही हिंदी आवाज़ को तुरंत फोर्स लोड करना
-            var voices = synth.getVoices();
-            var hindiVoiceFound = false;
-            for (var i = 0; i < voices.length; i++) {
-                if (voices[i].lang === 'hi-IN' || voices[i].lang.includes('hi')) {
-                    assistantSpeech.voice = voices[i];
-                    hindiVoiceFound = true;
-                    break;
-                }
+            speechInstance.lang = 'hi-IN';
+            speechInstance.rate = 0.85; // नेचुरल और साफ स्पीड
+            speechInstance.pitch = 1.1;
+
+            var chosenVoice = getHindiVoice();
+            if (chosenVoice) {
+                speechInstance.voice = chosenVoice;
             }
 
-            assistantSpeech.onerror = function(event) {
-                console.error("Speech Error:", event.error);
+            // जब आवाज़ ख़त्म हो जाए
+            speechInstance.onend = function() {
+                audioButton.innerHTML = "🤖 KRYA एआई असिस्टेंट सुनें";
+                audioButton.style.background = "#d4af37";
+                isSpeaking = false;
             };
 
-            synth.speak(assistantSpeech);
-        } else {
-            alert("आपका डिवाइस इस एआई असिस्टेंट ऑटोमैटिक आवाज़ को सपोर्ट नहीं करता है।");
+            // अगर कोई एरर आए
+            speechInstance.onerror = function(e) {
+                console.error("Speech Error:", e);
+                isSpeaking = false;
+            };
+
+            audioButton.innerHTML = "🛑 गाइड बंद करें (Stop)";
+            audioButton.style.background = "#ff4d4d"; // बटन का रंग लाल हो जाएगा रोकने के लिए
+            isSpeaking = true;
+            
+            window.speechSynthesis.speak(speechInstance);
         }
     }
 
-    // गिटहब और क्रोम ब्राउज़र के लिए वॉयस लिस्ट को ऑटो-लोड पर डालना
-    if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = function() {
-            synth.getVoices();
-        };
-    }
+    // बटन के क्लिक पर सीधा एक्शन बाइंडिंग
+    audioButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleKryaSpeech();
+    });
 
-    // यूज़र के पहले स्क्रीन टच पर ही लॉक तोड़ना
-    document.addEventListener('click', function() {
-        var silentUtterance = new SpeechSynthesisUtterance('');
-        synth.speak(silentUtterance);
-    }, { once: true });
+    // ब्राउज़र की मेमोरी में वॉयस लिस्ट को पहले से एक्टिवेट रखना
+    if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = getHindiVoice;
+    }
     </script>
 </body>
-    </html>
-    
+</html>
