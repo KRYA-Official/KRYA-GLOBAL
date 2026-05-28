@@ -126,6 +126,13 @@
         <b>🏛️ डिजिटल लोकतंत्र:</b> यह मंच बांका और देश के हर नागरिक के लिए है। अपनी समस्या, समाज सुधार का कोई विचार या प्रस्ताव यहाँ रखें। हम मिलकर आवाज़ उठाएंगे। (कृपया भाषा मर्यादित रखें)
     </div>
 
+    <!-- 🤖 KRYA एआई असिस्टेंट बटन -->
+    <div style="max-width: 450px; margin: 10px auto; padding: 0 10px; box-sizing: border-box;">
+        <button type="button" onclick="startKryaAssistant()" style="background: #d4af37; color: #000; border: 2px solid #fff; padding: 12px; width: 100%; font-size: 14px; font-weight: 700; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 8px;">
+            🤖 KRYA एआई असिस्टेंट से गाइड सुनें
+        </button>
+    </div>
+
     <div class="form-box">
         <h3 style="text-align: center; color: #d4af37; margin-top: 0; margin-bottom: 20px; font-size: 18px;">✍️ अपना प्रस्ताव रखें</h3>
         
@@ -149,7 +156,7 @@
                     <option value="सड़क-यातायात">सड़क एवं यातायात</option>
                     <option value="पेयजल-सफाई">पेयजल एवं सफाई</option>
                     <option value="बिजली">बिजली आपूर्ति</option>
-                    <option value="कृषि-विकास">कृषि एवं ग्राम विकास</option>
+                    <option value="कृषि-विकास">कृषि एवं gram विकास</option>
                     <option value="भ्रष्टाचार-शिकायत">भ्रष्टाचार शिकायत</option>
                     <option value="अन्य">अन्य सामाजिक मुद्दे</option>
                 </select>
@@ -242,6 +249,26 @@
           });
         });
       }
+    </script>
+
+    <!-- 🤖 KRYA एआई असिस्टेंट का लाइव वॉयस स्क्रिप्ट -->
+    <script>
+    function startKryaAssistant() {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            
+            var assistantSpeech = new SpeechSynthesisUtterance();
+            assistantSpeech.text = "नमस्कार! मैं केआरवाईए एआई असिस्टेंट हूँ, जिसे फाउंडर मुकेश राय द्वारा आपकी सहायता के लिए बनाया गया है। केआरवाईए जन-सभा में आपका स्वागत है। कृपया नीचे दिए गए फॉर्म में अपना पूरा नाम, मोबाइल नंबर, समस्या का विषय और प्रकार सही-सही भरें। आपका डेटा हमारी केआरवाईए तिजोरी में सौ प्रतिशत सुरक्षित और गोपनीय रहेगा। फॉर्म भरने के बाद नीचे दिए गए सभा में प्रस्ताव दर्ज करें बटन को दबाएं। धन्यवाद!";
+            
+            assistantSpeech.lang = 'hi-IN';
+            assistantSpeech.rate = 0.85;
+            assistantSpeech.pitch = 1.1;
+            
+            window.speechSynthesis.speak(assistantSpeech);
+        } else {
+            alert("आपका डिवाइस इस एआई असिस्टेंट को सपोर्ट नहीं करता है।");
+        }
+    }
     </script>
 </body>
 </html>
