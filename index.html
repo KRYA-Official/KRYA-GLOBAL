@@ -22,6 +22,38 @@
             transform: scale(0.98);
             opacity: 0.9;
         }
+
+        /* 🤖 ग्लोबल फ्लोटिंग एआई असिस्टेंट बटन की डिज़ाइन */
+        .krya-floating-assistant {
+            position: fixed;
+            bottom: 80px; /* PWA बैनर से ऊपर रखने के लिए सुरक्षित दूरी */
+            right: 20px;
+            z-index: 99999;
+            background: #d4af37; /* KRYA Gold */
+            color: #000;
+            border: 3px solid #013220; /* Monaco Green */
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        /* तैरने का जादुई इफेक्ट */
+        @keyframes kryaFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .krya-floating-assistant {
+            animation: kryaFloat 3s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +71,11 @@
             <div id="google_translate_element"></div>
         </div>
     </header>
+
+    <!-- 🤖 ग्लोबल फ्लोटिंग KRYA एआई असिस्टेंट (हमेशा स्क्रीन पर दिखाई देगा) -->
+    <button type="button" id="krya-global-sarathi" onclick="toggleKryaGlobalSpeech()" class="krya-floating-assistant">
+        🤖 KRYA एआई असिस्टेंट
+    </button>
 
     <main class="hero-section">
         <h2 class="hero-title">इंसानियत की पहली डिजिटल क्रांति</h2>
@@ -73,7 +110,7 @@
             </div>
 
             <blockquote style="margin: 0 0 15px 0; padding: 10px; background: rgba(255,255,255,0.05); border-left: 4px solid #d4af37; border-radius: 4px; font-size: 11px; line-height: 1.5; color: #e0e0e0; font-style: italic;">
-                "<b>KRYA पारदर्शिता संदेश:</b> यह प्रोडक्ट प्रमाणित होलसेल सप्लायर से सीधे आपके घर भेजा जाएगा। इस कीमत में हमारी प्रोडक्ट रिसर्च, 24/7 सपोर्ट और सर्विस फीस शामिल है।" <br><br>
+                "<b>KRYA पारदर्शिता संदेश:</b> यह OpenAPI होलसेल पार्टनर से सीधे आपके घर भेजा जाएगा। इस कीमत में हमारी प्रोडक्ट रिसर्च, 24/7 सपोर्ट और सर्विस फीस शामिल है।" <br><br>
                 <strong style="color: #d4af37; font-style: normal; display: block; text-align: center; font-size: 13px; letter-spacing: 1px;">इंसानियत ही हमारा धर्म है, ईमानदारी ही हमारा कर्म है।</strong>
                 <span style="display: block; text-align: right; font-weight: 600; color: #fff;">- आपका मुकेश</span>
             </blockquote>
@@ -137,10 +174,6 @@
 
     </main>
 
-    <div class="accessibility-bar" style="text-align: center; margin: 20px auto;">
-        <button id="voice-sarathi-btn" title="आवाज़ सहायक चालू करें" style="padding: 12px 25px; font-size: 15px; font-weight: 600; background: #d4af37; color: #000; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(212,175,55,0.4);">🔊 KRYA सारथी: फॉर्म भरने की गाइड सुनें</button>
-    </div>
-
     <footer class="krya-footer">
         <p>&copy; 2026 KRYA GLOBAL. सर्वाधिकार सुरक्षित। 100% लीगल और पारदर्शी व्यवस्था।</p>
         <div class="footer-links">
@@ -168,7 +201,6 @@
     <script src="js/auth.js" defer></script>
     <script src="firebase/config.js" defer></script>
     
-    <script src="js/sarathi.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
@@ -234,24 +266,20 @@
     </script>
 
     <script>
-        // 1. सर्विस वर्कर रजिस्टर करना
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js')
                 .then(() => console.log('KRYA PWA: सर्विस वर्कर चालू है'))
                 .catch(err => console.log('सर्विस वर्कर एरर:', err));
         }
 
-        // 2. ऑटोमैटिक डाउनलोड बैनर का लॉजिक
         let deferredPrompt;
         const installBanner = document.getElementById('krya-install-banner');
         const installBtn = document.getElementById('krya-install-btn');
         const closeBanner = document.getElementById('krya-close-banner');
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // डिफ़ॉल्ट पॉप-अप रोकें
             e.preventDefault();
             deferredPrompt = e;
-            // हमारा प्रीमियम KRYA बैनर दिखाएं
             if(installBanner) {
                 installBanner.style.display = 'block';
             }
@@ -278,5 +306,35 @@
             });
         }
     </script>
-</body>
-</html>
+
+    <!-- 🤖 नया और 100% वर्किंग इन-बिल्ट ग्लोबल फ्लोटिंग वॉयस इंजन -->
+    <script>
+    var synth = window.speechSynthesis;
+    var globalSpeechInstance = null;
+    var isGlobalSpeaking = false;
+    var fBtn = document.getElementById('krya-global-sarathi');
+
+    function getHindiVoice() {
+        var voices = synth.getVoices();
+        for (var i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'hi-IN' || voices[i].lang.includes('hi')) {
+                return voices[i];
+            }
+        }
+        return null;
+    }
+
+    function toggleKryaGlobalSpeech() {
+        if (!('speechSynthesis' in window)) {
+            alert("क्षма करें, आपका फोन लाइव वॉयस को सपोर्ट नहीं करता।");
+            return;
+        }
+
+        if (isGlobalSpeaking) {
+            synth.cancel();
+            fBtn.innerHTML = "🤖 KRYA एआई असिस्टेंट";
+            fBtn.style.background = "#d4af37";
+            isGlobalSpeaking = false;
+        } else {
+            synth.cancel(); // पुराना सब साफ़ करें
+        
