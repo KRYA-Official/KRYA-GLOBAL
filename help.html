@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KRYA सहायता: 24/7 सपोर्ट सेंटर</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+        /* प्रीमियम हेडर */
+        .help-header {
+            background: #013220; /* Monaco Green */
+            color: #d4af37; /* KRYA Gold */
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 4px solid #d4af37;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        /* सपोर्ट बॉक्स */
+        .support-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 2px solid #d4af37;
+            margin: 20px auto;
+            max-width: 450px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366; /* WhatsApp Green */
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.2s;
+        }
+        .contact-btn:active {
+            transform: scale(0.98);
+        }
+
+        .email-btn {
+            background-color: #013220;
+            color: #d4af37;
+            box-shadow: 0 4px 15px rgba(1, 50, 32, 0.3);
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #013220;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* 🤖 ग्लोबल फ्लोटिंग एआई असिस्टेंट बटन */
+        .krya-floating-assistant {
+            position: fixed;
+            bottom: 30px; 
+            right: 20px;
+            z-index: 99999;
+            background: #d4af37; 
+            color: #000;
+            border: 3px solid #013220; 
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="help-header">
+        <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 1px;">🎧 KRYA सहायता केंद्र</h1>
+        <p style="margin: 5px 0 0 0; font-size: 12px; color: #fff; font-weight: 300;">हम आपकी मदद के लिए 24/7 तैयार हैं</p>
+    </header>
+
+    <!-- 🤖 ग्लोबल फ्लोटिंग KRYA एआई असिस्टेंट -->
+    <button type="button" id="krya-global-sarathi" onclick="toggleKryaGlobalSpeech()" class="krya-floating-assistant">
+        🤖 KRYA एआई असिस्टेंट
+    </button>
+
+    <div style="max-width: 450px; margin: 15px auto; padding: 0 10px;">
+        <a href="index.html" class="back-btn">🔙 होम डैशबोर्ड पर वापस जाएं</a>
+    </div>
+
+    <div class="support-box">
+        <h3 style="margin-top: 0; color: #013220;">मुकेश से सीधा संपर्क करें</h3>
+        <p style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 20px;">
+            KRYA GLOBAL पर आपकी सुरक्षा और संतुष्टि ही हमारी प्राथमिकता है। किसी भी शिकायत, फ्रॉड रिपोर्ट या सुझाव के लिए सीधा संपर्क करें।
+        </p>
+
+        <!-- WhatsApp Link -->
+        <a href="https://wa.me/910000000000?text=नमस्कार%20मुकेश%20जी,%20मुझे%20KRYA%20GLOBAL%20के%20बारे%20में%20सहायता%20चाहिए।" class="contact-btn">
+            💬 WhatsApp सपोर्ट (24/7)
+        </a>
+
+        <!-- Email Link -->
+        <a href="mailto:support@kryaglobal.com" class="contact-btn email-btn">
+            ✉️ हमें ईमेल भेजें
+        </a>
+    </div>
+
+    <div class="support-box" style="background: rgba(212, 175, 55, 0.1); border: none; padding: 15px;">
+        <h4 style="margin: 0 0 10px 0; color: #013220;">🛡️ 100% सुरक्षित और लीगल</h4>
+        <p style="margin: 0; font-size: 12px; color: #333; line-height: 1.6;">
+            KRYA का कोई भी प्रतिनिधि आपसे कभी भी आपका OTP, पासवर्ड या बैंक डिटेल्स नहीं मांगेगा। इंटरनेट पर सुरक्षित रहें और ईमानदारी से काम करें। - <b>आपका मुकेश</b>
+        </p>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; font-size: 12px; color: #666;">
+        <p>&copy; 2026 KRYA GLOBAL. सर्वाधिकार सुरक्षित।</p>
+    </footer>
+
+    <!-- 🤖 100% ब्रांडेड KRYA वॉयस इंजन (सहायता स्पेशल) -->
+    <script>
+    var synth = window.speechSynthesis;
+    var globalSpeechInstance = null;
+    var isGlobalSpeaking = false;
+    var fBtn = document.getElementById('krya-global-sarathi');
+
+    function getHindiVoice() {
+        var voices = synth.getVoices();
+        for (var i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'hi-IN' || voices[i].lang.includes('hi')) {
+                return voices[i];
+            }
+        }
+        return null;
+    }
+
+    function toggleKryaGlobalSpeech() {
+        if (!('speechSynthesis' in window)) {
+            alert("क्षमा करें, आपका फोन लाइव वॉयस को सपोर्ट नहीं करता।");
+            return;
+        }
+
+        if (isGlobalSpeaking) {
+            synth.cancel();
+            fBtn.innerHTML = "🤖 KRYA एआई असिस्टेंट";
+            fBtn.style.background = "#d4af37";
+            isGlobalSpeaking = false;
+        } else {
+            synth.cancel(); 
+            
+            globalSpeechInstance = new SpeechSynthesisUtterance();
+            // सहायता पेज के लिए विशेष गाइडेंस संदेश
+            globalSpeechInstance.text = "नमस्कार! केआरवाईए सहायता केंद्र में आपका स्वागत है। मुकेश भाई और हमारी टीम 24 घंटे आपकी मदद के लिए यहाँ मौजूद हैं। आप स्क्रीन पर दिए गए व्हाट्सएप बटन या ईमेल के ज़रिए सीधे हमसे जुड़ सकते हैं। केआरवाईए पर आपका भरोसा ही हमारी सबसे बड़ी ताकत है। सुरक्षित रहें, सतर्क रहें। धन्यवाद!";
+            
+            globalSpeechInstance.lang = 'hi-IN';
+            globalSpeechInstance.rate = 0.85; 
+            globalSpeechInstance.pitch = 1.1;  
+
+            var chosenVoice = getHindiVoice();
+            if (chosenVoice) {
+                globalSpeechInstance.voice = chosenVoice;
+            }
+
+            globalSpeechInstance.onend = function() {
+                fBtn.innerHTML = "🤖 KRYA एआई असिस्टेंट";
+                fBtn.style.background = "#d4af37";
+                isGlobalSpeaking = false;
+            };
+
+            globalSpeechInstance.onerror = function(e) {
+                isGlobalSpeaking = false;
+            };
+
+            fBtn.innerHTML = "🛑 बंद करें (Stop)";
+            fBtn.style.background = "#ff4d4d";
+            isGlobalSpeaking = true;
+            
+            synth.speak(globalSpeechInstance);
+        }
+    }
+
+    if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = function() {
+            var v = getHindiVoice();
+            if(globalSpeechInstance && v) globalSpeechInstance.voice = v;
+        };
+    }
+
+    document.addEventListener('click', function() {
+        var silentUtterance = new SpeechSynthesisUtterance('');
+        synth.speak(silentUtterance);
+    }, { once: true });
+    </script>
+</body>
+</html>
