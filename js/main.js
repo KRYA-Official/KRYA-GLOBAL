@@ -109,10 +109,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// 4. 🤖 100% Brand Safe KRYA Voice Engine (Global Function)
+// 4. 🤖 100% Brand Safe KRYA Voice Engine (Advanced Natural Voice)
 var synth = window.speechSynthesis;
 var globalSpeechInstance = null;
 var isGlobalSpeaking = false;
+
+// 🌟 स्मार्ट वॉयस फाइंडर: यह सबसे अच्छी 'इंसानों जैसी' आवाज़ खोजेगा
+function getHindiVoice() {
+    var voices = synth.getVoices();
+    
+    // पहला प्रयास: Google या Microsoft की 'Online/Natural' प्रीमियम आवाज़ खोजना
+    var premiumVoice = voices.find(v => 
+        (v.lang === 'hi-IN' || v.lang.includes('hi')) && 
+        (v.name.includes('Natural') || v.name.includes('Online') || v.name.includes('Google'))
+    );
+    
+    if (premiumVoice) {
+        return premiumVoice;
+    }
+    
+    // दूसरा प्रयास: अगर प्रीमियम न मिले, तो जो भी हिंदी आवाज़ हो उसे ले लेना
+    return voices.find(v => v.lang === 'hi-IN' || v.lang.includes('hi')) || null;
+}
 
 window.toggleKryaGlobalSpeech = function() {
     var fBtn = document.getElementById('krya-global-sarathi');
@@ -129,13 +147,17 @@ window.toggleKryaGlobalSpeech = function() {
         synth.cancel(); 
         globalSpeechInstance = new SpeechSynthesisUtterance();
         globalSpeechInstance.text = "नमस्कार! मैं केआरवाईए एआई असिस्टेंट हूँ। इंसानियत की पहली डिजिटल क्रांति में आपका स्वागत है। यहाँ स्क्रीन पर नीचे आपको हमारे महा-लॉन्च का लाइव टाइमर, और केआरवाईए के 15 डिजिटल अजूबों का डैशबोर्ड दिखाई देगा। आप किसी भी अजूबे के बटन पर क्लिक करके उस सेवा का लाभ उठा सकते हैं। हमारे साथ जुड़ने के लिए जन-सभा फॉर्म भरें। धन्यवाद!";
+        
         globalSpeechInstance.lang = 'hi-IN';
-        globalSpeechInstance.rate = 0.85; 
-        globalSpeechInstance.pitch = 1.1;  
+        
+        // 🌟 आवाज़ को इंसानों जैसा बनाने के लिए सेटिंग
+        globalSpeechInstance.rate = 0.95; // बोलने की स्पीड थोड़ी रिलैक्स और नॉर्मल
+        globalSpeechInstance.pitch = 1.0; // प्राकृतिक आवाज़ का भारीपन 
 
-        var voices = synth.getVoices();
-        var chosenVoice = voices.find(v => v.lang === 'hi-IN' || v.lang.includes('hi'));
-        if (chosenVoice) globalSpeechInstance.voice = chosenVoice;
+        var chosenVoice = getHindiVoice();
+        if (chosenVoice) {
+            globalSpeechInstance.voice = chosenVoice;
+        }
 
         globalSpeechInstance.onend = function() {
             fBtn.innerHTML = "🤖 KRYA एआई असिस्टेंट";
@@ -147,12 +169,21 @@ window.toggleKryaGlobalSpeech = function() {
         fBtn.innerHTML = "🛑 बंद करें (Stop)";
         fBtn.style.background = "#ff4d4d";
         isGlobalSpeaking = true;
-        synth.speak(globalSpeechInstance);
+        
+        // ब्राउज़र को थोड़ा समय देना ताकि वह प्रीमियम आवाज़ लोड कर सके
+        setTimeout(() => {
+            synth.speak(globalSpeechInstance);
+        }, 100);
     }
 };
+
+// वॉयस लिस्ट लोड होने पर उसे अपडेट करना
+if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = getHindiVoice;
+}
 
 // Touch policy bypass for audio
 document.body.addEventListener('click', function() {
     if(synth.getVoices().length > 0) synth.speak(new SpeechSynthesisUtterance(''));
 }, { once: true });
-    
+                            
