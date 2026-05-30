@@ -109,6 +109,7 @@
         </div>
     </header>
 
+    <!-- 🤖 ग्लोबल फ्लोटिंग KRYA एआई असिस्टेंट -->
     <button type="button" id="krya-global-sarathi" onclick="toggleKryaGlobalSpeech()" class="krya-floating-assistant">
         🤖 KRYA एआई असिस्टेंट
     </button>
@@ -127,66 +128,82 @@
             </div>
         </div>
 
+        <!-- 🌟 KRYA के 15 अजूबों का डैशबोर्ड -->
         <section style="max-width: 450px; margin: 30px auto; padding: 20px; background: rgba(255, 255, 255, 0.95); border: 2px solid #d4af37; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); box-sizing: border-box;">
             <h3 style="text-align: center; color: #013220; margin-top: 0; font-size: 18px; font-weight: 700; border-bottom: 2px solid #013220; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">🌟 KRYA के 15 अजूबे</h3>
             
             <div class="ajoobe-grid">
+                <!-- 1 -->
                 <a href="jan-sabha.html" class="ajooba-card">
                     <span class="ajooba-icon">👥</span>
                     <span class="ajooba-title">जन-सभा</span>
                 </a>
+                <!-- 2 -->
                 <a href="#coming-soon" class="ajooba-card">
                     <span class="ajooba-icon">🌾</span>
                     <span class="ajooba-title">किसान सेतु</span>
                 </a>
+                <!-- 3 -->
                 <a href="#direct-cart" class="ajooba-card">
                     <span class="ajooba-icon">📦</span>
                     <span class="ajooba-title">KRYA डील्स</span>
                 </a>
+                <!-- 4 -->
                 <a href="#messenger" class="ajooba-card">
                     <span class="ajooba-icon">💬</span>
                     <span class="ajooba-title">मैसेंजर</span>
                 </a>
+                <!-- 5 -->
                 <a href="#education" class="ajooba-card">
                     <span class="ajooba-icon">📚</span>
                     <span class="ajooba-title">एजुकेशन</span>
                 </a>
+                <!-- 6 -->
                 <a href="#digital" class="ajooba-card">
                     <span class="ajooba-icon">💻</span>
                     <span class="ajooba-title">डिजिटल</span>
                 </a>
+                <!-- 7 -->
                 <a href="#jobs" class="ajooba-card">
                     <span class="ajooba-icon">💼</span>
                     <span class="ajooba-title">रोज़गार</span>
                 </a>
+                <!-- 8 -->
                 <a href="#health" class="ajooba-card">
                     <span class="ajooba-icon">🏥</span>
                     <span class="ajooba-title">स्वास्थ्य</span>
                 </a>
+                <!-- 9 -->
                 <a href="#market" class="ajooba-card">
                     <span class="ajooba-icon">🏪</span>
                     <span class="ajooba-title">बाज़ार</span>
                 </a>
+                <!-- 10 -->
                 <a href="#news" class="ajooba-card">
                     <span class="ajooba-icon">📰</span>
                     <span class="ajooba-title">न्यूज़</span>
                 </a>
+                <!-- 11 -->
                 <a href="#women" class="ajooba-card">
                     <span class="ajooba-icon">👩‍🦰</span>
                     <span class="ajooba-title">महिला शक्ति</span>
                 </a>
+                <!-- 12 -->
                 <a href="#panchayat" class="ajooba-card">
                     <span class="ajooba-icon">🏛️</span>
                     <span class="ajooba-title">पंचायत</span>
                 </a>
+                <!-- 13 -->
                 <a href="#wallet" class="ajooba-card">
                     <span class="ajooba-icon">💳</span>
                     <span class="ajooba-title">वॉलेट</span>
                 </a>
+                <!-- 14 -->
                 <a href="#safety" class="ajooba-card">
                     <span class="ajooba-icon">🛡️</span>
                     <span class="ajooba-title">सुरक्षा</span>
                 </a>
+                <!-- 15 -->
                 <a href="#help" class="ajooba-card">
                     <span class="ajooba-icon">🎧</span>
                     <span class="ajooba-title">सहायता</span>
@@ -310,18 +327,4 @@
     <script>
       const firebaseConfig = {
         apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
-        authDomain: "krya-global.firebaseapp.com",
-        projectId: "krya-global",
-        storageBucket: "krya-global.firebasestorage.app",
-        messagingSenderId: "372340448782",
-        appId: "1:372340448782:web:8e26d6d1169a3b8af8665f"
-      };
-
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
-
-      let userLocation = { city: "Unknown", region: "Unknown", country: "Unknown" };
-      fetch('https://ipapi.co/json/')
-        .then(response => response.json())
-        .then(data => {
- 
+        authDomain: 
