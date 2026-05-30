@@ -26,12 +26,12 @@
         /* 🤖 ग्लोबल फ्लोटिंग एआई असिस्टेंट बटन की डिज़ाइन */
         .krya-floating-assistant {
             position: fixed;
-            bottom: 80px; /* PWA बैनर से ऊपर रखने के लिए सुरक्षित दूरी */
+            bottom: 80px; 
             right: 20px;
             z-index: 99999;
-            background: #d4af37; /* KRYA Gold */
+            background: #d4af37; 
             color: #000;
-            border: 3px solid #013220; /* Monaco Green */
+            border: 3px solid #013220; 
             border-radius: 50px;
             padding: 12px 20px;
             font-family: 'Poppins', sans-serif;
@@ -45,7 +45,6 @@
             gap: 8px;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        /* तैरने का जादुई इफेक्ट */
         @keyframes kryaFloat {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-8px); }
@@ -54,12 +53,50 @@
         .krya-floating-assistant {
             animation: kryaFloat 3s ease-in-out infinite;
         }
+
+        /* 🌟 15 अजूबों का ग्रिड डिज़ाइन (App Dashboard Style) */
+        .ajoobe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .ajooba-card {
+            background: #fff;
+            border: 2px solid #013220;
+            border-radius: 12px;
+            padding: 15px 5px;
+            text-align: center;
+            text-decoration: none;
+            color: #013220;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .ajooba-card:active {
+            transform: scale(0.92);
+            border-color: #d4af37;
+            background: #fdfaf0;
+        }
+        .ajooba-icon {
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+        .ajooba-title {
+            font-size: 11px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2;
+        }
     </style>
 </head>
 <body>
 
     <div style="background-color: #d4af37; color: #000; text-align: center; padding: 10px; font-weight: 600; font-size: 14px; font-family: 'Poppins', sans-serif;">
-        ⚠️ <b>पारदर्शिता संदेश:</b> KRYA GLOBAL के इस 8वें अजूबे पर अभी काम चल रहा है और बहुत सी नई सुविधाएँ आने वाली हैं। लेकिन यहाँ दी गई हर सर्विस और प्रोडक्ट 100% असली, चालू और पूरी तरह सुरक्षित हैं। - आपका अपना मुकेश
+        ⚠️ <b>पारदर्शिता संदेश:</b> KRYA GLOBAL के 15 अजूबों पर काम चल रहा है। यहाँ दी गई हर सर्विस 100% असली और सुरक्षित है। - आपका अपना मुकेश
     </div>
 
     <header class="krya-header">
@@ -72,6 +109,7 @@
         </div>
     </header>
 
+    <!-- 🤖 ग्लोबल फ्लोटिंग KRYA एआई असिस्टेंट -->
     <button type="button" id="krya-global-sarathi" onclick="toggleKryaGlobalSpeech()" class="krya-floating-assistant">
         🤖 KRYA एआई असिस्टेंट
     </button>
@@ -90,7 +128,90 @@
             </div>
         </div>
 
-        <section class="krya-directcart-section" style="max-width: 450px; margin: 30px auto; padding: 20px; background: #013220; border: 2px solid #d4af37; border-radius: 15px; box-sizing: border-box; font-family: 'Poppins', sans-serif; color: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+        <!-- 🌟 KRYA के 15 अजूबों का डैशबोर्ड -->
+        <section style="max-width: 450px; margin: 30px auto; padding: 20px; background: rgba(255, 255, 255, 0.95); border: 2px solid #d4af37; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); box-sizing: border-box;">
+            <h3 style="text-align: center; color: #013220; margin-top: 0; font-size: 18px; font-weight: 700; border-bottom: 2px solid #013220; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">🌟 KRYA के 15 अजूबे</h3>
+            
+            <div class="ajoobe-grid">
+                <!-- 1 -->
+                <a href="jan-sabha.html" class="ajooba-card">
+                    <span class="ajooba-icon">👥</span>
+                    <span class="ajooba-title">जन-सभा</span>
+                </a>
+                <!-- 2 -->
+                <a href="#coming-soon" class="ajooba-card">
+                    <span class="ajooba-icon">🌾</span>
+                    <span class="ajooba-title">किसान सेतु</span>
+                </a>
+                <!-- 3 -->
+                <a href="#direct-cart" class="ajooba-card">
+                    <span class="ajooba-icon">📦</span>
+                    <span class="ajooba-title">KRYA डील्स</span>
+                </a>
+                <!-- 4 -->
+                <a href="#messenger" class="ajooba-card">
+                    <span class="ajooba-icon">💬</span>
+                    <span class="ajooba-title">मैसेंजर</span>
+                </a>
+                <!-- 5 -->
+                <a href="#education" class="ajooba-card">
+                    <span class="ajooba-icon">📚</span>
+                    <span class="ajooba-title">एजुकेशन</span>
+                </a>
+                <!-- 6 -->
+                <a href="#digital" class="ajooba-card">
+                    <span class="ajooba-icon">💻</span>
+                    <span class="ajooba-title">डिजिटल</span>
+                </a>
+                <!-- 7 -->
+                <a href="#jobs" class="ajooba-card">
+                    <span class="ajooba-icon">💼</span>
+                    <span class="ajooba-title">रोज़गार</span>
+                </a>
+                <!-- 8 -->
+                <a href="#health" class="ajooba-card">
+                    <span class="ajooba-icon">🏥</span>
+                    <span class="ajooba-title">स्वास्थ्य</span>
+                </a>
+                <!-- 9 -->
+                <a href="#market" class="ajooba-card">
+                    <span class="ajooba-icon">🏪</span>
+                    <span class="ajooba-title">बाज़ार</span>
+                </a>
+                <!-- 10 -->
+                <a href="#news" class="ajooba-card">
+                    <span class="ajooba-icon">📰</span>
+                    <span class="ajooba-title">न्यूज़</span>
+                </a>
+                <!-- 11 -->
+                <a href="#women" class="ajooba-card">
+                    <span class="ajooba-icon">👩‍🦰</span>
+                    <span class="ajooba-title">महिला शक्ति</span>
+                </a>
+                <!-- 12 -->
+                <a href="#panchayat" class="ajooba-card">
+                    <span class="ajooba-icon">🏛️</span>
+                    <span class="ajooba-title">पंचायत</span>
+                </a>
+                <!-- 13 -->
+                <a href="#wallet" class="ajooba-card">
+                    <span class="ajooba-icon">💳</span>
+                    <span class="ajooba-title">वॉलेट</span>
+                </a>
+                <!-- 14 -->
+                <a href="#safety" class="ajooba-card">
+                    <span class="ajooba-icon">🛡️</span>
+                    <span class="ajooba-title">सुरक्षा</span>
+                </a>
+                <!-- 15 -->
+                <a href="#help" class="ajooba-card">
+                    <span class="ajooba-icon">🎧</span>
+                    <span class="ajooba-title">सहायता</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="direct-cart" class="krya-directcart-section" style="max-width: 450px; margin: 30px auto; padding: 20px; background: #013220; border: 2px solid #d4af37; border-radius: 15px; box-sizing: border-box; font-family: 'Poppins', sans-serif; color: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
             <h3 style="text-align: center; color: #d4af37; margin-top: 0; font-size: 20px; font-weight: 700; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 10px;">📦 KRYA डील्स (DirectCart India)</h3>
             
             <div style="width: 100%; height: 180px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px dashed #d4af37; margin-bottom: 15px;">
@@ -148,7 +269,7 @@
                     <input type="email" name="email" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: rgba(255,255,255,0.95); color: #000; font-size: 16px;">
                 </div>
                 <div style="margin-bottom: 18px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px;">आपका mobile नंबर (10 अंक):</label>
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px;">आपका मोबाइल नंबर (10 अंक):</label>
                     <input type="tel" id="user-phone" name="phone" required pattern="[0-9]{10}" title="कृपया 10 अंकों का सही मोबाइल नंबर डालें" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; box-sizing: border-box; background: rgba(255,255,255,0.95); color: #000; font-size: 16px;" placeholder="91XXXXXXXX">
                 </div>
                 <div style="margin-bottom: 20px;">
@@ -306,6 +427,7 @@
         }
     </script>
 
+    <!-- 🤖 100% ब्रांडेड KRYA वॉयस इंजन -->
     <script>
     var synth = window.speechSynthesis;
     var globalSpeechInstance = null;
@@ -334,32 +456,51 @@
             fBtn.style.background = "#d4af37";
             isGlobalSpeaking = false;
         } else {
-            synth.cancel(); // पुराना सब साफ़ करें
+            synth.cancel(); 
             
             globalSpeechInstance = new SpeechSynthesisUtterance();
-            // होम पेज के लिए विशेष गाइडेंस संदेश
+            // ब्रांडेड KRYA गाइडेंस संदेश
+            globalSpeechInstance.text = "नमस्कार! मैं केआरवाईए एआई असिस्टेंट हूँ। इंसानियत की पहली डिजिटल क्रांति में आपका स्वागत है। यहाँ स्क्रीन पर नीचे आपको हमारे महा-लॉन्च का लाइव टाइमर, और केआरवाईए के 15 डिजिटल अजूबों का डैशबोर्ड दिखाई देगा। आप किसी भी अजूबे के बटन पर क्लिक करके उस सेवा का लाभ उठा सकते हैं। हमारे साथ जुड़ने के लिए जन-सभा फॉर्म भरें। धन्यवाद!";
+            
+            globalSpeechInstance.lang = 'hi-IN';
+            globalSpeechInstance.rate = 0.85; 
+            globalSpeechInstance.pitch = 1.1;  
 
-        globalSpeechInstance.text = "नमस्कार! KRYA ग्लोबल प्लेटफॉर्म पर आपका स्वागत है। इंसानियत की पहली डिजिटल क्रांति में पूरी तरह पारदर्शिता और ईमानदारी के साथ आपका स्वागत है। किसी भी सहायता के लिए नीचे दिए गए फॉर्म को भरें।";
-            
-            var hindiVoice = getHindiVoice();
-            if(hindiVoice) {
-                globalSpeechInstance.voice = hindiVoice;
+            var chosenVoice = getHindiVoice();
+            if (chosenVoice) {
+                globalSpeechInstance.voice = chosenVoice;
             }
-            
+
             globalSpeechInstance.onend = function() {
                 fBtn.innerHTML = "🤖 KRYA एआई असिस्टेंट";
                 fBtn.style.background = "#d4af37";
                 isGlobalSpeaking = false;
             };
 
-            fBtn.innerHTML = "🛑 बोलना बंद करें";
+            globalSpeechInstance.onerror = function(e) {
+                console.error("Speech Error:", e);
+                isGlobalSpeaking = false;
+            };
+
+            fBtn.innerHTML = "🛑 बंद करें (Stop)";
             fBtn.style.background = "#ff4d4d";
             isGlobalSpeaking = true;
+            
             synth.speak(globalSpeechInstance);
         }
     }
-    </script>
 
+    if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = function() {
+            var v = getHindiVoice();
+            if(globalSpeechInstance && v) globalSpeechInstance.voice = v;
+        };
+    }
+
+    document.addEventListener('click', function() {
+        var silentUtterance = new SpeechSynthesisUtterance('');
+        synth.speak(silentUtterance);
+    }, { once: true });
+    </script>
 </body>
 </html>
-
