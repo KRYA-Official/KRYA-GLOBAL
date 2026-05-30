@@ -54,18 +54,19 @@
             animation: kryaFloat 3s ease-in-out infinite;
         }
 
-        /* 🌟 15 अजूबों का ग्रिड डिज़ाइन (App Dashboard Style) */
+        /* 🌟 15 अजूबों का फुल-स्क्रीन ग्रिड डिज़ाइन (App Dashboard Style) */
         .ajoobe-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 0 5px;
         }
         .ajooba-card {
             background: #fff;
             border: 2px solid #013220;
             border-radius: 12px;
-            padding: 15px 5px;
+            padding: 20px 5px; /* बटन को बड़ा करने के लिए पैडिंग बढ़ाई */
             text-align: center;
             text-decoration: none;
             color: #013220;
@@ -82,11 +83,11 @@
             background: #fdfaf0;
         }
         .ajooba-icon {
-            font-size: 26px;
-            margin-bottom: 6px;
+            font-size: 32px; /* आइकॉन का साइज़ बड़ा किया */
+            margin-bottom: 8px;
         }
         .ajooba-title {
-            font-size: 11px;
+            font-size: 13px; /* टेक्स्ट थोड़ा बड़ा किया */
             font-weight: 700;
             font-family: 'Poppins', sans-serif;
             line-height: 1.2;
@@ -128,9 +129,9 @@
             </div>
         </div>
 
-        <!-- 🌟 KRYA के 15 अजूबों का डैशबोर्ड -->
-        <section style="max-width: 450px; margin: 30px auto; padding: 20px; background: rgba(255, 255, 255, 0.95); border: 2px solid #d4af37; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); box-sizing: border-box;">
-            <h3 style="text-align: center; color: #013220; margin-top: 0; font-size: 18px; font-weight: 700; border-bottom: 2px solid #013220; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">🌟 KRYA के 15 अजूबे</h3>
+        <!-- 🌟 KRYA के 15 अजूबों का फुल-स्क्रीन डैशबोर्ड -->
+        <section style="width: 100%; max-width: 600px; margin: 30px auto; padding: 25px 10px; background: rgba(255, 255, 255, 0.95); border-top: 3px solid #d4af37; border-bottom: 3px solid #d4af37; box-shadow: 0 8px 20px rgba(0,0,0,0.1); box-sizing: border-box;">
+            <h3 style="text-align: center; color: #013220; margin-top: 0; font-size: 20px; font-weight: 700; border-bottom: 2px solid #013220; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">🌟 KRYA के 15 अजूबे</h3>
             
             <div class="ajoobe-grid">
                 <!-- 1 -->
@@ -322,9 +323,4 @@
     <script src="firebase/config.js" defer></script>
     
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
-        authDomain: 
+    <script src="https://www.gstatic.co
