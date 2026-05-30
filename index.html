@@ -109,7 +109,6 @@
         </div>
     </header>
 
-    <!-- 🤖 ग्लोबल फ्लोटिंग KRYA एआई असिस्टेंट -->
     <button type="button" id="krya-global-sarathi" onclick="toggleKryaGlobalSpeech()" class="krya-floating-assistant">
         🤖 KRYA एआई असिस्टेंट
     </button>
@@ -128,82 +127,66 @@
             </div>
         </div>
 
-        <!-- 🌟 KRYA के 15 अजूबों का डैशबोर्ड -->
         <section style="max-width: 450px; margin: 30px auto; padding: 20px; background: rgba(255, 255, 255, 0.95); border: 2px solid #d4af37; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); box-sizing: border-box;">
             <h3 style="text-align: center; color: #013220; margin-top: 0; font-size: 18px; font-weight: 700; border-bottom: 2px solid #013220; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">🌟 KRYA के 15 अजूबे</h3>
             
             <div class="ajoobe-grid">
-                <!-- 1 -->
                 <a href="jan-sabha.html" class="ajooba-card">
                     <span class="ajooba-icon">👥</span>
                     <span class="ajooba-title">जन-सभा</span>
                 </a>
-                <!-- 2 -->
                 <a href="#coming-soon" class="ajooba-card">
                     <span class="ajooba-icon">🌾</span>
                     <span class="ajooba-title">किसान सेतु</span>
                 </a>
-                <!-- 3 -->
                 <a href="#direct-cart" class="ajooba-card">
                     <span class="ajooba-icon">📦</span>
                     <span class="ajooba-title">KRYA डील्स</span>
                 </a>
-                <!-- 4 -->
                 <a href="#messenger" class="ajooba-card">
                     <span class="ajooba-icon">💬</span>
                     <span class="ajooba-title">मैसेंजर</span>
                 </a>
-                <!-- 5 -->
                 <a href="#education" class="ajooba-card">
                     <span class="ajooba-icon">📚</span>
                     <span class="ajooba-title">एजुकेशन</span>
                 </a>
-                <!-- 6 -->
                 <a href="#digital" class="ajooba-card">
                     <span class="ajooba-icon">💻</span>
                     <span class="ajooba-title">डिजिटल</span>
                 </a>
-                <!-- 7 -->
                 <a href="#jobs" class="ajooba-card">
                     <span class="ajooba-icon">💼</span>
                     <span class="ajooba-title">रोज़गार</span>
                 </a>
-                <!-- 8 -->
                 <a href="#health" class="ajooba-card">
                     <span class="ajooba-icon">🏥</span>
                     <span class="ajooba-title">स्वास्थ्य</span>
                 </a>
-                <!-- 9 -->
                 <a href="#market" class="ajooba-card">
                     <span class="ajooba-icon">🏪</span>
                     <span class="ajooba-title">बाज़ार</span>
                 </a>
-                <!-- 10 -->
                 <a href="#news" class="ajooba-card">
                     <span class="ajooba-icon">📰</span>
                     <span class="ajooba-title">न्यूज़</span>
                 </a>
-                <!-- 11 -->
                 <a href="#women" class="ajooba-card">
                     <span class="ajooba-icon">👩‍🦰</span>
                     <span class="ajooba-title">महिला शक्ति</span>
                 </a>
-                <!-- 12 -->
                 <a href="#panchayat" class="ajooba-card">
                     <span class="ajooba-icon">🏛️</span>
                     <span class="ajooba-title">पंचायत</span>
                 </a>
-                <!-- 13 -->
                 <a href="#wallet" class="ajooba-card">
                     <span class="ajooba-icon">💳</span>
                     <span class="ajooba-title">वॉलेट</span>
                 </a>
-                <!-- 14 -->
                 <a href="#safety" class="ajooba-card">
                     <span class="ajooba-icon">🛡️</span>
                     <span class="ajooba-title">सुरक्षा</span>
                 </a>
-                <!-- 15 -->
                 <a href="#help" class="ajooba-card">
                     <span class="ajooba-icon">🎧</span>
                     <span class="ajooba-title">सहायता</span>
@@ -341,166 +324,4 @@
       fetch('https://ipapi.co/json/')
         .then(response => response.json())
         .then(data => {
-          userLocation = { city: data.city || "Unknown", region: data.region || "Unknown", country: data.country_name || "Unknown" };
-        })
-        .catch(err => console.log("लोकेशन सर्विस एरर: ", err));
-
-      const contactForm = document.getElementById('jansabha-form');
-      const successBox = document.getElementById('success-box');
-
-      if(contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          
-          const nameInput = document.querySelector('input[name="name"]')?.value || "Not Provided";
-          const emailInput = document.querySelector('input[name="email"]')?.value || "Not Provided";
-          const phoneInput = document.querySelector('input[name="phone"]')?.value || "Not Provided";
-          const messageInput = document.querySelector('textarea[name="message"]')?.value || "Not Provided";
-          const deviceInformation = navigator.userAgent;
-
-          db.collection("jansabha_leads").add({
-            brandName: "KRYA",
-            u_name: nameInput,
-            u_email: emailInput,
-            u_phone: phoneInput,
-            u_message: messageInput,
-            u_city: userLocation.city,
-            u_region: userLocation.region,
-            u_country: userLocation.country,
-            u_device: deviceInformation,
-            submittedAt: new Date()
-          })
-          .then(() => {
-            if(successBox) {
-                successBox.style.display = 'block';
-                setTimeout(() => { successBox.style.display = 'none'; }, 8000);
-            }
-            contactForm.reset();
-          })
-          .catch((error) => {
-            console.error("सेव एरर: ", error);
-            alert("डेटा सेव नहीं हो सका। कृपया दोबारा प्रयास करें।");
-          });
-        });
-      }
-    </script>
-
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(() => console.log('KRYA PWA: सर्विस वर्कर चालू है'))
-                .catch(err => console.log('सर्विस वर्कर एरर:', err));
-        }
-
-        let deferredPrompt;
-        const installBanner = document.getElementById('krya-install-banner');
-        const installBtn = document.getElementById('krya-install-btn');
-        const closeBanner = document.getElementById('krya-close-banner');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            if(installBanner) {
-                installBanner.style.display = 'block';
-            }
-        });
-
-        if(installBtn) {
-            installBtn.addEventListener('click', () => {
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    deferredPrompt.userChoice.then((choiceResult) => {
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('यूज़र ने KRYA ऐप इंस्टॉल कर लिया');
-                        }
-                        if(installBanner) installBanner.style.display = 'none';
-                        deferredPrompt = null;
-                    });
-                }
-            });
-        }
-
-        if(closeBanner) {
-            closeBanner.addEventListener('click', () => {
-                if(installBanner) installBanner.style.display = 'none';
-            });
-        }
-    </script>
-
-    <!-- 🤖 100% ब्रांडेड KRYA वॉयस इंजन -->
-    <script>
-    var synth = window.speechSynthesis;
-    var globalSpeechInstance = null;
-    var isGlobalSpeaking = false;
-    var fBtn = document.getElementById('krya-global-sarathi');
-
-    function getHindiVoice() {
-        var voices = synth.getVoices();
-        for (var i = 0; i < voices.length; i++) {
-            if (voices[i].lang === 'hi-IN' || voices[i].lang.includes('hi')) {
-                return voices[i];
-            }
-        }
-        return null;
-    }
-
-    function toggleKryaGlobalSpeech() {
-        if (!('speechSynthesis' in window)) {
-            alert("क्षमा करें, आपका फोन लाइव वॉयस को सपोर्ट नहीं करता।");
-            return;
-        }
-
-        if (isGlobalSpeaking) {
-            synth.cancel();
-            fBtn.innerHTML = "🤖 KRYA एआई असिस्टेंट";
-            fBtn.style.background = "#d4af37";
-            isGlobalSpeaking = false;
-        } else {
-            synth.cancel(); 
-            
-            globalSpeechInstance = new SpeechSynthesisUtterance();
-            // ब्रांडेड KRYA गाइडेंस संदेश
-            globalSpeechInstance.text = "नमस्कार! मैं केआरवाईए एआई असिस्टेंट हूँ। इंसानियत की पहली डिजिटल क्रांति में आपका स्वागत है। यहाँ स्क्रीन पर नीचे आपको हमारे महा-लॉन्च का लाइव टाइमर, और केआरवाईए के 15 डिजिटल अजूबों का डैशबोर्ड दिखाई देगा। आप किसी भी अजूबे के बटन पर क्लिक करके उस सेवा का लाभ उठा सकते हैं। हमारे साथ जुड़ने के लिए जन-सभा फॉर्म भरें। धन्यवाद!";
-            
-            globalSpeechInstance.lang = 'hi-IN';
-            globalSpeechInstance.rate = 0.85; 
-            globalSpeechInstance.pitch = 1.1;  
-
-            var chosenVoice = getHindiVoice();
-            if (chosenVoice) {
-                globalSpeechInstance.voice = chosenVoice;
-            }
-
-            globalSpeechInstance.onend = function() {
-                fBtn.innerHTML = "🤖 KRYA एआई असिस्टेंट";
-                fBtn.style.background = "#d4af37";
-                isGlobalSpeaking = false;
-            };
-
-            globalSpeechInstance.onerror = function(e) {
-                console.error("Speech Error:", e);
-                isGlobalSpeaking = false;
-            };
-
-            fBtn.innerHTML = "🛑 बंद करें (Stop)";
-            fBtn.style.background = "#ff4d4d";
-            isGlobalSpeaking = true;
-            
-            synth.speak(globalSpeechInstance);
-        }
-    }
-
-    if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = function() {
-            var v = getHindiVoice();
-            if(globalSpeechInstance && v) globalSpeechInstance.voice = v;
-        };
-    }
-
-    document.addEventListener('click', function() {
-        var silentUtterance = new SpeechSynthesisUtterance('');
-        synth.speak(silentUtterance);
-    }, { once: true });
-    </script>
-</body>
-</html>
+ 
