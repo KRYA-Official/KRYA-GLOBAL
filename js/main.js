@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// 4. 🤖 100% Brand Safe KRYA Voice Engine (Founder Intro Version)
+// 4. 🤖 100% Brand Safe KRYA Voice Engine (Digital Founder Version)
 var synth = window.speechSynthesis;
 var globalSpeechInstance = null;
 var isGlobalSpeaking = false;
@@ -141,10 +141,11 @@ window.toggleKryaGlobalSpeech = function() {
         synth.cancel(); 
         globalSpeechInstance = new SpeechSynthesisUtterance();
         
-        globalSpeechInstance.text = "नमस्कार! केआरवाईए (KRYA) ग्लोबल में आपका स्वागत है। मैं आपका स्मार्ट एआई असिस्टेंट हूँ। यह प्लेटफॉर्म बांका बिहार के एक सच्चे डिजिटल उद्यमी, मुकेश राय जी की सालों की कड़ी मेहनत का नतीजा है। 2016 से इंटरनेट की दुनिया को समझकर, मुकेश भाई ने इसे 100 प्रतिशत ईमानदारी और सुरक्षा के साथ बनाया है। उनका विज़न है कि डिजिटल दुनिया में कोई धोखा न हो, और वे अपनी मेहनत से अपने 7 लाख के कर्ज को चुका कर एक कामयाब उद्यमी बन सकें। यहाँ केआरवाईए के 15 अजूबों में आपका डेटा और भरोसा दोनों पूरी तरह सुरक्षित और लीगल हैं। स्क्रीन पर दिए गए किसी भी बटन को बेझिझक इस्तेमाल करें। इंसानियत ही हमारा धर्म है। धन्यवाद!";
+        // 🌟 यहाँ आपकी नई 'डिजिटल फाउंडर' वाली शानदार स्क्रिप्ट अपडेट कर दी गई है
+        globalSpeechInstance.text = "नमस्कार! केआरवाईए (KRYA) ग्लोबल में आपका स्वागत है। मैं केआरवाईए का स्मार्ट डिजिटल गाइड हूँ। यह 100 प्रतिशत सुरक्षित प्लेटफॉर्म बांका बिहार के डिजिटल फाउंडर, मुकेश जी की सालों की कड़ी मेहनत का नतीजा है। 2016 से इंटरनेट की दुनिया को समझकर, मुकेश जी ने इसे पूरी ईमानदारी के साथ बनाया है। उनका विज़न है कि डिजिटल दुनिया में कोई धोखा न हो, और वे अपनी मेहनत से अपने 7 लाख के कर्ज को चुका कर एक कामयाब उद्यमी बन सकें। यहाँ केआरवाईए के 15 अजूबों में आपका डेटा और भरोसा दोनों पूरी तरह लीगल और सुरक्षित हैं। स्क्रीन पर दिए गए किसी भी बटन का बेझिझक इस्तेमाल करें। इंसानियत ही हमारा धर्म है। धन्यवाद!";
         
         globalSpeechInstance.lang = 'hi-IN';
-        globalSpeechInstance.rate = 0.90; 
+        globalSpeechInstance.rate = 0.95; // 🌟 आवाज़ को और भी नेचुरल और रिलैक्स करने के लिए स्पीड सेट की गई है
         globalSpeechInstance.pitch = 1.0; 
 
         var chosenVoice = getHindiVoice();
@@ -176,3 +177,4 @@ if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !=
 document.body.addEventListener('click', function() {
     if(synth.getVoices().length > 0) synth.speak(new SpeechSynthesisUtterance(''));
 }, { once: true });
+    
