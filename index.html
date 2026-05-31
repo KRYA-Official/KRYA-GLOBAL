@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KRYA GLOBAL: इंसानियत की पहली डिजिटल क्रांति</title>
-    <meta name="description" content="KRYA GLOBAL - 100% सुरक्षित, कानूनी और ईमानदारी पर आधारित डिजिटल प्लेटफॉर्म।">
+    <title>KRYA GLOBAL - 100% सुरक्षित डिजिटल डैशबोर्ड</title>
+    <meta name="description" content="मुकेश जी द्वारा स्थापित KRYA ग्लोबल का डिजिटल डैशबोर्ड। 100% लीगल और पारदर्शी सेवाएं।">
     <meta name="theme-color" content="#013220">
-    
-    <link rel="manifest" href="manifest.json">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,19 +14,19 @@
     
     <!-- 🎨 External CSS File -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .timer-box { background: var(--krya-gold); color: var(--monaco-green); padding: 10px; border-radius: 8px; text-align: center; font-weight: bold; margin: 15px auto; max-width: 600px; display: flex; justify-content: space-around;}
+        .time-part { display: flex; flex-direction: column; font-size: 20px;}
+        .time-label { font-size: 10px; color: #000;}
+    </style>
 </head>
 <body>
-
-    <div class="warning-banner" role="alert">
-        ⚠️ <b>पारदर्शिता संदेश:</b> KRYA GLOBAL के 15 अजूबों पर काम चल रहा है। यहाँ दी गई हर सर्विस 100% असली और सुरक्षित है। - आपका अपना मुकेश
-    </div>
 
     <header class="krya-header">
         <div class="logo-container">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1bixMJd4JUYrenIP1acbcd46lNVBY5rfCPPcjUCJjuZErSbl-Wee_0EW1obL3da5L23jC1XZlamC2kazOPj9YyRWd_sY5zebrtxVk53gb048BI1jiuHnc5ZRLKwMvBtAkcmbJHrKcr5OPeKyVcjTtAz8rUk89R7Vkt603kbahMh58ikA9S-bJDdiVdJ4/s600/1000537308.jpg" alt="KRYA Global Logo" class="krya-logo" loading="lazy">
             <h1 class="header-title">KRYA GLOBAL</h1>
         </div>
-        <div id="google_translate_element" style="margin-top:10px; display:flex; justify-content:center;"></div>
     </header>
 
     <!-- 🤖 Floating AI Assistant -->
@@ -37,129 +35,101 @@
     </button>
 
     <main>
-        <!-- Hero & Timer Section -->
-        <div class="hero-section">
-            <h2 class="hero-heading">इंसानियत की पहली डिजिटल क्रांति</h2>
-            <p class="hero-subheading">ईमानदारी, सुरक्षा और सुलभता का नया दौर।</p>
-            
-            <div class="countdown-container">
-                <h3 class="countdown-title">महा-लॉन्च (28 जून 2026, 10:00 AM)</h3>
-                <div class="timer-flex">
-                    <div class="time-box"><span id="days" class="time-val">00</span><br><small>दिन</small></div>
-                    <div class="time-box"><span id="hours" class="time-val">00</span><br><small>घंटे</small></div>
-                    <div class="time-box"><span id="minutes" class="time-val">00</span><br><small>मिनट</small></div>
-                    <div class="time-box"><span id="seconds" class="time-val">00</span><br><small>सेकंड</small></div>
-                </div>
-            </div>
+        <!-- ⏳ Live Timer Section -->
+        <div class="timer-box">
+            <div class="time-part"><span id="days">00</span><span class="time-label">दिन</span></div>
+            <div class="time-part"><span id="hours">00</span><span class="time-label">घंटे</span></div>
+            <div class="time-part"><span id="minutes">00</span><span class="time-label">मिनट</span></div>
+            <div class="time-part"><span id="seconds">00</span><span class="time-label">सेकंड</span></div>
         </div>
 
-        <!-- 🌟 15 Ajoobe Dashboard -->
-        <section class="krya-section dashboard-section">
-            <h3 class="section-title">🌟 KRYA के 15 अजूबे</h3>
-            <nav class="ajoobe-grid" aria-label="KRYA Services">
-                <a href="jan-sabha.html" class="ajooba-card"><span class="ajooba-icon">👥</span><span class="ajooba-title">जन-सभा</span></a>
-                <a href="kisan-setu.html" class="ajooba-card"><span class="ajooba-icon">🌾</span><span class="ajooba-title">किसान सेतु</span></a>
-                <a href="#direct-cart" class="ajooba-card"><span class="ajooba-icon">📦</span><span class="ajooba-title">KRYA डील्स</span></a>
-                <a href="#messenger" class="ajooba-card"><span class="ajooba-icon">💬</span><span class="ajooba-title">मैसेंजर</span></a>
-                <a href="#education" class="ajooba-card"><span class="ajooba-icon">📚</span><span class="ajooba-title">एजुकेशन</span></a>
-                <a href="#digital" class="ajooba-card"><span class="ajooba-icon">💻</span><span class="ajooba-title">डिजिटल</span></a>
-                <a href="#jobs" class="ajooba-card"><span class="ajooba-icon">💼</span><span class="ajooba-title">रोज़गार</span></a>
-                <a href="#health" class="ajooba-card"><span class="ajooba-icon">🏥</span><span class="ajooba-title">स्वास्थ्य</span></a>
-                <a href="#market" class="ajooba-card"><span class="ajooba-icon">🏪</span><span class="ajooba-title">बाज़ार</span></a>
-                <a href="#news" class="ajooba-card"><span class="ajooba-icon">📰</span><span class="ajooba-title">न्यूज़</span></a>
-                <a href="#women" class="ajooba-card"><span class="ajooba-icon">👩‍🦰</span><span class="ajooba-title">महिला शक्ति</span></a>
-                <a href="#panchayat" class="ajooba-card"><span class="ajooba-icon">🏛️</span><span class="ajooba-title">पंचायत</span></a>
-                <a href="#wallet" class="ajooba-card"><span class="ajooba-icon">💳</span><span class="ajooba-title">वॉलेट</span></a>
-                <a href="#safety" class="ajooba-card"><span class="ajooba-icon">🛡️</span><span class="ajooba-title">सुरक्षा</span></a>
-                <a href="help.html" class="ajooba-card"><span class="ajooba-icon">🎧</span><span class="ajooba-title">सहायता</span></a>
-            </nav>
+        <section class="krya-section">
+            <h2 class="section-title">🌟 KRYA के 15 अजूबे</h2>
+            
+            <!-- 📱 15 Ajoobe Grid with Connected Links -->
+            <div class="ajoobe-grid">
+                <a href="#jansabha-form" class="ajooba-card">
+                    <span class="ajooba-icon">👥</span>
+                    <span class="ajooba-title">जन-सभा</span>
+                </a>
+                <a href="kisan-setu.html" class="ajooba-card">
+                    <span class="ajooba-icon">🌾</span>
+                    <span class="ajooba-title">किसान सेतु</span>
+                </a>
+                <a href="deals.html" class="ajooba-card">
+                    <span class="ajooba-icon">📦</span>
+                    <span class="ajooba-title">KRYA डील्स</span>
+                </a>
+                <a href="messenger.html" class="ajooba-card">
+                    <span class="ajooba-icon">💬</span>
+                    <span class="ajooba-title">मैसेंजर</span>
+                </a>
+                <a href="education.html" class="ajooba-card">
+                    <span class="ajooba-icon">📚</span>
+                    <span class="ajooba-title">एजुकेशन</span>
+                </a>
+                <a href="digital.html" class="ajooba-card">
+                    <span class="ajooba-icon">💻</span>
+                    <span class="ajooba-title">डिजिटल</span>
+                </a>
+                <a href="jobs.html" class="ajooba-card">
+                    <span class="ajooba-icon">💼</span>
+                    <span class="ajooba-title">रोज़गार</span>
+                </a>
+                <a href="health.html" class="ajooba-card">
+                    <span class="ajooba-icon">🏥</span>
+                    <span class="ajooba-title">स्वास्थ्य</span>
+                </a>
+                <a href="bazaar.html" class="ajooba-card">
+                    <span class="ajooba-icon">🏪</span>
+                    <span class="ajooba-title">बाज़ार</span>
+                </a>
+                <a href="news.html" class="ajooba-card">
+                    <span class="ajooba-icon">📰</span>
+                    <span class="ajooba-title">न्यूज़</span>
+                </a>
+                <a href="mahila.html" class="ajooba-card">
+                    <span class="ajooba-icon">👩</span>
+                    <span class="ajooba-title">महिला शक्ति</span>
+                </a>
+                <a href="panchayat.html" class="ajooba-card">
+                    <span class="ajooba-icon">🏛️</span>
+                    <span class="ajooba-title">पंचायत</span>
+                </a>
+                <a href="wallet.html" class="ajooba-card">
+                    <span class="ajooba-icon">💳</span>
+                    <span class="ajooba-title">वॉलेट</span>
+                </a>
+                <a href="suraksha.html" class="ajooba-card">
+                    <span class="ajooba-icon">🛡️</span>
+                    <span class="ajooba-title">सुरक्षा</span>
+                </a>
+                <a href="sahayata.html" class="ajooba-card">
+                    <span class="ajooba-icon">🎧</span>
+                    <span class="ajooba-title">सहायता</span>
+                </a>
+            </div>
         </section>
 
-        <!-- 📦 DirectCart Section -->
-        <section id="direct-cart" class="krya-section dark">
-            <h3 class="section-title">📦 KRYA डील्स (DirectCart India)</h3>
-            <div class="product-banner">
-                <span style="font-size: 40px;">🔦</span>
-                <p class="product-info">KRYA मज़बूत सोलर टॉर्च<br><small>(किसान और मज़दूर भाइयों के लिए खास)</small></p>
-            </div>
-            <div class="price-row">
-                <div>
-                    <span class="market-price">बाज़ार कीमत: ₹600</span><br>
-                    <span class="krya-price">KRYA रेट: ₹450</span>
-                </div>
-                <div class="delivery-badge">🚚 फ्री डिलीवरी (COD)</div>
-            </div>
-            <blockquote class="transparency-quote">
-                "<b>KRYA पारदर्शिता संदेश:</b> यह प्रमाणित होलसेल पार्टनर से सीधे आपके घर भेजा जाएगा। इस कीमत में हमारी प्रोडक्ट रिसर्च, 24/7 सपोर्ट और सर्विस फीस शामिल है।" <br><br>
-                <strong class="quote-highlight">इंसानियत ही हमारा धर्म है, ईमानदारी ही हमारा कर्म है।</strong>
-                <span class="quote-author">- आपका मुकेश</span>
-            </blockquote>
-            <a href="#jansabha-form" onclick="document.getElementById('msg-box').value = 'मुझे KRYA मज़बूत सोलर टॉर्च (₹450) ऑर्डर करना है।';" class="krya-btn">🛒 खरीदने के लिए नीचे फॉर्म भरें</a>
-        </section>
-
-        <!-- Story Section -->
-        <article class="krya-section story-section">
-            <h3 class="story-title">मेरी सच्चाई, मेरी कहानी</h3>
-            <p class="story-para">नमस्कार दुनिया वालों! मेरा नाम <strong>मुकेश राय</strong> है। 2016 से मैंने इंटरनेट की दुनिया में सीखना शुरू किया। मैंने रातों की नींदें हराम की हैं, कर्ज का बोझ सहा है, लेकिन मैंने कभी हार नहीं मानी।</p>
-            <p class="story-para">मेरा एक ही लक्ष्य है—पूरी ईमानदारी से मेहनत करना, अपने परिवार को एक बेहतर जिंदगी देना और अपने 7 लाख रुपये के कर्ज को चुकाना। <strong>KRYA GLOBAL</strong> कोई विदेशी कंपनी नहीं है, यह एक आम भारतीय की खून-पसीने की मेहनत से खड़ी की गई डिजिटल क्रांति है।</p>
-            <p class="story-para highlight">हम कोई शॉर्टकट नहीं लेते। आप KRYA से जो भी जुड़ेंगे या खरीदेंगे, वह 100% सुरक्षित और लीगल होगा। हमारी सोच एक ही है: हम ईमानदार हैं, आप भी ईमानदार बनो। <br><br>
-                <strong class="story-slogan">इंसानियत ही हमारा धर्म है, ईमानदारी ही हमारा कर्म है।</strong><br>
-                <span class="story-signature">- आपका अपना, मुकेश</span>
-            </p>
-        </article>
-
-        <!-- Form Section -->
-        <section class="krya-section dark">
-            <h3 class="section-title">KRYA जन-सभा (Inquiry Form)</h3>
-            <form id="jansabha-form" novalidate>
-                <div class="form-group">
-                    <label for="u-name" class="form-label">आपका पूरा नाम:</label>
-                    <input type="text" id="u-name" name="name" class="form-input" required placeholder="अपना सही नाम लिखें" autocomplete="name">
-                </div>
-                <div class="form-group">
-                    <label for="u-email" class="form-label">आपका ईमेल पता:</label>
-                    <input type="email" id="u-email" name="email" class="form-input" required placeholder="example@email.com" autocomplete="email">
-                </div>
-                <div class="form-group">
-                    <label for="u-phone" class="form-label">आपका मोबाइल नंबर (10 अंक):</label>
-                    <input type="tel" id="u-phone" name="phone" class="form-input" required pattern="[0-9]{10}" inputmode="numeric" placeholder="91XXXXXXXX" autocomplete="tel">
-                </div>
-                <div class="form-group">
-                    <label for="msg-box" class="form-label">आपका संदेश / पूछताछ:</label>
-                    <textarea id="msg-box" name="message" class="form-input" required placeholder="अपना संदेश यहाँ लिखें..."></textarea>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="privacy-check" required class="checkbox-input">
-                    <label for="privacy-check" class="checkbox-label">मैं प्रमाणित करता हूँ कि मैं अपनी स्वेच्छा से अपना डेटा KRYA GLOBAL के साथ साझा कर रहा हूँ और प्लेटफ़ॉर्म की <a href="legal/privacy.html" class="link-gold">निजता नीति</a> से पूरी तरह सहमत हूँ।</label>
-                </div>
-                <button type="submit" id="submit-btn" class="krya-btn">🚀 संदेश तिजोरी में सुरक्षित भेजें</button>
+        <!-- 🔥 Firebase Jan-Sabha Form (100% Secure) -->
+        <section id="jansabha-form-section" class="krya-section dark">
+            <h2 class="section-title" style="color: var(--krya-gold);">✉️ जन-सभा में जुड़ें</h2>
+            <p style="text-align:center; font-size:13px; margin-bottom:15px;">मुकेश जी से 100% सुरक्षित रूप से जुड़ने के लिए अपनी जानकारी दें।</p>
+            
+            <form id="jansabha-form" style="display:flex; flex-direction:column; gap:10px; max-width: 400px; margin: 0 auto;">
+                <input type="text" id="u-name" placeholder="आपका पूरा नाम" required style="padding:10px; border-radius:5px; border:none;">
+                <input type="email" id="u-email" placeholder="आपका ईमेल" required style="padding:10px; border-radius:5px; border:none;">
+                <input type="tel" id="u-phone" placeholder="आपका मोबाइल नंबर" required style="padding:10px; border-radius:5px; border:none;">
+                <textarea id="msg-box" placeholder="अपना संदेश या सवाल यहाँ लिखें..." rows="4" required style="padding:10px; border-radius:5px; border:none;"></textarea>
+                <button type="submit" id="submit-btn" class="krya-btn" style="border:none; cursor:pointer; width: 100%;">🚀 सुरक्षित सबमिट करें</button>
             </form>
-            <div id="success-box" class="success-alert" style="display: none;" role="alert">
-                🎉 KRYA जन-सभा: आपका संदेश सुरक्षित रूप से हमारी मुख्य तिजोरी में 100% लीगल तरीके से सेव कर लिया गया है। धन्यवाद!
-            </div>
+            <div id="success-box" style="display:none; text-align:center; background:green; color:white; padding:10px; border-radius:5px; margin-top:10px;">✅ आपकी जानकारी मुकेश जी तक सुरक्षित पहुँच गई है!</div>
         </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 KRYA GLOBAL. सर्वाधिकार सुरक्षित। 100% लीगल और पारदर्शी व्यवस्था।</p>
-        <div class="footer-links">
-            <a href="legal/privacy.html">निजता नीति</a> | <a href="legal/terms.html">नियम और शर्तें</a>
-        </div>
+        <p>&copy; 2026 KRYA GLOBAL. डिजिटल फाउंडर - मुकेश जी। 100% लीगल व्यवस्था।</p>
     </footer>
-
-    <div id="krya-install-banner" class="install-banner">
-        <p class="install-text">📱 <b>KRYA GLOBAL ऐप डाउनलोड करें:</b> बिना प्ले स्टोर के सीधे अपने मोबाइल स्क्रीन पर सुरक्षित इंस्टॉल करें!</p>
-        <button id="krya-install-btn" class="install-btn-gold">📲 इंस्टॉल करें</button>
-        <button id="krya-close-banner" class="install-btn-outline">बंद करें</button>
-    </div>
-
-    <!-- Translation -->
-    <script>function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element'); }</script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
-
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <!-- 🧠 External JS Logic -->
     <script src="js/main.js" defer></script>
