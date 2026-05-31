@@ -1,31 +1,43 @@
-const CACHE_NAME = 'krya-global-v1';
+const CACHE_NAME = 'krya-global-app-v1';
 const urlsToCache = [
-  './dashboard.html',
-  './vyapar-rath.html',
-  './nano-mart.html',
-  './nyay-rakshak.html',
-  './jan-sabha.html',
-  './imaandari-score.html'
+    './',
+    './index.html',
+    './css/style.css',
+    './manifest.json',
+    './kisan-setu.html',
+    './deals.html',
+    './messenger.html',
+    './education.html',
+    './digital.html',
+    './jobs.html',
+    './health.html',
+    './bazaar.html',
+    './news.html',
+    './mahila.html',
+    './panchayat.html',
+    './wallet.html',
+    './suraksha.html',
+    './sahayata.html'
 ];
 
-// इंस्टॉल इवेंट: जब ऐप पहली बार लोड होता है
+// इंस्टॉल इवेंट - सभी महत्वपूर्ण फाइलों को फोन में सेव (Cache) करना
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('KRYA इंजन: फाइलें सुरक्षित की जा रही हैं');
-        return cache.addAll(urlsToCache);
-      })
-  );
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => {
+                console.log('KRYA की 100% लीगल फाइल्स कैश हो रही हैं...');
+                return cache.addAll(urlsToCache);
+            })
+    );
 });
 
-// फ़ेच (Fetch) इवेंट: यह ऐप को इंस्टॉल करने की अनुमति देने के लिए ज़रूरी है
+// फेच इवेंट - ऐप को रॉकेट की स्पीड से खोलना
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // अगर फाइल कैशे में है तो वहाँ से दें, नहीं तो इंटरनेट से लाएं
-        return response || fetch(event.request);
-      })
-  );
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => {
+                // अगर फाइल कैश में है तो तुरंत खोलें, नहीं तो इंटरनेट से लें
+                return response || fetch(event.request);
+            })
+    );
 });
