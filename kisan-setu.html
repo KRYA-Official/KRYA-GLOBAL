@@ -3,74 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KRYA किसान सेतु - 100% सुरक्षित कृषि सेवाएं</title>
-    <meta name="description" content="बांका और पूरे भारत के किसानों के लिए डिजिटल मदद। फसल सलाह, मंडी भाव और मौसम की 100% सही जानकारी।">
+    <title>KRYA किसान सेतु - असली और सटीक जानकारी</title>
     <meta name="theme-color" content="#013220">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- 🎨 External CSS File -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header class="krya-header">
         <div class="logo-container">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1bixMJd4JUYrenIP1acbcd46lNVBY5rfCPPcjUCJjuZErSbl-Wee_0EW1obL3da5L23jC1XZlamC2kazOPj9YyRWd_sY5zebrtxVk53gb048BI1jiuHnc5ZRLKwMvBtAkcmbJHrKcr5OPeKyVcjTtAz8rUk89R7Vkt603kbahMh58ikA9S-bJDdiVdJ4/s600/1000537308.jpg" alt="KRYA Global Logo" class="krya-logo" loading="lazy">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1bixMJd4JUYrenIP1acbcd46lNVBY5rfCPPcjUCJjuZErSbl-Wee_0EW1obL3da5L23jC1XZlamC2kazOPj9YyRWd_sY5zebrtxVk53gb048BI1jiuHnc5ZRLKwMvBtAkcmbJHrKcr5OPeKyVcjTtAz8rUk89R7Vkt603kbahMh58ikA9S-bJDdiVdJ4/s600/1000537308.jpg" alt="Logo" class="krya-logo">
             <h1 class="header-title">KRYA GLOBAL</h1>
         </div>
     </header>
 
-    <!-- 🤖 Floating AI Assistant -->
-    <button type="button" id="krya-global-sarathi" onclick="window.toggleKryaGlobalSpeech()" class="krya-floating-assistant" aria-label="AI Voice Assistant">
-        🤖 KRYA एआई असिस्टेंट
-    </button>
-
     <main>
         <div style="max-width: 600px; margin: 15px auto; padding: 0 15px;">
-            <a href="index.html" style="color: var(--monaco-green); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 5px; font-size: 14px;">🔙 होम डैशबोर्ड पर वापस जाएं</a>
+            <a href="index.html" style="color: var(--monaco-green); font-weight: 600;">🔙 होम डैशबोर्ड</a>
         </div>
 
-        <section class="krya-section" style="padding-top: 15px;">
+        <section class="krya-section">
             <h2 class="section-title">🌾 KRYA किसान सेतु</h2>
-            <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 20px;">हमारे अन्नदाताओं के लिए 100% सही और पारदर्शी डिजिटल सेवाएं। अब किसानी बनेगी और भी आसान।</p>
+            <p style="text-align: center; font-size: 13px; margin-bottom: 20px;">100% असली सरकारी और लाइव जानकारी।</p>
             
             <div class="ajoobe-grid" style="grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                <a href="#weather" class="ajooba-card" style="padding: 25px 10px;">
-                    <span class="ajooba-icon" style="font-size: 40px;">🌦️</span>
-                    <span class="ajooba-title" style="font-size: 15px;">मौसम अलर्ट</span>
+                <!-- 1. मौसम अलर्ट: सीधे गूगल वेदर (लाइव) -->
+                <a href="https://www.google.com/search?q=weather+in+Banka" target="_blank" class="ajooba-card">
+                    <span class="ajooba-icon">🌦️</span>
+                    <span class="ajooba-title">मौसम अलर्ट</span>
                 </a>
-                <a href="#market-price" class="ajooba-card" style="padding: 25px 10px;">
-                    <span class="ajooba-icon" style="font-size: 40px;">📈</span>
-                    <span class="ajooba-title" style="font-size: 15px;">मंडी भाव</span>
+                <!-- 2. मंडी भाव: भारत सरकार की e-NAM (असली) -->
+                <a href="https://enam.gov.in/web/" target="_blank" class="ajooba-card">
+                    <span class="ajooba-icon">📈</span>
+                    <span class="ajooba-title">मंडी भाव</span>
                 </a>
-                <a href="#crop-advice" class="ajooba-card" style="padding: 25px 10px;">
-                    <span class="ajooba-icon" style="font-size: 40px;">🌱</span>
-                    <span class="ajooba-title" style="font-size: 15px;">फसल सलाह</span>
+                <!-- 3. कृषि उपकरण: अमेज़न एफिलिएट (आपका लीगल अर्निंग) -->
+                <a href="https://www.amazon.in/s?k=agriculture+tools" target="_blank" class="ajooba-card">
+                    <span class="ajooba-icon">🚜</span>
+                    <span class="ajooba-title">कृषि उपकरण</span>
                 </a>
-                <a href="#farming-tools" class="ajooba-card" style="padding: 25px 10px;">
-                    <span class="ajooba-icon" style="font-size: 40px;">🚜</span>
-                    <span class="ajooba-title" style="font-size: 15px;">कृषि उपकरण</span>
+                <!-- 4. फसल सलाह: किसान कॉल सेंटर (सरकारी मदद) -->
+                <a href="tel:1551" class="ajooba-card">
+                    <span class="ajooba-icon">🌱</span>
+                    <span class="ajooba-title">फसल सलाह</span>
                 </a>
             </div>
         </section>
 
-        <!-- जन-सभा लिंक -->
+        <!-- जन-सभा: यहाँ किसान अपनी बात लिख सकते हैं -->
         <section class="krya-section dark" style="text-align: center;">
-            <h3 style="color: var(--krya-gold); margin-top: 0; font-size: 18px;">खेती से जुड़ी कोई समस्या है?</h3>
-            <p style="font-size: 14px; margin-bottom: 20px;">किसान भाइयों, अपनी समस्या हमारे साथ 100% सुरक्षित रूप से साझा करें। हम आपको सही समाधान देंगे।</p>
-            <a href="index.html#jansabha-form" class="krya-btn">✉️ जन-सभा फॉर्म भरें</a>
+            <h3>कोई और सवाल है?</h3>
+            <p>1551 (सरकारी किसान हेल्पलाइन) पर कॉल करें या हमें जन-सभा में बताएं।</p>
+            <br>
+            <a href="index.html#jansabha-form-section" class="krya-btn">✉️ जन-सभा में लिखें</a>
         </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 KRYA GLOBAL. सर्वाधिकार सुरक्षित। 100% लीगल व्यवस्था।</p>
+        <p>&copy; 2026 KRYA GLOBAL. 100% ईमानदार डिजिटल सेवा।</p>
     </footer>
-
-    <!-- 🧠 External JS Logic -->
-    <script src="js/main.js" defer></script>
 </body>
 </html>
