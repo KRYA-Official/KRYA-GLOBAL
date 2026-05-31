@@ -2,145 +2,75 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KRYA किसान-सेतु</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --monaco-green: #0E3B20;
-            --royal-gold: #D4AF37;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            padding: 25px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--royal-gold);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .header h2 { margin: 0; font-size: 24px; }
-        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
-        
-        .container {
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-box {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--royal-gold);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--monaco-green);
-            font-size: 14px;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-family: inherit;
-            font-size: 15px;
-            transition: border-color 0.3s;
-        }
-        input:focus {
-            outline: none;
-            border-color: var(--royal-gold);
-        }
-        .submit-btn {
-            background-color: var(--monaco-green);
-            color: var(--royal-gold);
-            border: 2px solid var(--royal-gold);
-            padding: 15px;
-            width: 100%;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .submit-btn:hover {
-            background-color: var(--royal-gold);
-            color: var(--monaco-green);
-            border-color: var(--monaco-green);
-        }
-        .back-btn {
-            display: block;
-            text-align: center;
-            margin-top: 25px;
-            color: var(--monaco-green);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KRYA किसान सेतु - 100% सुरक्षित कृषि सेवाएं</title>
+    <meta name="description" content="बांका और पूरे भारत के किसानों के लिए डिजिटल मदद। फसल सलाह, मंडी भाव और मौसम की 100% सही जानकारी।">
+    <meta name="theme-color" content="#013220">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 🎨 External CSS File -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="header">
-        <h2>🌾 KRYA किसान-सेतु</h2>
-        <p>बिना बिचौलिए का 100% पारदर्शी बाज़ार</p>
-    </div>
-
-    <div class="container">
-        <div class="form-box">
-            <div class="form-group">
-                <label>फसल का नाम (Crop Name)</label>
-                <input type="text" id="cropName" placeholder="जैसे: धान, गेहूँ, मक्का...">
-            </div>
-            <div class="form-group">
-                <label>मात्रा (Quantity)</label>
-                <input type="text" id="quantity" placeholder="जैसे: 50 क्विंटल">
-            </div>
-            <div class="form-group">
-                <label>अपेक्षित दाम (Expected Price - ₹)</label>
-                <input type="number" id="price" placeholder="प्रति क्विंटल दाम लिखें">
-            </div>
-            <div class="form-group">
-                <label>स्थान (Location)</label>
-                <input type="text" id="location" placeholder="गाँव या ज़िले का नाम">
-            </div>
-            
-            <button class="submit-btn" onclick="submitCrop()">फसल का विज्ञापन डालें</button>
+    <header class="krya-header">
+        <div class="logo-container">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1bixMJd4JUYrenIP1acbcd46lNVBY5rfCPPcjUCJjuZErSbl-Wee_0EW1obL3da5L23jC1XZlamC2kazOPj9YyRWd_sY5zebrtxVk53gb048BI1jiuHnc5ZRLKwMvBtAkcmbJHrKcr5OPeKyVcjTtAz8rUk89R7Vkt603kbahMh58ikA9S-bJDdiVdJ4/s600/1000537308.jpg" alt="KRYA Global Logo" class="krya-logo" loading="lazy">
+            <h1 class="header-title">KRYA GLOBAL</h1>
         </div>
-        
-        <a href="dashboard.html" class="back-btn">← डैशबोर्ड पर वापस जाएँ</a>
-    </div>
+    </header>
 
-    <script src="js/modules/kisan-setu.js"></script>
-    <script>
-        // बटन दबाने पर फॉर्म सबमिट करने का लॉजिक
-        function submitCrop() {
-            const name = document.getElementById('cropName').value;
-            const qty = document.getElementById('quantity').value;
-            const price = document.getElementById('price').value;
-            const loc = document.getElementById('location').value;
+    <!-- 🤖 Floating AI Assistant -->
+    <button type="button" id="krya-global-sarathi" onclick="window.toggleKryaGlobalSpeech()" class="krya-floating-assistant" aria-label="AI Voice Assistant">
+        🤖 KRYA एआई असिस्टेंट
+    </button>
+
+    <main>
+        <div style="max-width: 600px; margin: 15px auto; padding: 0 15px;">
+            <a href="index.html" style="color: var(--monaco-green); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 5px; font-size: 14px;">🔙 होम डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+        <section class="krya-section" style="padding-top: 15px;">
+            <h2 class="section-title">🌾 KRYA किसान सेतु</h2>
+            <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 20px;">हमारे अन्नदाताओं के लिए 100% सही और पारदर्शी डिजिटल सेवाएं। अब किसानी बनेगी और भी आसान।</p>
             
-            // जो फाइल हमने पहले बनाई थी, उसका जादू यहाँ चलेगा
-            if(window.KisanSetu) {
-                window.KisanSetu.addCropListing(name, qty, price, loc, "dummy.jpg");
-            } else {
-                alert("इंजन अभी लोड हो रहा है, कृपया थोड़ा इंतज़ार करें...");
-            }
-        }
-    </script>
+            <div class="ajoobe-grid" style="grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                <a href="#weather" class="ajooba-card" style="padding: 25px 10px;">
+                    <span class="ajooba-icon" style="font-size: 40px;">🌦️</span>
+                    <span class="ajooba-title" style="font-size: 15px;">मौसम अलर्ट</span>
+                </a>
+                <a href="#market-price" class="ajooba-card" style="padding: 25px 10px;">
+                    <span class="ajooba-icon" style="font-size: 40px;">📈</span>
+                    <span class="ajooba-title" style="font-size: 15px;">मंडी भाव</span>
+                </a>
+                <a href="#crop-advice" class="ajooba-card" style="padding: 25px 10px;">
+                    <span class="ajooba-icon" style="font-size: 40px;">🌱</span>
+                    <span class="ajooba-title" style="font-size: 15px;">फसल सलाह</span>
+                </a>
+                <a href="#farming-tools" class="ajooba-card" style="padding: 25px 10px;">
+                    <span class="ajooba-icon" style="font-size: 40px;">🚜</span>
+                    <span class="ajooba-title" style="font-size: 15px;">कृषि उपकरण</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- जन-सभा लिंक -->
+        <section class="krya-section dark" style="text-align: center;">
+            <h3 style="color: var(--krya-gold); margin-top: 0; font-size: 18px;">खेती से जुड़ी कोई समस्या है?</h3>
+            <p style="font-size: 14px; margin-bottom: 20px;">किसान भाइयों, अपनी समस्या हमारे साथ 100% सुरक्षित रूप से साझा करें। हम आपको सही समाधान देंगे।</p>
+            <a href="index.html#jansabha-form" class="krya-btn">✉️ जन-सभा फॉर्म भरें</a>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 KRYA GLOBAL. सर्वाधिकार सुरक्षित। 100% लीगल व्यवस्था।</p>
+    </footer>
+
+    <!-- 🧠 External JS Logic -->
+    <script src="js/main.js" defer></script>
 </body>
 </html>
