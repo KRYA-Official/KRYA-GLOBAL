@@ -43,10 +43,15 @@ function updateDailyContent() {
     const index = (dayOfYear - 1) % 30; 
     const content = yearLongContent[index];
 
-    if (content) {
-        // आपकी वेबसाइट में जहाँ आईडी 'daily-word' और 'daily-meaning' है, वहाँ यह अपडेट हो जाएगा
-        document.getElementById("daily-word").innerText = content.word;
-        document.getElementById("daily-meaning").innerText = content.meaning;
+    // सुरक्षा के लिए चेक लगा दिया है ताकि कोड क्रैश न हो
+    const wordElement = document.getElementById("daily-word");
+    const meaningElement = document.getElementById("daily-meaning");
+
+    if (content && wordElement && meaningElement) {
+        wordElement.innerText = content.word;
+        meaningElement.innerText = content.meaning;
     }
 }
+
+// पेज लोड होते ही यह फंक्शन चलेगा
 window.onload = updateDailyContent;
