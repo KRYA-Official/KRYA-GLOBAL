@@ -26,15 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
-    // 2. 🔥 Firebase Initialization & Form Submit
+    // 2. 🔥 Firebase Initialization & Form Submit (नई 100% सुरक्षित चाबी के साथ)
     if (typeof firebase !== 'undefined') {
+        // Mukesh Bhai's New Secure Firebase Config
         const firebaseConfig = {
-            apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
-            authDomain: "krya-global.firebaseapp.com",
-            projectId: "krya-global",
-            storageBucket: "krya-global.firebasestorage.app",
-            messagingSenderId: "372340448782",
-            appId: "1:372340448782:web:8e26d6d1169a3b8af8665f"
+          apiKey: "AIzaSyCtSIGAybHuIga19QpPRS1egRrsbhvJV2c",
+          authDomain: "krya-94e55.firebaseapp.com",
+          projectId: "krya-94e55",
+          storageBucket: "krya-94e55.firebasestorage.app",
+          messagingSenderId: "1025043894227",
+          appId: "1:1025043894227:web:fa57c21ed2f6381a792926",
+          measurementId: "G-VMC9CDSCXK"
         };
         
         if (!firebase.apps.length) {
@@ -109,26 +111,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// 4. 🤖 100% Brand Safe KRYA Voice Engine (Advanced Natural Voice)
+// 4. 🤖 100% Brand Safe KRYA Voice Engine (Founder Intro Version)
 var synth = window.speechSynthesis;
 var globalSpeechInstance = null;
 var isGlobalSpeaking = false;
 
-// 🌟 स्मार्ट वॉयस फाइंडर: यह सबसे अच्छी 'इंसानों जैसी' आवाज़ खोजेगा
 function getHindiVoice() {
     var voices = synth.getVoices();
-    
-    // पहला प्रयास: Google या Microsoft की 'Online/Natural' प्रीमियम आवाज़ खोजना
     var premiumVoice = voices.find(v => 
         (v.lang === 'hi-IN' || v.lang.includes('hi')) && 
         (v.name.includes('Natural') || v.name.includes('Online') || v.name.includes('Google'))
     );
-    
-    if (premiumVoice) {
-        return premiumVoice;
-    }
-    
-    // दूसरा प्रयास: अगर प्रीमियम न मिले, तो जो भी हिंदी आवाज़ हो उसे ले लेना
+    if (premiumVoice) return premiumVoice;
     return voices.find(v => v.lang === 'hi-IN' || v.lang.includes('hi')) || null;
 }
 
@@ -146,13 +140,12 @@ window.toggleKryaGlobalSpeech = function() {
     } else {
         synth.cancel(); 
         globalSpeechInstance = new SpeechSynthesisUtterance();
-        globalSpeechInstance.text = "नमस्कार! मैं केआरवाईए एआई असिस्टेंट हूँ। इंसानियत की पहली डिजिटल क्रांति में आपका स्वागत है। यहाँ स्क्रीन पर नीचे आपको हमारे महा-लॉन्च का लाइव टाइमर, और केआरवाईए के 15 डिजिटल अजूबों का डैशबोर्ड दिखाई देगा। आप किसी भी अजूबे के बटन पर क्लिक करके उस सेवा का लाभ उठा सकते हैं। हमारे साथ जुड़ने के लिए जन-सभा फॉर्म भरें। धन्यवाद!";
+        
+        globalSpeechInstance.text = "नमस्कार! केआरवाईए (KRYA) ग्लोबल में आपका स्वागत है। मैं आपका स्मार्ट एआई असिस्टेंट हूँ। यह प्लेटफॉर्म बांका बिहार के एक सच्चे डिजिटल उद्यमी, मुकेश राय जी की सालों की कड़ी मेहनत का नतीजा है। 2016 से इंटरनेट की दुनिया को समझकर, मुकेश भाई ने इसे 100 प्रतिशत ईमानदारी और सुरक्षा के साथ बनाया है। उनका विज़न है कि डिजिटल दुनिया में कोई धोखा न हो, और वे अपनी मेहनत से अपने 7 लाख के कर्ज को चुका कर एक कामयाब उद्यमी बन सकें। यहाँ केआरवाईए के 15 अजूबों में आपका डेटा और भरोसा दोनों पूरी तरह सुरक्षित और लीगल हैं। स्क्रीन पर दिए गए किसी भी बटन को बेझिझक इस्तेमाल करें। इंसानियत ही हमारा धर्म है। धन्यवाद!";
         
         globalSpeechInstance.lang = 'hi-IN';
-        
-        // 🌟 आवाज़ को इंसानों जैसा बनाने के लिए सेटिंग
-        globalSpeechInstance.rate = 0.95; // बोलने की स्पीड थोड़ी रिलैक्स और नॉर्मल
-        globalSpeechInstance.pitch = 1.0; // प्राकृतिक आवाज़ का भारीपन 
+        globalSpeechInstance.rate = 0.90; 
+        globalSpeechInstance.pitch = 1.0; 
 
         var chosenVoice = getHindiVoice();
         if (chosenVoice) {
@@ -170,20 +163,16 @@ window.toggleKryaGlobalSpeech = function() {
         fBtn.style.background = "#ff4d4d";
         isGlobalSpeaking = true;
         
-        // ब्राउज़र को थोड़ा समय देना ताकि वह प्रीमियम आवाज़ लोड कर सके
         setTimeout(() => {
             synth.speak(globalSpeechInstance);
         }, 100);
     }
 };
 
-// वॉयस लिस्ट लोड होने पर उसे अपडेट करना
 if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = getHindiVoice;
 }
 
-// Touch policy bypass for audio
 document.body.addEventListener('click', function() {
     if(synth.getVoices().length > 0) synth.speak(new SpeechSynthesisUtterance(''));
 }, { once: true });
-                            
