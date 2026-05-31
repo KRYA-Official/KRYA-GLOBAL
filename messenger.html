@@ -2,65 +2,53 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KRYA मैसेंजर - सुरक्षित संवाद</title>
-    <meta name="theme-color" content="#013220">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA ग्लोबल चैट</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .chat-container { max-width: 600px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .chat-box { height: 300px; overflow-y: scroll; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; background: #f9f9f9; }
-        .input-area { display: flex; gap: 10px; }
-        input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-        .quick-buttons { display: flex; gap: 5px; margin-bottom: 10px; overflow-x: auto; }
-        .q-btn { background: #e0e0e0; border: none; padding: 5px 10px; border-radius: 15px; font-size: 12px; cursor: pointer; }
-    </style>
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCtSIGAybHuIga19QpPRS1egRrsbhvJV2c",
+            authDomain: "krya-94e55.firebaseapp.com",
+            projectId: "krya-94e55",
+            storageBucket: "krya-94e55.firebasestorage.app",
+            messagingSenderId: "1025043894227",
+            appId: "1:1025043894227:web:fa57c21ed2f6381a792926"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // मैसेज भेजने का फंक्शन
+        window.sendMessage = async () => {
+            let msg = document.getElementById("message").value;
+            let user = document.getElementById("username").value || "अज्ञात सदस्य";
+            if(msg !== "") {
+                await addDoc(collection(db, "messages"), {
+                    text: msg,
+                    user: user,
+                    timestamp: new Date()
+                });
+                document.getElementById("message").value = "";
+            }
+        };
+    </script>
 </head>
 <body>
-
     <header class="krya-header">
-        <div class="logo-container">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1bixMJd4JUYrenIP1acbcd46lNVBY5rfCPPcjUCJjuZErSbl-Wee_0EW1obL3da5L23jC1XZlamC2kazOPj9YyRWd_sY5zebrtxVk53gb048BI1jiuHnc5ZRLKwMvBtAkcmbJHrKcr5OPeKyVcjTtAz8rUk89R7Vkt603kbahMh58ikA9S-bJDdiVdJ4/s600/1000537308.jpg" alt="Logo" class="krya-logo">
-            <h1 class="header-title">KRYA मैसेंजर</h1>
-        </div>
+        <h1>KRYA ग्लोबल फैमिली चैट</h1>
     </header>
 
-    <main>
-        <div class="chat-container">
-            <div class="chat-box" id="chat">
-                <p style="text-align: center; color: #888;">नमस्ते! KRYA मैसेंजर में आपका स्वागत है। मुकेश भाई आपकी मदद के लिए तैयार हैं।</p>
-            </div>
-            
-            <div class="quick-buttons">
-                <button class="q-btn" onclick="sendQuick('कृषि समस्या')">🌾 कृषि समस्या</button>
-                <button class="q-btn" onclick="sendQuick('ऑर्डर जानकारी')">📦 ऑर्डर जानकारी</button>
-                <button class="q-btn" onclick="sendQuick('नमस्ते')">🙏 नमस्ते</button>
-            </div>
-
-            <div class="input-area">
-                <input type="text" id="message" placeholder="अपना मैसेज लिखें...">
-                <button onclick="sendMessage()" class="krya-btn">भेजें</button>
-            </div>
+    <main style="max-width: 600px; margin: 20px auto; padding: 20px;">
+        <input type="text" id="username" placeholder="अपना नाम लिखें..." style="width:100%; margin-bottom:10px;">
+        <div id="chat-box" style="height: 300px; border: 1px solid #ccc; overflow-y: scroll; padding: 10px;">
+            <!-- मैसेज यहाँ दिखेंगे -->
         </div>
-        <div style="text-align: center;">
-            <a href="index.html" class="krya-btn" style="background-color: #666;">🔙 होम पर वापस जाएं</a>
-        </div>
+        <input type="text" id="message" placeholder="दिल की बात लिखें..." style="width:100%; margin-top:10px;">
+        <button onclick="sendMessage()" class="krya-btn" style="width:100%; margin-top:10px;">भेजें (ग्लोबल चैट)</button>
     </main>
-
-    <script>
-        function sendMessage() {
-            let msg = document.getElementById("message").value;
-            if(msg !== "") {
-                let chat = document.getElementById("chat");
-                chat.innerHTML += `<p><b>आप:</b> ${msg}</p>`;
-                // यहाँ हम बाद में Firebase का कोड जोड़ेंगे
-                document.getElementById("message").value = "";
-                chat.scrollTop = chat.scrollHeight;
-            }
-        }
-        function sendQuick(txt) {
-            document.getElementById("message").value = txt;
-            sendMessage();
-        }
-    </script>
 </body>
 </html>
