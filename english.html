@@ -6,7 +6,7 @@
     <title>KRYA इंग्लिश पाठशाला</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .word-card { background: #fdfdfd; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid #013220; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .word-card { background: #fdfdfd; padding: 20px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid #013220; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
     </style>
 </head>
 <body>
@@ -15,23 +15,20 @@
     </header>
 
     <main style="max-width: 600px; margin: 20px auto; padding: 20px;">
-        <p style="text-align: center;">आज के 5 आसान शब्द:</p>
+        <p style="text-align: center;">आज का शब्द (ऑटो-अपडेट):</p>
         
-        <div id="word-list">
-            <div class="word-card"><b>1. Trust</b> (ट्रस्ट) - विश्वास</div>
-            <div class="word-card"><b>2. Help</b> (हेल्प) - मदद करना</div>
-            <div class="word-card"><b>3. Growth</b> (ग्रोथ) - विकास</div>
-            <div class="word-card"><b>4. Honest</b> (ऑनेस्ट) - ईमानदार</div>
-            <div class="word-card"><b>5. Dream</b> (ड्रीम) - सपना</div>
-        </div>
-
-        <div style="text-align: center; margin-top: 20px;">
-            <button class="krya-btn" onclick="alert('बहुत बढ़िया! इन्हें जोर से बोलकर अभ्यास करें।')">बोलकर अभ्यास करें</button>
+        <!-- यहाँ अब 'data.js' से शब्द अपने आप आएगा -->
+        <div class="word-card">
+            <b id="daily-word" style="font-size: 22px;">Loading...</b><br>
+            <span id="daily-meaning" style="font-size: 18px; color: #555;">...</span>
         </div>
 
         <div style="text-align: center; margin-top: 30px;">
             <a href="education.html" class="krya-btn" style="background-color: #666;">🔙 पीछे जाएं</a>
         </div>
     </main>
+
+    <!-- यह फाइल आपके सिस्टम को ऑटो-पायलट करेगी -->
+    <script src="data.js"></script>
 </body>
 </html>
