@@ -1,11 +1,11 @@
 {
   "name": "KRYA GLOBAL",
   "short_name": "KRYA",
-  "description": "इंसानियत की पहली डिजिटल क्रांति",
-  "start_url": "./dashboard.html",
+  "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#013220",
-  "theme_color": "#d4af37",
+  "background_color": "#f4f7f6",
+  "theme_color": "#013220",
+  "description": "100% लीगल और सुरक्षित डिजिटल प्लेटफॉर्म।",
   "icons": [
     {
       "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1bixMJd4JUYrenIP1acbcd46lNVBY5rfCPPcjUCJjuZErSbl-Wee_0EW1obL3da5L23jC1XZlamC2kazOPj9YyRWd_sY5zebrtxVk53gb048BI1jiuHnc5ZRLKwMvBtAkcmbJHrKcr5OPeKyVcjTtAz8rUk89R7Vkt603kbahMh58ikA9S-bJDdiVdJ4/s600/1000537308.jpg",
