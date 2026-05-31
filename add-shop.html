@@ -1,0 +1,35 @@
+<script>
+  // Firebase इनिशियलाइज़ करें
+  const firebaseConfig = {
+    apiKey: "AIzaSyCtSIGAybHuIga19QpPRS1egRrsbhvJV2c",
+    authDomain: "krya-94e55.firebaseapp.com",
+    projectId: "krya-94e55",
+    storageBucket: "krya-94e55.firebasestorage.app",
+    messagingSenderId: "1025043894227",
+    appId: "1:1025043894227:web:fa57c21ed2f6381a792926",
+    measurementId: "G-VMC9CDSCXK"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // फॉर्म सबमिट होने पर डेटा सेव करें
+  document.getElementById('shopForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    db.collection("shops").add({
+      shopName: document.getElementById('shopName').value,
+      ownerName: document.getElementById('ownerName').value,
+      phone: document.getElementById('phone').value,
+      address: document.getElementById('address').value,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+      alert("आपकी दुकान सफलतापूर्वक रजिस्टर हो गई है!");
+      document.getElementById('shopForm').reset();
+    })
+    .catch((error) => {
+      alert("त्रुटि: " + error.message);
+    });
+  });
+</script>
+
