@@ -1,12 +1,20 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>लोकल दुकानें - KRYA बाज़ार</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+</head>
 <body class="bg-light">
 
-    <!-- हेडर को 'krya-header' क्लास दें -->
     <header class="krya-header">
         <h1 class="header-title">🏬 लोकल दुकानें</h1>
-        <a href="bazaar.html" style="color: var(--krya-gold); text-decoration: none; font-weight: 600;">← बाज़ार पर वापस जाएं</a>
+        <a href="bazaar.html" style="color: var(--krya-gold); text-decoration: none; font-weight: 600; font-size: 14px;">← बाज़ार पर वापस जाएं</a>
     </header>
 
-    <!-- मेन को 'krya-section' क्लास दें ताकि वाइट बॉक्स और शैडो दिखे -->
     <main class="krya-section">
         <div id="shops-list">
             <p style="text-align:center;">दुकानें लोड हो रही हैं...</p>
@@ -14,6 +22,39 @@
     </main>
 
     <script>
-        // ... (आपका बाकी का Firebase वाला JavaScript कोड वैसा ही रहेगा)
+        // Firebase Config
+        const firebaseConfig = {
+          apiKey: "AIzaSyCtSIGAybHuIga19QpPRS1egRrsbhvJV2c",
+          authDomain: "krya-94e55.firebaseapp.com",
+          projectId: "krya-94e55",
+          storageBucket: "krya-94e55.firebasestorage.app",
+          messagingSenderId: "1025043894227",
+          appId: "1:1025043894227:web:fa57c21ed2f6381a792926",
+          measurementId: "G-VMC9CDSCXK"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // दुकानों का डेटा लाएं
+        db.collection("shops").get().then((querySnapshot) => {
+            let listHTML = "";
+            if (querySnapshot.empty) {
+                listHTML = "<p style='text-align:center;'>अभी कोई दुकान रजिस्टर नहीं है।</p>";
+            } else {
+                querySnapshot.forEach((doc) => {
+                    let shop = doc.data();
+                    listHTML += `
+                        <div style="background: #fff; padding: 15px; margin-bottom: 10px; border-radius: 8px; border-left: 5px solid #013220; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="margin:0;">${shop.shopName}</h3>
+                            <p style="margin:5px 0;">मालिक: ${shop.ownerName}</p>
+                            <p style="margin:5px 0;">पता: ${shop.address}</p>
+                            <a href="tel:${shop.phone}" style="color: green; font-weight:bold; text-decoration:none;">📞 ${shop.phone}</a>
+                        </div>
+                    `;
+                });
+            }
+            document.getElementById('shops-list').innerHTML = listHTML;
+        });
     </script>
 </body>
+</html>
