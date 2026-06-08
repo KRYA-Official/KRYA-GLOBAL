@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA एडमिन पैनल - कंट्रोल रूम</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .admin-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-top: 5px solid #013220; /* KRYA Green */
+        }
+        h2 {
+            text-align: center;
+            color: #013220;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"], input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #013220;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #024a30;
+        }
+        .warning-text {
+            color: #d9534f;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <h2>⚙️ KRYA एडमिन पैनल</h2>
+        <p style="text-align: center; color: #666; font-size: 14px;">यहाँ से 15 अजूबों के बटन और लिंक कंट्रोल करें</p>
+        
+        <form id="add-button-form">
+            <div class="form-group">
+                <label for="btn-name">बटन का नाम (जैसे: जन-सभा, किसान सेतु):</label>
+                <input type="text" id="btn-name" placeholder="बटन का नाम दर्ज करें" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="btn-icon">आइकॉन / इमेज लिंक (URL):</label>
+                <input type="url" id="btn-icon" placeholder="इमेज का लिंक यहाँ डालें (https://...)" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="btn-link">क्लिक करने पर कहाँ जाएगा? (Target Link):</label>
+                <input type="text" id="btn-link" placeholder="जैसे: jan-sabha.html" required>
+            </div>
+            
+            <button type="submit" class="btn-submit">💾 सेव करें और वेबसाइट पर अपडेट करें</button>
+        </form>
+
+        <p class="warning-text">⚠️ चेतावनी: यह एक सुरक्षित पैनल है। कृपया 100% सही लिंक ही दर्ज करें।</p>
+    </div>
+
+</body>
+</html>
+
