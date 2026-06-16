@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYA Control Room | Secure Access</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        .login-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; }
+        .login-box { padding: 2rem; border: 1px solid var(--border-color); border-radius: 12px; background: var(--bg-card); }
+        .hidden { display: none; }
+        .error-msg { color: #ff4d4d; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>KRYA Control Room</h1>
+            <p>सिस्टम में प्रवेश करने के लिए Google से सुरक्षित लॉगिन करें</p>
+            <button id="google-login-btn" class="btn-primary">Google के साथ सुरक्षित लॉगिन</button>
+            <div id="login-error" class="error-msg hidden"></div>
+            <div id="loader" class="hidden">प्रमाणित किया जा रहा है...</div>
+        </div>
+    </div>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
+
