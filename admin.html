@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KRYA Admin Login</title>
-    <!-- CSS फाइल -->
-    <link rel="stylesheet" href="css/style.css">
-    
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
@@ -21,6 +18,20 @@
             🔐 गूगल से सुरक्षित लॉगिन करें
         </button>
     </div>
+
+    <!-- Firebase को यहाँ एक्टिवेट करें ताकि JS में मिले -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCtSIGAybHuIga19QpPRS1egRrsbhvJV2c",
+            authDomain: "krya-94e55.firebaseapp.com",
+            projectId: "krya-94e55",
+            storageBucket: "krya-94e55.firebasestorage.app",
+            messagingSenderId: "1025043894227",
+            appId: "1:1025043894227:web:fa57c21ed2f6381a792926",
+            measurementId: "G-VMC9CDSCXK"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
 
     <!-- मुख्य JS फाइल -->
     <script src="js/main.js" type="module"></script>
