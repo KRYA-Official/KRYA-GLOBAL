@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>KRYA - नया सदस्य पंजीकरण</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+        .form-container { max-width: 400px; background: white; padding: 20px; border-radius: 10px; margin: auto; }
+        input, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background: #004d40; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>KRYA पंजीकरण</h2>
+        <input type="text" id="name" placeholder="पूरा नाम" required>
+        <input type="email" id="email" placeholder="ईमेल आईडी" required>
+        <input type="number" id="phone" placeholder="मोबाइल नंबर" required>
+        <input type="date" id="dob" placeholder="जन्म तिथि" required>
+        <select id="gender"><option value="male">पुरुष</option><option value="female">महिला</option></select>
+        <input type="text" id="state" placeholder="राज्य">
+        <input type="text" id="district" placeholder="जिला">
+        
+        <label><input type="checkbox" id="terms" required> मैं KRYA की प्राइवेसी पॉलिसी से सहमत हूँ।</label>
+        
+        <button id="reg-btn">पंजीकरण करें और ईमेल वेरीफाई करें</button>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>
+
