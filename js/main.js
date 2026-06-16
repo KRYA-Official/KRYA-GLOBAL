@@ -62,3 +62,23 @@ document.addEventListener("DOMContentLoaded", () => {
         fBtn.innerHTML = "🛑 बंद करें";
     };
 });
+
+// 4. 🔐 एडमिन लॉगिन लॉजिक
+const loginBtn = document.getElementById('admin-login-btn');
+if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+        const { getAuth, signInWithPopup, GoogleAuthProvider } = firebase.auth();
+        const auth = getAuth();
+        const provider = new GoogleAuthProvider();
+        
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                alert("सफलता! मुकेश जी, आपका स्वागत है।");
+                window.location.href = 'dashboard.html';
+            })
+            .catch((error) => {
+                console.error("लॉगिन में समस्या:", error);
+                alert("लॉगिन विफल रहा। कृपया कंसोल चेक करें।");
+            });
+    });
+}
