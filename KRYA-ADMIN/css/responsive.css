@@ -1,0 +1,50 @@
+/* css/responsive.css - KRYA Mobile & Tablet Adjustments */
+
+/* Tablet & Mobile Styles */
+@media (max-width: 768px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100%;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .header-search input {
+        width: 150px;
+    }
+
+    .mobile-only {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        cursor: pointer;
+        margin-right: 1rem;
+    }
+
+    .top-header {
+        justify-content: flex-start;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none;
+    }
+}
