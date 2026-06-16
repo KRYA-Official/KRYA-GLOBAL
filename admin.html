@@ -2,14 +2,27 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KRYA Admin Login</title>
+    <!-- CSS फाइल -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
-    <div style="text-align:center; padding-top:50px;">
-        <h1>KRYA एडमिन लॉगिन</h1>
-        <button id="admin-login-btn" class="krya-btn">🔐 गूगल से सुरक्षित लॉगिन करें</button>
+    <div style="text-align:center; padding-top:100px; font-family: sans-serif;">
+        <h1 style="color: #004d40;">KRYA एडमिन डैशबोर्ड</h1>
+        <p>सुरक्षित पहुँच के लिए नीचे लॉगिन करें</p>
+        
+        <button id="admin-login-btn" style="padding: 15px 30px; font-size: 18px; cursor: pointer; background: #ffd700; border: none; border-radius: 8px; font-weight: bold;">
+            🔐 गूगल से सुरक्षित लॉगिन करें
+        </button>
     </div>
-    <script type="module" src="js/main.js"></script>
+
+    <!-- मुख्य JS फाइल -->
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>
