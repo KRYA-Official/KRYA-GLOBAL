@@ -1,0 +1,154 @@
+/* css/components.css - KRYA UI Components */
+
+/* Data Table */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--surface-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+    background-color: rgba(0, 0, 0, 0.02);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.data-table tr:hover { 
+    background-color: rgba(0, 0, 0, 0.01); 
+}
+
+[data-theme="dark"] .data-table th {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="dark"] .data-table tr:hover { 
+    background-color: rgba(255, 255, 255, 0.02); 
+}
+
+/* Modals */
+.modal-overlay {
+    position: fixed; 
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    z-index: 2000;
+    opacity: 0; 
+    visibility: hidden; 
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active { 
+    opacity: 1; 
+    visibility: visible; 
+}
+
+.modal-content {
+    background: var(--surface-color);
+    width: 90%; 
+    max-width: 500px;
+    border-radius: 8px; 
+    padding: 1.5rem;
+    transform: translateY(-20px); 
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.modal-overlay.active .modal-content { 
+    transform: translateY(0); 
+}
+
+.modal-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1.5rem; 
+}
+
+.modal-close { 
+    background: none; 
+    border: none; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    color: var(--text-secondary); 
+}
+
+/* Forms inside Modal */
+.form-group { 
+    margin-bottom: 1rem; 
+    text-align: left; 
+}
+
+.form-group label { 
+    display: block; 
+    margin-bottom: 0.5rem; 
+    font-weight: 500; 
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%; 
+    padding: 0.5rem; 
+    border: 1px solid var(--border-color);
+    border-radius: 4px; 
+    background: var(--bg-color); 
+    color: var(--text-primary);
+    outline: none;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+}
+
+.modal-footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* Toast Notifications */
+#toast-container {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 3000;
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px;
+}
+
+.toast {
+    min-width: 250px; 
+    padding: 1rem; 
+    border-radius: 4px; 
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: slideIn 0.3s ease forwards;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toast-success { background-color: var(--success-color); }
+.toast-error { background-color: var(--danger-color); }
+
+@keyframes slideIn { 
+    from { transform: translateX(100%); opacity: 0; } 
+    to { transform: translateX(0); opacity: 1; } 
+}
