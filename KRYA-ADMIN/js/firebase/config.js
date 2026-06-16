@@ -5,15 +5,15 @@ import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
-// सुरक्षित (Secure) Firebase Configuration
-// यहाँ आपको बाद में अपने असली Firebase प्रोजेक्ट की 'Config Keys' डालनी होंगी।
+// KRYA Enterprise - Secure Firebase Configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "your-project-id.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project-id.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCtSIGAybHuIga19QpPRS1egRrsbhvJV2c",
+  authDomain: "krya-94e55.firebaseapp.com",
+  projectId: "krya-94e55",
+  storageBucket: "krya-94e55.firebasestorage.app",
+  messagingSenderId: "1025043894227",
+  appId: "1:1025043894227:web:fa57c21ed2f6381a792926",
+  measurementId: "G-VMC9CDSCXK"
 };
 
 // Initialize Firebase App
