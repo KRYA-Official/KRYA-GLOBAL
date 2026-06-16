@@ -2,44 +2,39 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // Function to check if user is logged in
     function isAuthenticated() {
       return request.auth != null;
     }
     
-    // Function to get user role from adminUsers collection
     function getUserRole() {
       return get(/databases/$(database)/documents/adminUsers/$(request.auth.uid)).data.role;
     }
     
-    // Function to check specific roles
-    function isSuperAdmin() {
-      return isAuthenticated() && getUserRole() == 'SUPER_ADMIN';
-    }
-    
-    function isAdmin() {
-      return isAuthenticated() && (getUserRole() == 'SUPER_ADMIN' || getUserRole() == 'ADMIN');
+    function isSuperAdmin() { return isAuthenticated() && getUserRole() == 'SUPER_ADMIN'; }
+    function isAdmin() { return isAuthenticated() && getUserRole() in ['SUPER_ADMIN', 'ADMIN']; }
+    function isEditor() { return isAuthenticated() && getUserRole() in ['SUPER_ADMIN', 'ADMIN', 'EDITOR']; }
+    function isViewer() { return isAuthenticated() && getUserRole() in ['SUPER_ADMIN', 'ADMIN', 'EDITOR', 'VIEWER']; }
+
+    match /adminUsers/{userId} {
+      allow read: if isViewer();
+      allow write: if isSuperAdmin();
     }
 
-    // Rules for Collections
-    match /adminUsers/{userId} {
-      allow read: if isAuthenticated();
-      allow write: if isSuperAdmin();
-    }
-    
     match /kryaButtons/{buttonId} {
-      allow read: if isAuthenticated();
-      allow write: if isAdmin() || (getUserRole() == 'EDITOR');
+      allow read: if isViewer();
+      allow create, update: if isEditor();
+      allow delete: if isAdmin();
     }
-    
+
     match /activityLogs/{logId} {
-      allow read: if isAdmin();
-      allow write: if isAuthenticated(); // Anyone logged in can generate logs
+      allow read: if isViewer();
+      allow create: if isViewer();
+      allow update, delete: if isSuperAdmin();
     }
-    
+
     match /settings/{settingId} {
-      allow read: if isAuthenticated();
-      allow write: if isSuperAdmin();
+      allow read: if isViewer();
+      allow write: if isAdmin();
     }
   }
 }
