@@ -15,8 +15,8 @@
     <!-- 🎨 External CSS File -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* 🔓 टेस्टिंग के लिए डिजिटल ताला खोल दिया गया है ताकि आप डिज़ाइन देख सकें */
-        body { display: block; } 
+        /* 🔒 डिजिटल ताला: लॉगिन से पहले वेबसाइट 100% छुपी रहेगी */
+        body { display: none; } 
         
         .timer-box { background: var(--krya-gold); color: var(--monaco-green); padding: 10px; border-radius: 8px; text-align: center; font-weight: bold; margin: 15px auto; max-width: 600px; display: flex; justify-content: space-around;}
         .time-part { display: flex; flex-direction: column; font-size: 20px;}
@@ -153,20 +153,30 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     
     <script>
-        // 🔑 डिजिटल दरवाजा लॉजिक
-        firebase.initializeApp({ /* अपना config यहाँ डालें */ });
+        // 🔑 KRYA ग्लोबल - असली डिजिटल मास्टर-चाबी
+        const firebaseConfig = {
+          apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
+          authDomain: "krya-global.firebaseapp.com",
+          projectId: "krya-global",
+          storageBucket: "krya-global.firebasestorage.app",
+          messagingSenderId: "372340448782",
+          appId: "1:372340448782:web:8e26d6d1169a3b8af8665f"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
         
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
+                // अगर यूज़र लॉगिन है, तो वेबसाइट दिखाओ
                 document.body.style.display = 'block';
             } else {
-                // टेस्टिंग के लिए रजिस्ट्रेशन पेज पर भेजने वाले कोड को बंद कर दिया गया है
-                // window.location.href = 'register.html'; 
+                // 🔒 चाबी नहीं है, तो तुरंत सुरक्षित रूप से रजिस्ट्रेशन पेज पर भेज दो
+                window.location.href = 'register.html';
             }
         });
     </script>
 
     <script src="js/main.js" defer></script>
 </body>
-    </html>
-                        
+                    </html>
+                    
