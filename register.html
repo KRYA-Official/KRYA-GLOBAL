@@ -2,33 +2,170 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KRYA - नया सदस्य पंजीकरण</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
-        .form-container { max-width: 400px; background: white; padding: 20px; border-radius: 10px; margin: auto; }
-        input, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { width: 100%; padding: 10px; background: #004d40; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        /* 📱 मोबाइल फुल-स्क्रीन और प्रीमियम डिज़ाइन CSS */
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 15px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+        }
+        .form-container { 
+            background: #ffffff; 
+            padding: 25px 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            width: 100%; /* यह फॉर्म को मोबाइल में फुल-स्क्रीन करेगा */
+            max-width: 400px; 
+            box-sizing: border-box;
+        }
+        h2 { text-align: center; color: #013220; font-size: 22px; margin-bottom: 25px; font-weight: 700; }
+        input, select { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 15px; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            font-size: 14px; 
+            font-family: inherit;
+            background-color: #f9f9f9; 
+        }
+        input:focus, select:focus { outline: none; border-color: #013220; }
+        .checkbox-container { display: flex; align-items: center; font-size: 12px; margin-bottom: 20px; color: #555; }
+        .checkbox-container input { width: auto; margin-right: 10px; margin-bottom: 0; accent-color: #013220; }
+        
+        .submit-btn { 
+            width: 100%; 
+            padding: 14px; 
+            background-color: #013220; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 15px; 
+            font-weight: 600; 
+            transition: 0.3s;
+        }
+        .submit-btn:disabled { background-color: #80998f; cursor: not-allowed; }
+        
+        #message { text-align: center; font-size: 13px; margin-top: 15px; font-weight: 500; }
     </style>
 </head>
 <body>
+
     <div class="form-container">
         <h2>KRYA पंजीकरण</h2>
-        <input type="text" id="name" placeholder="पूरा नाम" required>
-        <input type="email" id="email" placeholder="ईमेल आईडी" required>
-        <input type="number" id="phone" placeholder="मोबाइल नंबर" required>
-        <input type="date" id="dob" placeholder="जन्म तिथि" required>
-        <select id="gender"><option value="male">पुरुष</option><option value="female">महिला</option></select>
-        <input type="text" id="state" placeholder="राज्य">
-        <input type="text" id="district" placeholder="जिला">
         
-        <label><input type="checkbox" id="terms" required> मैं KRYA की प्राइवेसी पॉलिसी से सहमत हूँ।</label>
-        
-        <button id="reg-btn">पंजीकरण करें और ईमेल वेरीफाई करें</button>
+        <!-- असली वर्किंग फॉर्म -->
+        <form id="registerForm">
+            <input type="text" id="fullName" placeholder="पूरा नाम" required>
+            <input type="email" id="email" placeholder="ईमेल आईडी" required>
+            <input type="tel" id="mobile" placeholder="मोबाइल नंबर" required>
+            
+            <!-- 🔒 फायरबेस के 100% लीगल नियम के अनुसार पासवर्ड जरूरी है -->
+            <input type="password" id="password" placeholder="नया पासवर्ड बनाएं (कम से कम 6 अक्षर)" required>
+            
+            <input type="date" id="dob" required>
+            
+            <select id="gender" required>
+                <option value="" disabled selected>लिंग चुनें</option>
+                <option value="male">पुरुष</option>
+                <option value="female">महिला</option>
+            </select>
+            
+            <input type="text" id="state" placeholder="राज्य" required>
+            <input type="text" id="district" placeholder="जिला" required>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">मैं KRYA की प्राइवेसी पॉलिसी से सहमत हूँ।</label>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn">पंजीकरण करें और ईमेल वेरीफाई करें</button>
+            <div id="message"></div>
+        </form>
     </div>
+
+    <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <script src="js/register.js"></script>
+
+    <script>
+        // 🔑 KRYA मास्टर-चाबी
+        const firebaseConfig = {
+          apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
+          authDomain: "krya-global.firebaseapp.com",
+          projectId: "krya-global",
+          storageBucket: "krya-global.firebasestorage.app",
+          messagingSenderId: "372340448782",
+          appId: "1:372340448782:web:8e26d6d1169a3b8af8665f"
+        };
+        
+        // सिस्टम को चालू करना
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // बटन पर क्लिक होने का सिस्टम
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // फॉर्म को रीफ्रेश होने से रोकना
+            
+            const btn = document.getElementById('submitBtn');
+            const msg = document.getElementById('message');
+            
+            // बटन को लॉक करना ताकि कोई बार-बार न दबाए
+            btn.disabled = true;
+            btn.innerText = "सुरक्षित किया जा रहा है...";
+            msg.innerText = "";
+            msg.style.color = "red";
+
+            // यूज़र का डेटा लेना
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // फायरबेस में 100% सुरक्षित अकाउंट बनाना
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // अकाउंट बनने के बाद ईमेल वेरिफिकेशन भेजना
+                    userCredential.user.sendEmailVerification()
+                        .then(() => {
+                            msg.style.color = "#013220";
+                            msg.innerText = "✅ पंजीकरण सफल! आपके ईमेल पर लिंक भेजा गया है।";
+                            
+                            // 3 सेकंड बाद सीधा KRYA के डैशबोर्ड (index.html) पर ले जाना
+                            setTimeout(() => {
+                                window.location.href = 'index.html';
+                            }, 3000);
+                        });
+                })
+                .catch((error) => {
+                    // अगर कोई एरर आए तो बटन वापस खोलना
+                    btn.disabled = false;
+                    btn.innerText = "पंजीकरण करें और ईमेल वेरीफाई करें";
+                    
+                    // आसान हिंदी में एरर मैसेज
+                    if(error.code === 'auth/email-already-in-use') {
+                        msg.innerText = "❌ यह ईमेल पहले से ही KRYA में रजिस्टर्ड है।";
+                    } else if (error.code === 'auth/weak-password') {
+                        msg.innerText = "❌ पासवर्ड कम से कम 6 अक्षरों का होना चाहिए।";
+                    } else {
+                        msg.innerText = "❌ कोई तकनीकी खराबी आ गई है: " + error.message;
+                    }
+                });
+        });
+    </script>
 </body>
 </html>
-
