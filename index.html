@@ -21,6 +21,44 @@
         .timer-box { background: var(--krya-gold); color: var(--monaco-green); padding: 10px; border-radius: 8px; text-align: center; font-weight: bold; margin: 15px auto; max-width: 600px; display: flex; justify-content: space-around;}
         .time-part { display: flex; flex-direction: column; font-size: 20px;}
         .time-label { font-size: 10px; color: #000;}
+
+        /* ✨ फिक्स साइज बटन के लिए नया CSS */
+        .ajoobe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .krya-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            height: 110px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        .krya-card:hover { transform: scale(1.02); }
+        .card-img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+        .card-text {
+            font-size: 11px;
+            color: #013220;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+        }
     </style>
 </head>
 <body>
@@ -47,99 +85,23 @@
         <section class="krya-section">
             <h2 class="section-title">🌟 KRYA के 15 अजूबे</h2>
             
-            <!-- KRYA 15 अजूबे - सुरक्षित कस्टम इमेज बटन -->
             <div class="ajoobe-grid">
-                
-                <!-- 1: जन-सभा -->
-                <a href="jan-sabha.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1LgIf5nSoplLOeLYchC8pwxt05MUm4PqEE9oMj_hQ8EESMhUOR_bO5e1EFOysEywDps4velNw6JmjVmMfBSgL5AdkN2Qubfu0kXDDx_IoPcsyve8jOhIzggcyqyGwmYRGQf5rxQDYi8lPtLMoJXOIBIaX7neKr09ZTGYRz6u0NIr6oszbzM6UxonVnAs/s1200/1000576845.png" alt="जन-सभा" class="card-img">
-                    <span class="card-text">जन-सभा</span>
-                </a>
-
-                <!-- 2: किसान सेतु -->
-                <a href="kisan-setu.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHMnyxjceTGjKw2nJgKp88dLVoiFbrx2GZwn4Z0tZLUspCLK9poxk1Cy_EZLJn3PcXDfFREGUueHNgmMG-_0u8OOJUAMvJ4Jyx1HCoiOOld4Cjr7QvDORMHX8qSLv559Q58wKurcjDCcJetqDa761Z3bWOD7-rm3VkZVZsrBubAiAUq28LAmha5p31ITw/s1200/1000576846.png" alt="किसान सेतु" class="card-img">
-                    <span class="card-text">किसान सेतु</span>
-                </a>
-
-                <!-- 3: KRYA डील्स -->
-                <a href="deals.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSAgwDpM3AaTGyduo7pJQM06RkiS-_mDi4VU3xtpGPfWSVnxr8P0bTQoOgvf55oFwcMVOyfVbpwHPbYpaKoiiak1sHQ0MBUnYIUHekJ9UJYioKASa2tAPzsi39LerY4VgegPObpQybsNzXuJDGbnOty3pMxOhSwwkpMF1FAGeDj5KRNCkRU65cGvUowkU/s1200/1000576849.png" alt="KRYA डील्स" class="card-img">
-                    <span class="card-text">KRYA डील्स</span>
-                </a>
-
-                <!-- 4: मैसेंजर -->
-                <a href="messenger.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmoVT_s0KYZ3wCBlrk39Uu7t2_cBnBlQ4GKxSqsKGM7r8zfZFfFv55qqUXpmGg_rhBPlo9yOoAS3ZLt1ZZ_OFEJh0QTnLJqILARe6MG4x4sBWZtfywmXlIrQ5xKUAtW-PsQcK4AB-EUbMzBuqwUsAa5NST0Hz3ONMisf9c4Jg16ES00TVExyMPZbjK6PE/s1200/1000576852.png" alt="मैसेंजर" class="card-img">
-                    <span class="card-text">मैसेंजर</span>
-                </a>
-
-                <!-- 5: एजुकेशन -->
-                <a href="education.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNU310W7I-e39hNRHa19C8NsVwMxFT1mj9LOy-6TdRAFHfJtF4grbQsDfRAqWCucjSv0dDO3JAnEIV1zLsIc8A6S9mgBwWzBj63nRpQvX-ys2D_bBCm3CwyZBHDfWGVAXq8DqPqNqcEUy_A-QCowMXipurQb6FmrFm7sMM5ORsU_5gm2xYrRM0XziCcr4/s1200/1000576857.png" alt="एजुकेशन" class="card-img">
-                    <span class="card-text">एजुकेशन</span>
-                </a>
-
-                <!-- 6: डिजिटल -->
-                <a href="digital.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjU1FQ7odaU7pxlY-JcFSiGrFBKyjwbtBCGwZyJ6s0rdwZUMsCw42AMPezvV3aCKkodQ8kVUFiAorX0BTbcMVYKUj38v_mM3oJuWiWskMkMSCFf3HConQMBLSY-CpeSMVPLp_lxDgQ7hsUKMkKZH_-alzZGn6Ncbs7vhEAa0dXaliUy0QxiVOPjv7vI3HE/s1200/1000576859.png" alt="डिजिटल" class="card-img">
-                    <span class="card-text">डिजिटल</span>
-                </a>
-
-                <!-- 7: रोज़गार -->
-                <a href="jobs.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4GrsqQIxXXUfqWxU3XtOPIzSPAN3k8aFjnFFXEn_po0VPt8vWxV_WsOfmpMQBXzQCIONNhT6f9a1rFXlCQ27cScxKdrV3OxTWQKS-B1tFjX7v7O4Wfadv2z-oEHWRI9Fn2SNG3aNRCD2JMvefvQdXtt3VE8-AQYDk0hmb7-g0QttBtSKwx0LsNgvCAVs/s1200/1000576865.png" alt="रोज़गार" class="card-img">
-                    <span class="card-text">रोज़गार</span>
-                </a>
-
-                <!-- 8: स्वास्थ्य -->
-                <a href="health.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEJLeza76mQHV763711EnXl78xacqUbeu1diB0WQM1eDhpiW8G-y_XdnCg_1wv_tl3IekyPqMZtUWcdJ_ektkdPpnm8yjz_eW4nug_gijZy07TMS6EokLkyXUTdtWRTFBS7hGmC0snmCkkw436govtVDAsLrktZQ-Pd0ie2a_q0Vgkousc9kHjhyphenhyphenZt9Oc/s1200/1000576881.png" alt="स्वास्थ्य" class="card-img">
-                    <span class="card-text">स्वास्थ्य</span>
-                </a>
-
-                <!-- 9: बाज़ार -->
-                <a href="bazaar.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg20P79Gv2m-O3iVDb-xiTX7nZg3lC-zEnvYAkJ1UQpvFlEQ0XGZrK3Ed80j8bdVq9h1d5xosfkZWh0XWwz-6GjJGQoAn-wblE3xbNEynKastNbScMfC-JBgHihnkz4qUvAMoKKUt6nqLaiLd8-9Ig4ug_m9NSUiWI5GJrJT7f3ycn2Wf6h95eeuLcKsNg/s1200/1000576885.png" alt="बाज़ार" class="card-img">
-                    <span class="card-text">बाज़ार</span>
-                </a>
-
-                <!-- 10: न्यूज़ -->
-                <a href="news.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC7pBRjLhgeA1F8dV6UOeq_KvzPgiJVuDDG5qpAk7JDqrXmUiygzIKDNyC_4UPQ6h_5mb-rGnE53RVBa2sPK0OXIGrnaVisPUh8vWtedUdrmTUhnZRLOvqsjckgVczxyCorZ-iGj5Ds9GWK6ASRCHf7cEyPQlbZF1NQL3_aqex4oN1yNrlLoYXAOU9rbw/s1200/1000576889.png" alt="न्यूज़" class="card-img">
-                    <span class="card-text">न्यूज़</span>
-                </a>
-
-                <!-- 11: महिला शक्ति -->
-                <a href="mahila.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX2kpQBnt7nIOhVak0EgStLZnA3Qnz7PrwM9SWLiMtUKx3cYGTIGYGFMd98eB8JjJIOYTFKJVktnlxU_Fsj44wz8jaj17rhG0npJDvUJhMb5qgSH5gzLFS3vSgnEvdjZV7SA4Z5KZVfDES7VACpUcYGBQp-urwi3wQUQR6hMPyj_S6oAzDeJyzjnne6LE/s1200/1000576891.png" alt="महिला शक्ति" class="card-img">
-                    <span class="card-text">महिला शक्ति</span>
-                </a>
-
-                <!-- 12: पंचायत -->
-                <a href="panchayat.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiaRZh-dqXAUsMQMsj-LGeE4cH4w9HpQsDxr-tfi23LsfUZ-lcptHawZD0EHGtG52WFvG_CTXLlepsht6dVwD2sQdmwLGjrfOnvNDlZPA6D3_KrOCjGVCP2uy7hxrsNepAV3DwaI1M3WcQzHOSNl4_z9o02sFTVKROxlgHjTzmkkjvZno1zHGBipqIWKA/s1200/1000576905.png" alt="पंचायत" class="card-img">
-                    <span class="card-text">पंचायत</span>
-                </a>
-
-                <!-- 13: वॉलेट -->
-                <a href="wallet.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWU5t-eNO8pV9FHMZ6wKjdUzY43qjU8tap0r4nFn0YJRxiQLWKTWXuhnwcAwlJxXNPe2WELASrcb1FiLcHdvuLqQBziGuWBC-yAtLmoIbbMyGpvJYD4t98J2rZ4UTa44W1aZgFX19CYtxwcqNEI2PUS-dKCbTkZ-DbAmE0XwkNrluXGrU4ruuRLlxRkeA/s1200/1000576909.png" alt="वॉलेट" class="card-img">
-                    <span class="card-text">वॉलेट</span>
-                </a>
-
-                <!-- 14: सुरक्षा -->
-                <a href="suraksha.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfhSAsAPf8ZB_GexTZ1XJ2k0HlsRUvonA0cNctRlOu2japF33wcRu8PE4Ib-iMFPelbKSp-sJ3bap3KzdVLlByPgA1EX7E2kVzQfOzMnlJHCt_eaVJAFDGFCNW-1nwZ_o5700ekdoL-O_0QrbrqeigHpSXcW3-SKS9oXIeTp4n9wkG6IpIbrM9zwKvkvE/s1200/1000576912.png" alt="सुरक्षा" class="card-img">
-                    <span class="card-text">सुरक्षा</span>
-                </a>
-
-                <!-- 15: सहायता -->
-                <a href="sahayata.html" class="krya-card">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQjOkqN0bJBGq80aZZvEMXkxwz1keKigfV8L-Zxl98B_7v5hyCxvqGhjNDSEkySFmbxYhr32PBP_yxhZ6OrFgiZ-lhgij2Cx1lb2kbftC1adjG5acQ3ogF23grOpBju9NWT7kk-Q3JW6qxoYG9scRlmHQ-xi6itaUJ9Qhc6J45VP8A2DCKIKbELYSKZ6k/s1200/1000576915.png" alt="सहायता" class="card-img">
-                    <span class="card-text">सहायता</span>
-                </a>
-
+                <!-- बटनों की सूची -->
+                <a href="jan-sabha.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1LgIf5nSoplLOeLYchC8pwxt05MUm4PqEE9oMj_hQ8EESMhUOR_bO5e1EFOysEywDps4velNw6JmjVmMfBSgL5AdkN2Qubfu0kXDDx_IoPcsyve8jOhIzggcyqyGwmYRGQf5rxQDYi8lPtLMoJXOIBIaX7neKr09ZTGYRz6u0NIr6oszbzM6UxonVnAs/s1200/1000576845.png" alt="जन-सभा" class="card-img"><span class="card-text">जन-सभा</span></a>
+                <a href="kisan-setu.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHMnyxjceTGjKw2nJgKp88dLVoiFbrx2GZwn4Z0tZLUspCLK9poxk1Cy_EZLJn3PcXDfFREGUueHNgmMG-_0u8OOJUAMvJ4Jyx1HCoiOOld4Cjr7QvDORMHX8qSLv559Q58wKurcjDCcJetqDa761Z3bWOD7-rm3VkZVZsrBubAiAUq28LAmha5p31ITw/s1200/1000576846.png" alt="किसान सेतु" class="card-img"><span class="card-text">किसान सेतु</span></a>
+                <a href="deals.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSAgwDpM3AaTGyduo7pJQM06RkiS-_mDi4VU3xtpGPfWSVnxr8P0bTQoOgvf55oFwcMVOyfVbpwHPbYpaKoiiak1sHQ0MBUnYIUHekJ9UJYioKASa2tAPzsi39LerY4VgegPObpQybsNzXuJDGbnOty3pMxOhSwwkpMF1FAGeDj5KRNCkRU65cGvUowkU/s1200/1000576849.png" alt="KRYA डील्स" class="card-img"><span class="card-text">KRYA डील्स</span></a>
+                <a href="messenger.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmoVT_s0KYZ3wCBlrk39Uu7t2_cBnBlQ4GKxSqsKGM7r8zfZFfFv55qqUXpmGg_rhBPlo9yOoAS3ZLt1ZZ_OFEJh0QTnLJqILARe6MG4x4sBWZtfywmXlIrQ5xKUAtW-PsQcK4AB-EUbMzBuqwUsAa5NST0Hz3ONMisf9c4Jg16ES00TVExyMPZbjK6PE/s1200/1000576852.png" alt="मैसेंजर" class="card-img"><span class="card-text">मैसेंजर</span></a>
+                <a href="education.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNU310W7I-e39hNRHa19C8NsVwMxFT1mj9LOy-6TdRAFHfJtF4grbQsDfRAqWCucjSv0dDO3JAnEIV1zLsIc8A6S9mgBwWzBj63nRpQvX-ys2D_bBCm3CwyZBHDfWGVAXq8DqPqNqcEUy_A-QCowMXipurQb6FmrFm7sMM5ORsU_5gm2xYrRM0XziCcr4/s1200/1000576857.png" alt="एजुकेशन" class="card-img"><span class="card-text">एजुकेशन</span></a>
+                <a href="digital.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjU1FQ7odaU7pxlY-JcFSiGrFBKyjwbtBCGwZyJ6s0rdwZUMsCw42AMPezvV3aCKkodQ8kVUFiAorX0BTbcMVYKUj38v_mM3oJuWiWskMkMSCFf3HConQMBLSY-CpeSMVPLp_lxDgQ7hsUKMkKZH_-alzZGn6Ncbs7vhEAa0dXaliUy0QxiVOPjv7vI3HE/s1200/1000576859.png" alt="डिजिटल" class="card-img"><span class="card-text">डिजिटल</span></a>
+                <a href="jobs.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4GrsqQIxXXUfqWxU3XtOPIzSPAN3k8aFjnFFXEn_po0VPt8vWxV_WsOfmpMQBXzQCIONNhT6f9a1rFXlCQ27cScxKdrV3OxTWQKS-B1tFjX7v7O4Wfadv2z-oEHWRI9Fn2SNG3aNRCD2JMvefvQdXtt3VE8-AQYDk0hmb7-g0QttBtSKwx0LsNgvCAVs/s1200/1000576865.png" alt="रोज़गार" class="card-img"><span class="card-text">रोज़गार</span></a>
+                <a href="health.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEJLeza76mQHV763711EnXl78xacqUbeu1diB0WQM1eDhpiW8G-y_XdnCg_1wv_tl3IekyPqMZtUWcdJ_ektkdPpnm8yjz_eW4nug_gijZy07TMS6EokLkyXUTdtWRTFBS7hGmC0snmCkkw436govtVDAsLrktZQ-Pd0ie2a_q0Vgkousc9kHjhyphenhyphenZt9Oc/s1200/1000576881.png" alt="स्वास्थ्य" class="card-img"><span class="card-text">स्वास्थ्य</span></a>
+                <a href="bazaar.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg20P79Gv2m-O3iVDb-xiTX7nZg3lC-zEnvYAkJ1UQpvFlEQ0XGZrK3Ed80j8bdVq9h1d5xosfkZWh0XWwz-6GjJGQoAn-wblE3xbNEynKastNbScMfC-JBgHihnkz4qUvAMoKKUt6nqLaiLd8-9Ig4ug_m9NSUiWI5GJrJT7f3ycn2Wf6h95eeuLcKsNg/s1200/1000576885.png" alt="बाज़ार" class="card-img"><span class="card-text">बाज़ार</span></a>
+                <a href="news.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC7pBRjLhgeA1F8dV6UOeq_KvzPgiJVuDDG5qpAk7JDqrXmUiygzIKDNyC_4UPQ6h_5mb-rGnE53RVBa2sPK0OXIGrnaVisPUh8vWtedUdrmTUhnZRLOvqsjckgVczxyCorZ-iGj5Ds9GWK6ASRCHf7cEyPQlbZF1NQL3_aqex4oN1yNrlLoYXAOU9rbw/s1200/1000576889.png" alt="न्यूज़" class="card-img"><span class="card-text">न्यूज़</span></a>
+                <a href="mahila.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX2kpQBnt7nIOhVak0EgStLZnA3Qnz7PrwM9SWLiMtUKx3cYGTIGYGFMd98eB8JjJIOYTFKJVktnlxU_Fsj44wz8jaj17rhG0npJDvUJhMb5qgSH5gzLFS3vSgnEvdjZV7SA4Z5KZVfDES7VACpUcYGBQp-urwi3wQUQR6hMPyj_S6oAzDeJyzjnne6LE/s1200/1000576891.png" alt="महिला शक्ति" class="card-img"><span class="card-text">महिला शक्ति</span></a>
+                <a href="panchayat.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiaRZh-dqXAUsMQMsj-LGeE4cH4w9HpQsDxr-tfi23LsfUZ-lcptHawZD0EHGtG52WFvG_CTXLlepsht6dVwD2sQdmwLGjrfOnvNDlZPA6D3_KrOCjGVCP2uy7hxrsNepAV3DwaI1M3WcQzHOSNl4_z9o02sFTVKROxlgHjTzmkkjvZno1zHGBipqIWKA/s1200/1000576905.png" alt="पंचायत" class="card-img"><span class="card-text">पंचायत</span></a>
+                <a href="wallet.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWU5t-eNO8pV9FHMZ6wKjdUzY43qjU8tap0r4nFn0YJRxiQLWKTWXuhnwcAwlJxXNPe2WELASrcb1FiLcHdvuLqQBziGuWBC-yAtLmoIbbMyGpvJYD4t98J2rZ4UTa44W1aZgFX19CYtxwcqNEI2PUS-dKCbTkZ-DbAmE0XwkNrluXGrU4ruuRLlxRkeA/s1200/1000576909.png" alt="वॉलेट" class="card-img"><span class="card-text">वॉलेट</span></a>
+                <a href="suraksha.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfhSAsAPf8ZB_GexTZ1XJ2k0HlsRUvonA0cNctRlOu2japF33wcRu8PE4Ib-iMFPelbKSp-sJ3bap3KzdVLlByPgA1EX7E2kVzQfOzMnlJHCt_eaVJAFDGFCNW-1nwZ_o5700ekdoL-O_0QrbrqeigHpSXcW3-SKS9oXIeTp4n9wkG6IpIbrM9zwKvkvE/s1200/1000576912.png" alt="सुरक्षा" class="card-img"><span class="card-text">सुरक्षा</span></a>
+                <a href="sahayata.html" class="krya-card"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQjOkqN0bJBGq80aZZvEMXkxwz1keKigfV8L-Zxl98B_7v5hyCxvqGhjNDSEkySFmbxYhr32PBP_yxhZ6OrFgiZ-lhgij2Cx1lb2kbftC1adjG5acQ3ogF23grOpBju9NWT7kk-Q3JW6qxoYG9scRlmHQ-xi6itaUJ9Qhc6J45VP8A2DCKIKbELYSKZ6k/s1200/1000576915.png" alt="सहायता" class="card-img"><span class="card-text">सहायता</span></a>
             </div>
         </section>
     </main>
@@ -153,7 +115,6 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     
     <script>
-        // 🔑 KRYA ग्लोबल - असली डिजिटल मास्टर-चाबी
         const firebaseConfig = {
           apiKey: "AIzaSyBzqLMQFgA7EBDM5XvgdXtJCKSKyWXgWlI",
           authDomain: "krya-global.firebaseapp.com",
@@ -167,16 +128,12 @@
         
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                // अगर यूज़र लॉगिन है, तो वेबसाइट दिखाओ
                 document.body.style.display = 'block';
             } else {
-                // 🔒 चाबी नहीं है, तो तुरंत सुरक्षित रूप से रजिस्ट्रेशन पेज पर भेज दो
                 window.location.href = 'register.html';
             }
         });
     </script>
-
     <script src="js/main.js" defer></script>
 </body>
-                    </html>
-                    
+</html>
