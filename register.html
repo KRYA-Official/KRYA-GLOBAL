@@ -27,11 +27,39 @@
             padding: 25px 20px; 
             border-radius: 12px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            width: 100%; /* यह फॉर्म को मोबाइल में फुल-स्क्रीन करेगा */
+            width: 100%; 
             max-width: 400px; 
             box-sizing: border-box;
         }
         h2 { text-align: center; color: #013220; font-size: 22px; margin-bottom: 25px; font-weight: 700; }
+        
+        /* 🔴 नया Google लॉगिन बटन डिज़ाइन */
+        .google-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffffff;
+            color: #444;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .google-btn:hover { background-color: #f9f9f9; border-color: #ccc; }
+        .google-btn img { width: 22px; margin-right: 12px; }
+
+        /* बीच की लाइन (Divider) */
+        .divider { text-align: center; margin: 15px 0 20px 0; color: #888; font-size: 13px; position: relative; }
+        .divider::before, .divider::after { content: ""; position: absolute; top: 50%; width: 35%; height: 1px; background-color: #ddd; }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
         input, select { 
             width: 100%; 
             padding: 12px; 
@@ -69,15 +97,20 @@
     <div class="form-container">
         <h2>KRYA पंजीकरण</h2>
         
-        <!-- असली वर्किंग फॉर्म -->
+        <!-- 🔴 नया Google लॉगिन बटन -->
+        <button type="button" class="google-btn" id="googleLoginBtn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
+            Google से सुरक्षित लॉगिन करें
+        </button>
+
+        <div class="divider">या ईमेल से फॉर्म भरें</div>
+        
+        <!-- आपका पुराना असली वर्किंग फॉर्म -->
         <form id="registerForm">
             <input type="text" id="fullName" placeholder="पूरा नाम" required>
             <input type="email" id="email" placeholder="ईमेल आईडी" required>
             <input type="tel" id="mobile" placeholder="मोबाइल नंबर" required>
-            
-            <!-- 🔒 फायरबेस के 100% लीगल नियम के अनुसार पासवर्ड जरूरी है -->
             <input type="password" id="password" placeholder="नया पासवर्ड बनाएं (कम से कम 6 अक्षर)" required>
-            
             <input type="date" id="dob" required>
             
             <select id="gender" required>
@@ -119,44 +152,57 @@
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
 
-        // बटन पर क्लिक होने का सिस्टम
+        // 🔴 Google Login का नया सिस्टम
+        document.getElementById('googleLoginBtn').addEventListener('click', function() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            const msg = document.getElementById('message');
+            
+            msg.innerText = "Google से सुरक्षित लॉगिन किया जा रहा है...";
+            msg.style.color = "#013220";
+
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    msg.innerText = "✅ लॉगिन सफल! आपको डैशबोर्ड पर ले जाया जा रहा है...";
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                })
+                .catch((error) => {
+                    msg.style.color = "red";
+                    msg.innerText = "❌ लॉगिन फेल हो गया: " + error.message;
+                });
+        });
+
+        // आपका पुराना ईमेल/पासवर्ड वाला सिस्टम
         document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // फॉर्म को रीफ्रेश होने से रोकना
+            e.preventDefault(); 
             
             const btn = document.getElementById('submitBtn');
             const msg = document.getElementById('message');
             
-            // बटन को लॉक करना ताकि कोई बार-बार न दबाए
             btn.disabled = true;
             btn.innerText = "सुरक्षित किया जा रहा है...";
             msg.innerText = "";
             msg.style.color = "red";
 
-            // यूज़र का डेटा लेना
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             
-            // फायरबेस में 100% सुरक्षित अकाउंट बनाना
             auth.createUserWithEmailAndPassword(email, password)
                 .then((userCredential) => {
-                    // अकाउंट बनने के बाद ईमेल वेरिफिकेशन भेजना
                     userCredential.user.sendEmailVerification()
                         .then(() => {
                             msg.style.color = "#013220";
                             msg.innerText = "✅ पंजीकरण सफल! आपके ईमेल पर लिंक भेजा गया है।";
-                            
-                            // 3 सेकंड बाद सीधा KRYA के डैशबोर्ड (index.html) पर ले जाना
                             setTimeout(() => {
                                 window.location.href = 'index.html';
                             }, 3000);
                         });
                 })
                 .catch((error) => {
-                    // अगर कोई एरर आए तो बटन वापस खोलना
                     btn.disabled = false;
                     btn.innerText = "पंजीकरण करें और ईमेल वेरीफाई करें";
                     
-                    // आसान हिंदी में एरर मैसेज
                     if(error.code === 'auth/email-already-in-use') {
                         msg.innerText = "❌ यह ईमेल पहले से ही KRYA में रजिस्टर्ड है।";
                     } else if (error.code === 'auth/weak-password') {
@@ -169,5 +215,3 @@
     </script>
 </body>
 </html>
-
-
